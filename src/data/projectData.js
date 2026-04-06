@@ -20,7 +20,6 @@ export const proyectos = [
     imagen: legalWeb.src,
     tecnologias: ["Astro", "tailwind", "JavaScript"],
     demo: "https://legal-staff.vercel.app/",
-    codigo: "https://github.com/Lautaro-R-collins/legal-staff",
     categoria: "frontend",
   },
   {
@@ -30,7 +29,6 @@ export const proyectos = [
     imagen: mediCare.src,
     tecnologias: ["Astro", "tailwind", "JavaScript"],
     demo: "https://obra-social-landing.vercel.app/",
-    codigo: "https://github.com/Lautaro-R-collins/obra-social-landing.git",
     categoria: "frontend",
   },
     {
@@ -40,7 +38,6 @@ export const proyectos = [
     imagen: Verbenas.src,
     tecnologias: ["Astro", "Tailwind", "JavaScript"],
     demo: "https://challenge-neowyze.onrender.com/",
-    codigo: "https://github.com/Lautaro-R-collins/challenge-Neowyze.git",
     categoria: "frontend",
   },
   {
@@ -50,7 +47,6 @@ export const proyectos = [
     imagen: VintageTone.src,
     tecnologias: ["Vue.js", "Tailwind", "Express", "MongoDB"],
     demo: "https://vintage-tone-front-vue.vercel.app",
-    codigo: "https://github.com/Lautaro-R-collins/VintageTone-Front-Vue.git",
     categoria: "fullstack",
   },
   {
@@ -60,7 +56,6 @@ export const proyectos = [
     imagen: ReactEcommerce.src,
     tecnologias: ["React", "Tailwind", "Express", "MongoDB"],
     demo: "https://react-e-commerce-three-phi.vercel.app",
-    codigo: "https://github.com/Lautaro-R-collins/React-E-commerce.git",
     categoria: "fullstack",
   },
   {
@@ -70,7 +65,6 @@ export const proyectos = [
     imagen: AstroEcommers.src,
     tecnologias: ["React", "Astro", "Tailwind", "daisyUI"],
     demo: "https://e-commer-astro.vercel.app",
-    codigo: "https://github.com/Lautaro-R-collins/E-commer-Astro.git",
     categoria: "frontend",
   },
   {
@@ -81,7 +75,6 @@ export const proyectos = [
       "https://i.pinimg.com/736x/8f/f0/bb/8ff0bbd0e5844ed254bede44522c8338.jpg",
     tecnologias: ["React", "Vite", "TypeScript", "Tailwind"],
     demo: "https://planify-1tu6.onrender.com/",
-    codigo: "https://github.com/Lautaro-R-collins/PlaniFy-organization-app",
     categoria: "frontend",
   },
   {
@@ -92,7 +85,6 @@ export const proyectos = [
         "../src/assets/img-projects/invoice.png",
     tecnologias: ["React", "Vite", "TypeScript", "Tailwind"],
     demo: "https://planify-1tu6.onrender.com/",
-    codigo: "https://github.com/Lautaro-R-collins/PlaniFy-organization-app",
     categoria: "frontend",
   },
   {
@@ -113,7 +105,6 @@ export const proyectos = [
     imagen: CvBuilder.src,
     tecnologias: ["React", "contextAPI", "tailwind", "i18n"],
     demo: "https://cv-builder-pi-three.vercel.app",
-    codigo: "https://github.com/Lautaro-R-collins/CV-Builder.git",
     categoria: "frontend",
   },
   {
@@ -124,7 +115,6 @@ export const proyectos = [
       "https://i.pinimg.com/736x/10/6e/cd/106ecd1bfe5ed1c3defb83ea0f87a334.jpg",
     tecnologias: ["React", "contextAPI", "tailwind"],
     demo: "https://app-clima-om19.onrender.com/",
-    codigo: "https://github.com/Lautaro-R-collins/app-clima",
     categoria: "frontend",
   },
   {
@@ -134,7 +124,6 @@ export const proyectos = [
     imagen: "https://miro.medium.com/1*47S4iWVwTicFkFL4-Z4uAA.png",
     tecnologias: ["Express", "Node.js", "MongoDB", "Mongoose"],
     demo: "https://react-e-commerce-three-phi.vercel.app",
-    codigo: "https://github.com/Lautaro-R-collins/ApiRest-Ecommerce.git",
     categoria: "backend",
   },
   {
@@ -144,7 +133,6 @@ export const proyectos = [
     imagen: "https://miro.medium.com/1*47S4iWVwTicFkFL4-Z4uAA.png",
     tecnologias: ["Express", "Node.js", "MongoDB", "Cloudinary"],
     demo: "https://vintage-tone-front-vue.vercel.app",
-    codigo: "https://github.com/Lautaro-R-collins/VintageTone-API-REST.git",
     categoria: "backend",
   },
   {
@@ -154,7 +142,6 @@ export const proyectos = [
     imagen: "https://miro.medium.com/1*47S4iWVwTicFkFL4-Z4uAA.png",
     tecnologias: ["Express", "Node.js", "MongoDB", "Mongoose"],
     demo: "https://back-express-todo.onrender.com",
-    codigo: "https://github.com/Lautaro-R-collins/Back-express-todo.git",
     categoria: "backend",
   },
   {
@@ -164,8 +151,6 @@ export const proyectos = [
     imagen: "https://miro.medium.com/1*47S4iWVwTicFkFL4-Z4uAA.png",
     tecnologias: ["Express", "Node.js", "MongoDB", "Mongoose"],
     demo: "https://multi-model-ai-chat-platform.vercel.app",
-    codigo:
-      "https://github.com/Lautaro-R-collins/Multi-Model-AI-Chat-Platform/tree/main/backend",
     categoria: "backend",
   },
   {
