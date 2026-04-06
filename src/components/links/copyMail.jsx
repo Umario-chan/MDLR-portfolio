@@ -3,7 +3,7 @@ import { FaRegCopy } from "react-icons/fa";
 
 export default function EmailCopy() {
   const [copied, setCopied] = useState(false);
-  const email = "lautarodevelops@gmail.com";
+  const email = "mario.delarosa@live.com.mx";
 
   const copyToClipboard = async () => {
     try {

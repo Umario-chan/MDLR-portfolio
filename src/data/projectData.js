@@ -14,6 +14,36 @@ import ProductivityApp from "../assets/img-projects/productivityApp.png";
 
 export const proyectos = [
   {
+    titulo: "Legal Staff",
+    descripcion:
+      "Web desarrollada con Astro y Tailwind, embudo de marketing para estudios jurídicos.",
+    imagen: legalWeb.src,
+    tecnologias: ["Astro", "tailwind", "JavaScript"],
+    demo: "https://legal-staff.vercel.app/",
+    codigo: "https://github.com/Lautaro-R-collins/legal-staff",
+    categoria: "frontend",
+  },
+  {
+    titulo: "Medicare",
+    descripcion:
+      "Web desarrollada con Astro y Tailwind, embudo de marketing para Obras Sociales.",
+    imagen: mediCare.src,
+    tecnologias: ["Astro", "tailwind", "JavaScript"],
+    demo: "https://obra-social-landing.vercel.app/",
+    codigo: "https://github.com/Lautaro-R-collins/obra-social-landing.git",
+    categoria: "frontend",
+  },
+    {
+    titulo: "Verbenas Paisajes",
+    descripcion:
+      "Pagina estatica desarrollada con Astro y tailwind como reto para una startup.",
+    imagen: Verbenas.src,
+    tecnologias: ["Astro", "Tailwind", "JavaScript"],
+    demo: "https://challenge-neowyze.onrender.com/",
+    codigo: "https://github.com/Lautaro-R-collins/challenge-Neowyze.git",
+    categoria: "frontend",
+  },
+  {
     titulo: "Vintage Tone",
     descripcion:
       "Comercio electrónico completo con carrito de compras, autenticación de usuarios jwt, panel de Admin, Blog, y mas. Stack: Vue.Js - Node.js - Express - MongoDB - Tailwind - Cloudinary.",
@@ -34,14 +64,36 @@ export const proyectos = [
     categoria: "fullstack",
   },
   {
-    titulo: "Productivity App",
+    titulo: "Astro Ecommerce",
     descripcion:
-      "Aplicación de productividad desarrollada con React, Node.js y MongoDB. Incluye autenticación segura, calendario con eventos, tareas (todo list), Pomodoro timer, un asistente de IA y panel de administración con metricas.",
-    imagen: ProductivityApp.src,
-    tecnologias: ["React", "Tailwind", "Express", "MongoDB"],
-    demo: "https://productivity-app-tau-virid.vercel.app",
-    codigo: "https://github.com/Lautaro-R-collins/productivity-App.git",
-    categoria: "fullstack",
+      "E-commerce frontend desarrollado con Astro y React. Incluye carrito de compras, categorías, y diseño responsivo.",
+    imagen: AstroEcommers.src,
+    tecnologias: ["React", "Astro", "Tailwind", "daisyUI"],
+    demo: "https://e-commer-astro.vercel.app",
+    codigo: "https://github.com/Lautaro-R-collins/E-commer-Astro.git",
+    categoria: "frontend",
+  },
+  {
+    titulo: "PlaniFy",
+    descripcion:
+      "App Web para organizar tus proyectos, hecha con React + Vite, TypeScript y Tailwind para los estilos.",
+    imagen:
+      "https://i.pinimg.com/736x/8f/f0/bb/8ff0bbd0e5844ed254bede44522c8338.jpg",
+    tecnologias: ["React", "Vite", "TypeScript", "Tailwind"],
+    demo: "https://planify-1tu6.onrender.com/",
+    codigo: "https://github.com/Lautaro-R-collins/PlaniFy-organization-app",
+    categoria: "frontend",
+  },
+  {
+    titulo: "Simple Invoice Generator",
+    descripcion:
+      "App Web para generar facturas basicas, hecha con React + Javascript",
+    imagen:
+        "../src/assets/img-projects/invoice.png",
+    tecnologias: ["React", "Vite", "TypeScript", "Tailwind"],
+    demo: "https://planify-1tu6.onrender.com/",
+    codigo: "https://github.com/Lautaro-R-collins/PlaniFy-organization-app",
+    categoria: "frontend",
   },
   {
     titulo: "Chat AI",
@@ -55,26 +107,6 @@ export const proyectos = [
     categoria: "fullstack",
   },
   {
-    titulo: "Astro Ecommerce",
-    descripcion:
-      "E-commerce frontend desarrollado con Astro y React. Incluye carrito de compras, categorías, y diseño responsivo.",
-    imagen: AstroEcommers.src,
-    tecnologias: ["React", "Astro", "Tailwind", "daisyUI"],
-    demo: "https://e-commer-astro.vercel.app",
-    codigo: "https://github.com/Lautaro-R-collins/E-commer-Astro.git",
-    categoria: "frontend",
-  },
-  {
-    titulo: "App organizacion",
-    descripcion:
-      "App full-stack con funciones CRUD, creacion de tableros y listas, autentificacion de usuarios, desarrollada con MERN stack.",
-    imagen: imgNote.src,
-    tecnologias: ["React", "Tailwind", "Express", "MongoDB"],
-    demo: "https://front-react-todo.onrender.com",
-    codigo: "https://github.com/Lautaro-R-collins/Front-react-todo",
-    categoria: "fullstack",
-  },
-  {
     titulo: "CV Builder",
     descripcion:
       "Generador de Currículum multi-idioma profesional siguiendo el formato recomendado por Harvard y amigable con los ATS. ",
@@ -82,38 +114,6 @@ export const proyectos = [
     tecnologias: ["React", "contextAPI", "tailwind", "i18n"],
     demo: "https://cv-builder-pi-three.vercel.app",
     codigo: "https://github.com/Lautaro-R-collins/CV-Builder.git",
-    categoria: "frontend",
-  },
-  {
-    titulo: "E-commerce Urban Style",
-    descripcion:
-      "E-commerce funcional de ropa y accesorios, con carrito de compras categorias y pasarela de pago desarrollado en React.",
-    imagen: urbanStyle.src,
-    tecnologias: ["React", "Tailwind", "Firebase"],
-    demo: "https://proyecto-final-rodriguez-sable.vercel.app/",
-    codigo: "https://github.com/Lautaro-R-collins/ProyectoFinal-Rodriguez.git",
-    categoria: "fullstack",
-  },
-  {
-    titulo: "Tienda Artesana",
-    descripcion:
-      "Ecommerce Full-Stack para ver, comprar y vender tus productos, con login para usuarios y vendedores.",
-    imagen:
-      "https://i.pinimg.com/736x/c9/70/bf/c970bfbc24489e39418b2c1b1f8f74ef.jpg",
-    tecnologias: ["React", "Node", "Express", "MongoDB"],
-    demo: "https://c21-05-ft-node-react-mirror-frontend-64qbwssi2-muyvisual.vercel.app/",
-    codigo: "https://github.com/No-Country-simulation/c21-05-ft-node-react",
-    categoria: "fullstack",
-  },
-  {
-    titulo: "Traker Ingresos-Gastos",
-    descripcion:
-      "App que realiza operaciones CRUD para agregar, ver, editar y eliminar ingresos/gastos.",
-    imagen:
-      "https://i.pinimg.com/736x/a4/85/c4/a485c4da3e78f4f518ddbcdb6637bacf.jpg",
-    tecnologias: ["React", "contextAPI"],
-    demo: "https://traker-gastos-ingresos.onrender.com/",
-    codigo: "https://github.com/Lautaro-R-collins/Traker-Gastos-Ingresos",
     categoria: "frontend",
   },
   {
@@ -125,48 +125,6 @@ export const proyectos = [
     tecnologias: ["React", "contextAPI", "tailwind"],
     demo: "https://app-clima-om19.onrender.com/",
     codigo: "https://github.com/Lautaro-R-collins/app-clima",
-    categoria: "frontend",
-  },
-  {
-    titulo: "Portfolio developers astro",
-    descripcion:
-      "This is a modern, responsive developer portfolio built with Astro and Tailwind CSS.",
-    imagen: PortfolioDev.src,
-    tecnologias: ["Astro", "tailwind", "JavaScript"],
-    demo: "https://portfolio-developers-astro.vercel.app/",
-    codigo:
-      "https://github.com/Lautaro-R-collins/Portfolio-developers-astro.git",
-    categoria: "frontend",
-  },
-
-  {
-    titulo: "Legal Staff",
-    descripcion:
-      "Web desarrollada con Astro y Tailwind, embudo de marketing para estudios jurídicos.",
-    imagen: legalWeb.src,
-    tecnologias: ["Astro", "tailwind", "JavaScript"],
-    demo: "https://legal-staff.vercel.app/",
-    codigo: "https://github.com/Lautaro-R-collins/legal-staff",
-    categoria: "frontend",
-  },
-  {
-    titulo: "Medicare",
-    descripcion:
-      "Web desarrollada con Astro y Tailwind, embudo de marketing para Obras Sociales.",
-    imagen: mediCare.src,
-    tecnologias: ["Astro", "tailwind", "JavaScript"],
-    demo: "https://obra-social-landing.vercel.app/",
-    codigo: "https://github.com/Lautaro-R-collins/obra-social-landing.git",
-    categoria: "frontend",
-  },
-  {
-    titulo: "AstroFit",
-    descripcion:
-      "Web desarrollada con Astro y Tailwind, embudo de marketing para asesorias fitness.",
-    imagen: astroFit.src,
-    tecnologias: ["Astro", "tailwind", "JavaScript"],
-    demo: "https://gym-page-sandy.vercel.app/",
-    codigo: "https://github.com/Lautaro-R-collins/GymPage.git",
     categoria: "frontend",
   },
   {
@@ -220,37 +178,5 @@ export const proyectos = [
     codigo:
       "https://github.com/Lautaro-R-collins/productivity-App/tree/main/back",
     categoria: "backend",
-  },
-  {
-    titulo: "PlaniFy",
-    descripcion:
-      "App Web para organizar tus proyectos, hecha con React + Vite, TypeScript y Tailwind para los estilos.",
-    imagen:
-      "https://i.pinimg.com/736x/8f/f0/bb/8ff0bbd0e5844ed254bede44522c8338.jpg",
-    tecnologias: ["React", "Vite", "TypeScript", "Tailwind"],
-    demo: "https://planify-1tu6.onrender.com/",
-    codigo: "https://github.com/Lautaro-R-collins/PlaniFy-organization-app",
-    categoria: "frontend",
-  },
-  {
-    titulo: "Verbenas Paisajes",
-    descripcion:
-      "Pagina estatica desarrollada con Astro y tailwind como reto para una startup.",
-    imagen: Verbenas.src,
-    tecnologias: ["Astro", "Tailwind", "JavaScript"],
-    demo: "https://challenge-neowyze.onrender.com/",
-    codigo: "https://github.com/Lautaro-R-collins/challenge-Neowyze.git",
-    categoria: "frontend",
-  },
-
-  {
-    titulo: "100 days coding in Js",
-    descripcion: "100 proyectos, realizados con HTML, CSS y JavaScript.",
-    imagen:
-      "https://i.pinimg.com/736x/3b/4f/4e/3b4f4e170fcb1795b88f4941f49df0a2.jpg",
-    tecnologias: ["Next.js", "Tailwind", "GraphQL"],
-    demo: "https://one00-proyects-web.onrender.com/",
-    codigo: "https://github.com/Lautaro-R-collins/100-days-of-coding-in-JS",
-    categoria: "frontend",
   },
 ];
