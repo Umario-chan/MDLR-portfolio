@@ -1,6 +1,6 @@
 import patyRocks from "../assets/img-projects/patyrocks.png";
 import altia from "../assets/img-projects/altia.png";
-import Verbenas from "../assets/img-projects/challenge-newyze.png";
+import Verbenas from "../assets/img-projects/verbenas-placeholder.svg";
 
 export const proyectos = [
   {
@@ -63,15 +63,13 @@ export const proyectos = [
     wip: true,
   },
   {
-    titulo: "Verbenas Paisajes",
+    titulo: "Coming soon",
     slug: "verbenas-paisajes",
-    descripcion:
-      "Página estática desarrollada con Astro y Tailwind como reto para una startup.",
-    descripcionLarga:
-      "Verbenas Paisajes es el sitio web de una startup de diseño de jardines y paisajismo. Desarrollado como reto técnico, el proyecto muestra portafolio de obras, servicios y contacto. El diseño busca transmitir naturaleza y elegancia a través de tipografía, espaciado generoso y una paleta cromática inspirada en el entorno vegetal.",
+    descripcion: "Coming soon",
     imagen: Verbenas.src,
-    tecnologias: ["Astro", "Tailwind", "JavaScript"],
-    demo: "https://challenge-neowyze.onrender.com/",
+    tecnologias: [],
+    demo: "",
     categoria: "Fullstack",
+    wip: true,
   },
 ];

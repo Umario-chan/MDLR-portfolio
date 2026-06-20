@@ -5,7 +5,7 @@ const SkillsList = () => {
 
   const skills = {
     "¿Qué tecnologías uso?": "Trabajo con tecnologías como React, Node.js, Astro, JavaScript, TypeScript, Cypress, Tailwind CSS, SASS, Figma, entre otras.",
-    "Mi Experiencia": "Tengo experiencia trabajando en startups, consultoras tecnológicas y empresas establecidas desarrollando y maquetando sitios web a partir de diseños en Figma. Utilizo tecnologías frontend como Astro y React, junto con Tailwind CSS y otras librerías.",
+    "Mi Experiencia": "Tengo experiencia trabajando en startups, consultoras tecnológicas y empresas establecidas desarrollando sitios web a partir de documentos de requerimientos, historias de usuario, diseños en Figma, etcétera.",
     "Mi formación": "Estudié ingeniería en sistemas computacionales en la UNIVDEP, lo que me brindó las bases en programación. Realicé certificaciones como el ISTQB Foundation level y complemento mi formación con aprendizaje autodidacta.",
     "¿Cómo trabajo en equipo?": "Tengo experiencia en equipos multidisciplinarios usando metodologías ágiles como Scrum y Kanban, Git/GitHub para control de versiones, y QA para asegurar la integridad de los desarrollos.",
     "Metodologías Ágiles": "He trabajado con Scrum (sprints de dos semanas, pull requests, revisión de código) y Kanban (tableros de tareas, dailies). Participé en reuniones diarias para planificar y reportar avances.",
