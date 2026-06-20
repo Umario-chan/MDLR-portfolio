@@ -12,7 +12,7 @@ export interface Props {
 const { titulo, imagen, tecnologias, slug } = Astro.props;
 ---
 
-<div class="group flex w-full max-w-md mx-auto flex-col overflow-hidden rounded-2xl bg-white border border-gray-200 transition-all duration-300 hover:shadow-xl hover:shadow-gray-200/80 hover:-translate-y-1">
+<a href={`/proyectos/${slug}`} class="group flex w-full max-w-md mx-auto flex-col overflow-hidden rounded-2xl bg-white border border-gray-200 transition-all duration-300 hover:border-[#1a6fec]/40 hover:shadow-xl hover:shadow-[#1a6fec]/10 hover:-translate-y-1 no-underline cursor-pointer">
   <div class="overflow-hidden bg-gray-50">
     <img
       src={imagen}
@@ -34,12 +34,9 @@ const { titulo, imagen, tecnologias, slug } = Astro.props;
       }
     </div>
 
-    <a
-      href={`/proyectos/${slug}`}
-      class="inline-flex items-center gap-1 text-sm font-semibold text-[#1a6fec] hover:gap-2 transition-all duration-200"
-    >
+    <span class="inline-flex items-center gap-1 text-sm font-semibold text-[#1a6fec] group-hover:gap-2 transition-all duration-200">
       Ir al proyecto
       <HiArrowUpRight size={14} />
-    </a>
+    </span>
   </div>
-</div>
+</a>
