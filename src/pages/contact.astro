@@ -4,59 +4,51 @@ import MiFoto from "../assets/img/MiFoto.png";
 import CopyMail from "../components/links/copyMail.jsx";
 
 const links = [
-  {
-    href: "https://www.linkedin.com/in/mdlr89/",
-    label: "LinkedIn",
-  },
+  { href: "https://www.linkedin.com/in/mdlr89/", label: "LinkedIn" },
   { href: "https://github.com/Umario-chan", label: "GitHub" },
+  { href: "https://wa.me/525529044570", label: "WhatsApp" },
   { href: "mailto:mario.delarosa@live.com.mx", label: "Email" },
 ];
 ---
 
-<Layout>
-  <section
-    class="bg-gray-900 flex min-h-screen flex-col items-center justify-center px-6"
-  >
-    <div class="mb-2 mt-11">
-      <div class="mb-2 mt-11">
-        <div class="relative flex items-center justify-center">
-          <!-- Foto con borde -->
-          <img
-            src={MiFoto.src}
-            alt="Foto de Lautaro"
-            class="border-primary h-32 w-32 rounded-full shadow-lg"
-          />
-
-          <!-- Texto circular alrededor de la foto -->
-          <svg
-            viewBox="0 0 200 200"
-            class="animate-spin-slow absolute h-48 w-48"
-          >
-            <path
-              id="circlePathText"
-              d="M100,100 m-77,0 a77,77 0 1,1 154,0 a77,77 0 1,1 -154,0"
-              fill="none"></path>
-            <text fill="#69c7c7" font-size="18" font-weight="bold">
-              <textPath href="#circlePathText" startOffset="0%">
-                ✦ Hola ! ✦ Estoy disponible para nuevas oportunidades!
-              </textPath>
-            </text>
-          </svg>
-        </div>
+<Layout title="Contacto" description="Ponete en contacto con Mario de la Rosa">
+  <section class="min-h-screen flex flex-col items-center justify-center px-6 bg-white pt-24 pb-16">
+    <div class="mb-8">
+      <div class="relative flex items-center justify-center">
+        <img
+          src={MiFoto.src}
+          alt="Foto de Mario"
+          class="h-28 w-28 rounded-full border-2 border-gray-200 shadow-sm object-cover"
+        />
+        <svg viewBox="0 0 200 200" class="animate-spin-slow absolute h-44 w-44">
+          <path
+            id="circlePathText"
+            d="M100,100 m-77,0 a77,77 0 1,1 154,0 a77,77 0 1,1 -154,0"
+            fill="none"
+          ></path>
+          <text fill="#1a6fec" font-size="16" font-weight="600" letter-spacing="2">
+            <textPath href="#circlePathText" startOffset="0%">
+              ✦ Hola ! ✦ Estoy disponible para nuevas oportunidades!
+            </textPath>
+          </text>
+        </svg>
       </div>
     </div>
 
+    <p class="text-xs font-semibold tracking-[0.2em] uppercase text-[#1a6fec] mb-2">Contacto</p>
+    <h1 class="text-3xl font-bold text-gray-900 mb-2">Hablemos</h1>
+    <p class="text-gray-400 text-sm mb-8">Elige cómo quieres conectar conmigo</p>
+
     <CopyMail client:visible />
 
-    <!-- Lista de Links -->
-    <div class="w-full max-w-xl space-y-4">
+    <div class="w-full max-w-sm space-y-3 mt-4">
       {
         links.map((link) => (
           <a
             href={link.href}
             target="_blank"
             rel="noopener noreferrer"
-            class="block font-bold w-full rounded-lg bg-primary hover:bg-secondary drop-shadow-[2px_2px_0_#0debd8] px-6 py-3 text-center text-white transition "
+            class="flex items-center justify-center w-full rounded-xl border border-gray-200 bg-white hover:border-[#1a6fec]/40 hover:bg-gray-50 px-6 py-3 text-sm font-semibold text-gray-700 transition-all duration-200"
           >
             {link.label}
           </a>
@@ -70,10 +62,7 @@ const links = [
   .animate-spin-slow {
     animation: spin 25s linear infinite;
   }
-
   @keyframes spin {
-    100% {
-      transform: rotate(360deg);
-    }
+    100% { transform: rotate(360deg); }
   }
 </style>

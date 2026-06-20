@@ -1,23 +1,8 @@
-.experience h2 {
-  display: flex;
-  gap: 24px;
-  justify-content: center;
-  align-items: center;
-  white-space: nowrap;
-  color: #fff;
-}
-
-@media (min-width: 768px) {
-  .experience h2 {
-    justify-content: start;
-  }
-}
-
 .jobs {
   display: flex;
   flex-direction: column;
   gap: 32px;
-  margin-top: 48px;
+  margin-top: 32px;
 }
 
 @media (min-width: 768px) {
@@ -31,42 +16,50 @@
   flex-direction: row;
   overflow-x: auto;
   position: relative;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 4px;
 }
 
 @media (min-width: 768px) {
   .job-title {
     flex-direction: column;
-    align-items: flex-start;
-    padding-left: 16px;
+    border-bottom: none;
+    border-left: 1px solid #e5e7eb;
+    padding-bottom: 0;
+    padding-left: 0;
   }
   .job-title button.active::before {
     content: "";
     position: absolute;
-    left: -16px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 5px;
-    height: 70%;
-    background-color: #7836cf;
-    border-radius: 4px;
+    left: -1px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #1a6fec;
+    border-radius: 2px;
   }
 }
 
 .job-title button {
   background: transparent;
-  color: rgb(139, 139, 139);
+  color: #9ca3af;
   border: none;
-  padding: 16px 24px;
+  padding: 10px 20px;
   cursor: pointer;
   text-align: left;
-  font-size: 1rem;
+  font-size: 0.875rem;
   white-space: nowrap;
   position: relative;
+  transition: color 0.15s ease;
+}
+
+.job-title button:hover {
+  color: #374151;
 }
 
 .job-title button.active {
-  color: #fff;
-  font-weight: bold;
+  color: #111827;
+  font-weight: 600;
 }
 
 .jobs-descriptions {
@@ -75,8 +68,8 @@
 
 .description {
   display: none;
-  animation: fade 500ms ease;
-  color: #fff;
+  animation: fade 400ms ease;
+  color: #374151;
 }
 
 .description.active {
@@ -86,23 +79,21 @@
 .job-time {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
+  margin-bottom: 8px;
 }
 
 .badge {
-  background-color: #7836cf;
+  background-color: #eff6ff;
   border-radius: 1000px;
   padding: 2px 12px;
-  border: 1px solid #7836cf;
-  font-size: 0.875rem;
-  color: white;
+  border: 1px solid #bfdbfe;
+  font-size: 0.8rem;
+  color: #1255c4;
+  font-weight: 600;
 }
 
 @keyframes fade {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
 }

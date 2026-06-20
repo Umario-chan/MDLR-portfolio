@@ -1,167 +1,77 @@
-import imgNote from "../assets/img-projects/note-app.png";
-import urbanStyle from "../assets/img-projects/urbanStyle.png";
-import legalWeb from "../assets/img-projects/legalweb.webp";
-import mediCare from "../assets/img-projects/medicare.jpg";
-import astroFit from "../assets/img-projects/Astrofit.jpg";
+import patyRocks from "../assets/img-projects/patyrocks.png";
+import altia from "../assets/img-projects/altia.png";
 import Verbenas from "../assets/img-projects/challenge-newyze.png";
-import ReactEcommerce from "../assets/img-projects/ecommers.jpg";
-import PortfolioDev from "../assets/img-projects/PortfolioDev.jpg";
-import VintageTone from "../assets/img-projects/vintageToneApp.jpg";
-import AstroEcommers from "../assets/img-projects/astroEcommers.jpg";
-import CvBuilder from "../assets/img-projects/CvBuilder.png";
-import ChatAi from "../assets/img-projects/ChatAI.png";
-import ProductivityApp from "../assets/img-projects/productivityApp.png";
 
 export const proyectos = [
   {
-    titulo: "Legal Staff",
+    titulo: "Paty Rocks",
+    slug: "paty-rocks",
     descripcion:
-      "Web desarrollada con Astro y Tailwind, embudo de marketing para estudios jurídicos.",
-    imagen: legalWeb.src,
-    tecnologias: ["Astro", "tailwind", "JavaScript"],
-    demo: "https://legal-staff.vercel.app/",
-    categoria: "frontend",
+      "AI Event Planner — planeación inteligente de eventos sociales y corporativos.",
+    subtitulo: "Paty Rocks — Plataforma de organización de eventos",
+    descripcionLarga:
+      "Paty Rocks es una aplicación web y móvil para la organización integral de eventos sociales en México. Permite a los organizadores gestionar todos los aspectos de su evento desde un solo lugar: invitados, confirmaciones, tareas, proveedores y pagos.",
+    secciones: [
+      {
+        titulo: "Organizador",
+        items: [
+          "Crea un evento, genera un link público o envía invitaciones digitales por WhatsApp",
+          "Recibe confirmaciones y declinaciones en tiempo real con notificaciones automáticas",
+          "Contrata proveedores del marketplace, agrega productos al carrito y realiza el pago en línea",
+          "Gestiona tareas pendientes del evento y recibe recordatorios automáticos",
+        ],
+      },
+      {
+        titulo: "Invitado",
+        items: [
+          "Confirma o declina asistencia vía link público sin necesidad de crear cuenta",
+          "Recibe un boleto digital por WhatsApp al confirmar",
+          "Puede pagar su boleto en línea si el evento tiene venta de tickets",
+        ],
+      },
+      {
+        titulo: "Proveedor",
+        items: [
+          "Publica su catálogo de productos y paquetes en el marketplace",
+          "Recibe notificaciones por WhatsApp cuando un organizador hace una solicitud o le escribe",
+          "Gestiona órdenes, cotizaciones y pagos desde su panel",
+        ],
+      },
+      {
+        titulo: "Admin",
+        items: [
+          "Revisa y aprueba productos antes de que aparezcan en el marketplace",
+          "Gestiona usuarios, proveedores, órdenes, reembolsos y cupones",
+          "Integra proveedores externos vía API sin que estén registrados en la plataforma",
+        ],
+      },
+    ],
+    imagen: patyRocks.src,
+    tecnologias: ["React", "TypeScript", "Tailwind CSS", "Back4App", "Node.js", "MongoDB", "Stripe", "SendPulse"],
+    demo: "https://patyrocks.com/",
+    categoria: "Fullstack",
   },
   {
-    titulo: "Medicare",
+    titulo: "Grupo Altia Croudfounding",
+    slug: "altia",
     descripcion:
-      "Web desarrollada con Astro y Tailwind, embudo de marketing para Obras Sociales.",
-    imagen: mediCare.src,
-    tecnologias: ["Astro", "tailwind", "JavaScript"],
-    demo: "https://obra-social-landing.vercel.app/",
-    categoria: "frontend",
+      "Plataforma de crowdfunding para proyectos sociales y empresariales.",
+    imagen: altia.src,
+    tecnologias: [],
+    demo: "",
+    categoria: "Fullstack",
+    wip: true,
   },
-    {
+  {
     titulo: "Verbenas Paisajes",
+    slug: "verbenas-paisajes",
     descripcion:
-      "Pagina estatica desarrollada con Astro y tailwind como reto para una startup.",
+      "Página estática desarrollada con Astro y Tailwind como reto para una startup.",
+    descripcionLarga:
+      "Verbenas Paisajes es el sitio web de una startup de diseño de jardines y paisajismo. Desarrollado como reto técnico, el proyecto muestra portafolio de obras, servicios y contacto. El diseño busca transmitir naturaleza y elegancia a través de tipografía, espaciado generoso y una paleta cromática inspirada en el entorno vegetal.",
     imagen: Verbenas.src,
     tecnologias: ["Astro", "Tailwind", "JavaScript"],
     demo: "https://challenge-neowyze.onrender.com/",
-    categoria: "frontend",
-  },
-  {
-    titulo: "Vintage Tone",
-    descripcion:
-      "Comercio electrónico completo con carrito de compras, autenticación de usuarios jwt, panel de Admin, Blog, y mas. Stack: Vue.Js - Node.js - Express - MongoDB - Tailwind - Cloudinary.",
-    imagen: VintageTone.src,
-    tecnologias: ["Vue.js", "Tailwind", "Express", "MongoDB"],
-    demo: "https://vintage-tone-front-vue.vercel.app",
-    categoria: "fullstack",
-  },
-  {
-    titulo: "React Tiendita",
-    descripcion:
-      "E-commerce full stack desarrollado con React, Node.js y MongoDB. Incluye autenticación, carrito de compras, búsqueda, categorías, reseñas, etc.",
-    imagen: ReactEcommerce.src,
-    tecnologias: ["React", "Tailwind", "Express", "MongoDB"],
-    demo: "https://react-e-commerce-three-phi.vercel.app",
-    categoria: "fullstack",
-  },
-  {
-    titulo: "Astro Ecommerce",
-    descripcion:
-      "E-commerce frontend desarrollado con Astro y React. Incluye carrito de compras, categorías, y diseño responsivo.",
-    imagen: AstroEcommers.src,
-    tecnologias: ["React", "Astro", "Tailwind", "daisyUI"],
-    demo: "https://e-commer-astro.vercel.app",
-    categoria: "frontend",
-  },
-  {
-    titulo: "PlaniFy",
-    descripcion:
-      "App Web para organizar tus proyectos, hecha con React + Vite, TypeScript y Tailwind para los estilos.",
-    imagen:
-      "https://i.pinimg.com/736x/8f/f0/bb/8ff0bbd0e5844ed254bede44522c8338.jpg",
-    tecnologias: ["React", "Vite", "TypeScript", "Tailwind"],
-    demo: "https://planify-1tu6.onrender.com/",
-    categoria: "frontend",
-  },
-  {
-    titulo: "Simple Invoice Generator",
-    descripcion:
-      "App Web para generar facturas basicas, hecha con React + Javascript",
-    imagen:
-        "../src/assets/img-projects/invoice.png",
-    tecnologias: ["React", "Vite", "TypeScript", "Tailwind"],
-    demo: "https://planify-1tu6.onrender.com/",
-    categoria: "frontend",
-  },
-  {
-    titulo: "Chat AI",
-    descripcion:
-      "Aplicación de chatbot impulsada por inteligencia artificial para proporcionar asistencia automatizada.",
-    imagen: ChatAi.src,
-    tecnologias: ["React", "Node.js", "Express", "MongoDB"],
-    demo: "https://multi-model-ai-chat-platform.vercel.app",
-    codigo:
-      "https://github.com/Lautaro-R-collins/Multi-Model-AI-Chat-Platform.git",
-    categoria: "fullstack",
-  },
-  {
-    titulo: "CV Builder",
-    descripcion:
-      "Generador de Currículum multi-idioma profesional siguiendo el formato recomendado por Harvard y amigable con los ATS. ",
-    imagen: CvBuilder.src,
-    tecnologias: ["React", "contextAPI", "tailwind", "i18n"],
-    demo: "https://cv-builder-pi-three.vercel.app",
-    categoria: "frontend",
-  },
-  {
-    titulo: "App-clima",
-    descripcion:
-      "Aplicación hecha con React que utiliza una API para mostrar el clima en tiempo real.",
-    imagen:
-      "https://i.pinimg.com/736x/10/6e/cd/106ecd1bfe5ed1c3defb83ea0f87a334.jpg",
-    tecnologias: ["React", "contextAPI", "tailwind"],
-    demo: "https://app-clima-om19.onrender.com/",
-    categoria: "frontend",
-  },
-  {
-    titulo: "API REST para Ecommerce",
-    descripcion:
-      "API RESTful construida con Node.js, Express y MongoDB para gestionar tareas con operaciones CRUD, Registro de usuarios y login con JWT.",
-    imagen: "https://miro.medium.com/1*47S4iWVwTicFkFL4-Z4uAA.png",
-    tecnologias: ["Express", "Node.js", "MongoDB", "Mongoose"],
-    demo: "https://react-e-commerce-three-phi.vercel.app",
-    categoria: "backend",
-  },
-  {
-    titulo: "API REST Vintage Tone App",
-    descripcion:
-      "API RESTful construida con Node.js, Express y MongoDB para gestionar tareas con operaciones CRUD, Registro de usuarios y login con JWT.",
-    imagen: "https://miro.medium.com/1*47S4iWVwTicFkFL4-Z4uAA.png",
-    tecnologias: ["Express", "Node.js", "MongoDB", "Cloudinary"],
-    demo: "https://vintage-tone-front-vue.vercel.app",
-    categoria: "backend",
-  },
-  {
-    titulo: "API REST",
-    descripcion:
-      "API RESTful construida con Express y MongoDB para gestionar tareas con operaciones CRUD, Registro de usuarios y login con JWT.",
-    imagen: "https://miro.medium.com/1*47S4iWVwTicFkFL4-Z4uAA.png",
-    tecnologias: ["Express", "Node.js", "MongoDB", "Mongoose"],
-    demo: "https://back-express-todo.onrender.com",
-    categoria: "backend",
-  },
-  {
-    titulo: "API Chat AI",
-    descripcion:
-      "API RESTful construida con Express y MongoDB con Registro de usuarios y login con JWT.",
-    imagen: "https://miro.medium.com/1*47S4iWVwTicFkFL4-Z4uAA.png",
-    tecnologias: ["Express", "Node.js", "MongoDB", "Mongoose"],
-    demo: "https://multi-model-ai-chat-platform.vercel.app",
-    categoria: "backend",
-  },
-  {
-    titulo: "API REST",
-    descripcion:
-      "API RESTful construida con Express y MongoDB con Registro de usuarios y login con JWT.",
-    imagen: "https://miro.medium.com/1*47S4iWVwTicFkFL4-Z4uAA.png",
-    tecnologias: ["Express", "Node.js", "MongoDB", "Mongoose"],
-    demo: "https://productivity-app-tau-virid.vercel.app",
-    codigo:
-      "https://github.com/Lautaro-R-collins/productivity-App/tree/main/back",
-    categoria: "backend",
+    categoria: "Fullstack",
   },
 ];

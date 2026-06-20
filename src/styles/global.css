@@ -1,77 +1,40 @@
 @import "tailwindcss";
 
-.primary {
-  color: #7836cf;
-}
-.secondary {
-  color: #512092;
-}
-.bg-primary {
-  background-color: #7836cf;
-}
-.bg-secondary {
-  background-color: #512092;
-}
-.text-primary {
-  color: #7836cf;
+* {
+  font-family: 'Outfit', sans-serif;
 }
 
-/* reglas hover (usar estas clases directamente) */
-.hover-text-secondary:hover {
-  color: #7836cf;
-}
-.hover-bg-secondary:hover {
-  background-color: #7836cf;
-}
-.hover\:bg-secondary:hover {
-  background-color: #512092;
-}
-.hover\:text-secondary:hover {
-  color: #512092;
+body {
+  font-weight: 400;
+  letter-spacing: -0.01em;
 }
 
-.text-shadow {
-  text-shadow: 2px 2px 0 #620deb;
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  letter-spacing: -0.03em;
 }
 
-.text-shadow-cyan {
-  text-shadow: 2px 2px 0 #0debd8;
+.primary { color: #1a6fec; }
+.secondary { color: #1255c4; }
+.bg-primary { background-color: #1a6fec; }
+.bg-secondary { background-color: #1255c4; }
+.text-primary { color: #1a6fec; }
+
+.hover-text-secondary:hover { color: #1a6fec; }
+.hover-bg-secondary:hover { background-color: #1a6fec; }
+.hover\:bg-secondary:hover { background-color: #1255c4; }
+.hover\:text-secondary:hover { color: #1255c4; }
+
+.text-shadow { text-shadow: none; }
+.text-shadow-cyan { text-shadow: none; }
+
+/* scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
-
-/* estilos del home */
-
-@keyframes gradientMove {
-  0% {
-    transform: translateX(0) translateY(0);
-  }
-  50% {
-    transform: translateX(-250px) translateY(120px);
-  }
-  100% {
-    transform: translateX(0) translateY(0);
-  }
-}
-
-@keyframes gradientMove2 {
-  0% {
-    transform: translateX(0) translateY(0);
-  }
-  50% {
-    transform: translateX(250px) translateY(-120px);
-  }
-  100% {
-    transform: translateX(0) translateY(0);
-  }
-}
-
-.animate-gradientMove {
-  animation: gradientMove 8s ease-in-out infinite alternate;
-}
-
-.animate-gradientMove2 {
-  animation: gradientMove2 8s ease-in-out infinite alternate;
-}
-
-.text-shadow {
-  text-shadow: 2px 2px 0 #6d0deb;
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
 }

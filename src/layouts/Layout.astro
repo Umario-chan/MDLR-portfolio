@@ -2,20 +2,55 @@
 import "../styles/global.css";
 import Navbar from "../components/commons/navbar/navbar.astro";
 import Footer from "../components/commons/footer/footer.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Mario de la Rosa",
+  description = "Portfolio de Mario de la Rosa — Desarrollador Full Stack especializado en frontend, React, Node.js y diseño UX/UI.",
+} = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Mario de la Rosa</title>
+    <meta name="description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <title>{title} | Mario de la Rosa</title>
   </head>
-  <body class="bg-gray-950 text-white">
+  <body class="bg-white text-gray-900">
     <Navbar />
     <slot />
     <Footer />
   </body>
 </html>
+
+<script>
+  function initReveal() {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("reveal-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+  }
+
+  initReveal();
+  document.addEventListener("astro:page-load", initReveal);
+</script>

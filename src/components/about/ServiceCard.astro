@@ -8,25 +8,12 @@ interface Props {
 const { icon: Icon, title, description } = Astro.props;
 ---
 
-<section
-  class="group bg-gray-900 relative flex flex-col items-center justify-center overflow-hidden rounded-2xl p-6 shadow-lg transition-transform hover:scale-102 hover:shadow-xl drop-shadow-[4px_4px_0_#7836cf]"
->
-  <!-- Glow efecto -->
-  <div
-    class="absolute inset-0 -z-10 opacity-0 blur-2xl transition duration-500 group-hover:opacity-100"
-  >
+<div class="group flex flex-col gap-4 rounded-2xl border border-gray-200 bg-white p-6 hover:border-[#1a6fec]/30 hover:shadow-md transition-all duration-300">
+  <div class="w-10 h-10 rounded-xl bg-[#1a6fec]/10 flex items-center justify-center text-[#1a6fec]">
+    {Icon && <Icon size={20} />}
   </div>
-
-  <!-- Icono -->
-  <div
-    class="mb-4 drop-shadow-[2px_2px_0_#7836cf] text-4xl text-[#02ffee]"
-  >
-    {Icon && <Icon />}
+  <div>
+    <h3 class="font-bold text-gray-900 mb-1">{title}</h3>
+    <p class="text-sm text-gray-500 leading-relaxed">{description}</p>
   </div>
-
-  <!-- Título -->
-  <h3 class="mb-2 text-xl font-bold text-white drop-shadow-[2px_2px_0_#7836cf]">{title}</h3>
-
-  <!-- Descripción -->
-  <p class="text-center text-neutral-300">{description}</p>
-</section>
+</div>

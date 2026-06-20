@@ -1,59 +1,50 @@
 ---
-import { HiArrowRight } from "react-icons/hi";
-
 export interface Props {
   titulo: string;
   descripcion: string;
   imagen: string;
   tecnologias: string[];
-  demo: string;
-  codigo: string;
+  slug: string;
   categoria?: string;
-  index: number; 
+  index: number;
 }
 
-const { titulo, descripcion, imagen, tecnologias, demo, codigo, categoria, index } =
-  Astro.props;
+const { titulo, descripcion, imagen, tecnologias, slug, categoria, index } = Astro.props;
 ---
 
-<div
+<a
+  href={`/proyectos/${slug}`}
   data-index={index}
   data-categoria={categoria ?? ""}
-  class="project-card z-10 flex w-[400px] flex-col overflow-hidden rounded-lg bg-gray-900 shadow-lg transition-transform hover:scale-[1.01] lg:w-[320px] drop-shadow-[4px_4px_0_#7836cf]"
+  class="project-card group flex w-full sm:w-[360px] flex-col overflow-hidden rounded-2xl bg-white border border-gray-200 transition-all duration-300 hover:border-[#1a6fec]/40 hover:shadow-xl hover:shadow-[#1a6fec]/10 hover:-translate-y-1 cursor-pointer no-underline"
 >
-  <img
-    src={imagen}
-    alt={`Imagen del proyecto ${titulo}`}
-    class="h-50 w-full rounded-2xl object-cover p-3"
-  />
-  <div class="flex grow flex-col px-3 pb-3">
-    <h3 class="text-xl font-semibold text-white drop-shadow-[1px_1px_0_#7836cf]">{titulo}</h3>
+  <div class="overflow-hidden bg-gray-50">
+    <img
+      src={imagen}
+      alt={`Imagen del proyecto ${titulo}`}
+      class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
+    />
+  </div>
 
-    <div class="my-1.5 flex flex-wrap gap-2">
+  <div class="flex flex-col grow p-5">
+    {categoria && (
+      <span class="text-[10px] font-semibold tracking-[0.15em] uppercase text-[#1a6fec] mb-2">
+        {categoria}
+      </span>
+    )}
+
+    <h3 class="text-gray-900 font-bold text-lg leading-snug mb-2">{titulo}</h3>
+
+    <p class="text-gray-500 text-sm leading-relaxed grow mb-4">{descripcion}</p>
+
+    <div class="flex flex-wrap gap-1.5">
       {
         tecnologias.map((tech) => (
-          <span class="rounded-md bg-[#7836cf]/20 text-[#a27ed1] px-2 py-0.5 text-xs font-semibold">
+          <span class="text-xs bg-gray-100 text-gray-600 px-2.5 py-0.5 rounded-full font-medium">
             {tech}
           </span>
         ))
       }
     </div>
-
-    <p class="flex grow text-gray-400">{descripcion}</p>
-
-    <div class="mt-auto flex justify-between">
-      <a
-        class="group text-primary mt-6 flex items-center justify-start p-0 font-bold text-lg"
-        target="_blank"
-        rel="noopener noreferrer"
-        href={demo}
-      >
-        Demo
-        <HiArrowRight
-          className="ml-1 transition-transform duration-200 group-hover:translate-x-1"
-          size={18}
-        />
-      </a>
-    </div>
   </div>
-</div>
+</a>

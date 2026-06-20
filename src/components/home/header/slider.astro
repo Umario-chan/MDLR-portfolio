@@ -1,32 +1,24 @@
 ---
 const technologies = [
-  "astro",
-  "react",
-  "typeScript",
-  "tailwindcss",
-  "nodejs",
-  "HTML5",
-  "CSS3",
-  "javaScript",
-  "git",
-  "mysql",
+  "astro", "react", "typeScript", "tailwindcss", "nodejs",
+  "HTML5", "CSS3", "javaScript", "git", "mysql",
 ];
 ---
 
-<div class="relative overflow-x-hidden px-8 py-8">
-  <div class="animate-scroll hover:animate-paused flex w-max gap-12 md:gap-20">
+<div class="relative overflow-x-hidden border-y border-gray-100 bg-gray-50 py-5">
+  <div class="animate-scroll hover:animate-paused flex w-max gap-10">
     {
       technologies.concat(technologies, technologies).map((tech) => (
-        <div class="group flex items-center gap-2 transition-all duration-300">
+        <div class="flex items-center gap-2.5 text-gray-500">
           <img
             src={`/svg/${tech}.svg`}
             alt={tech}
-            class="h-7 w-auto object-contain  transition-transform group-hover:scale-110"
-            width="30"
-            height="30"
+            class="h-5 w-auto object-contain opacity-70"
+            width="20"
+            height="20"
             loading="lazy"
           />
-          <span class="text-lg font-medium text-white">
+          <span class="text-sm font-medium whitespace-nowrap">
             {tech.charAt(0).toUpperCase() + tech.slice(1)}
           </span>
         </div>
@@ -37,20 +29,13 @@ const technologies = [
 
 <style is:global>
   @keyframes scroll {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-50%);
-    }
+    from { transform: translateX(0); }
+    to { transform: translateX(-33.33%); }
   }
   .animate-scroll {
-    animation: scroll 60s linear infinite;
+    animation: scroll 50s linear infinite;
   }
-
-  @media (min-width: 768px) {
-    .animate-scroll {
-      animation-duration: 80s;
-    }
+  .hover\:animate-paused:hover {
+    animation-play-state: paused;
   }
 </style>

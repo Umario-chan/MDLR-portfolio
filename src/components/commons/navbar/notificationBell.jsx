@@ -6,64 +6,39 @@ export default function NotificationBell() {
   const [notifications, setNotifications] = useState([]);
   const containerRef = useRef(null);
 
-  // Notificaciones
   const baseNotifications = [
     { id: 1, text: "Nuevo proyecto publicado 🚀", read: false },
-    
   ];
 
-  // Obtener el id
-  const lastBaseId =
-    baseNotifications.length > 0
-      ? baseNotifications[baseNotifications.length - 1].id
-      : null;
+  const lastBaseId = baseNotifications.at(-1)?.id ?? null;
 
-  // Obtener el id del último elemento no leído
-  const lastUnreadId =
-    notifications.length > 0
-      ? [...notifications].reverse().find((n) => !n.read)?.id
-      : null;
-
-  // Cargar desde localStorage y mezclar con base
   useEffect(() => {
     const saved = localStorage.getItem("notifications");
     let merged = baseNotifications;
-
     if (saved) {
-      const savedArray = JSON.parse(saved);
-      const savedMap = new Map(savedArray.map((n) => [n.id, n]));
+      const savedMap = new Map(JSON.parse(saved).map((n) => [n.id, n]));
       merged = baseNotifications.map((n) => savedMap.get(n.id) || n);
     }
     setNotifications(merged);
   }, []);
 
-  // localStorage
   useEffect(() => {
-    if (notifications.length > 0) {
-      localStorage.setItem("notifications", JSON.stringify(notifications));
-    }
+    if (notifications.length > 0) localStorage.setItem("notifications", JSON.stringify(notifications));
   }, [notifications]);
 
   const unread = notifications.filter((n) => !n.read);
   const read = notifications.filter((n) => n.read);
-  const unreadCount = unread.length;
 
-  // Cerrar dropdown
   useEffect(() => {
-    function handleDocClick(e) {
-      if (containerRef.current && !containerRef.current.contains(e.target)) {
-        setOpen(false);
-      }
-    }
-    document.addEventListener("click", handleDocClick);
-    return () => document.removeEventListener("click", handleDocClick);
+    const handler = (e) => {
+      if (containerRef.current && !containerRef.current.contains(e.target)) setOpen(false);
+    };
+    document.addEventListener("click", handler);
+    return () => document.removeEventListener("click", handler);
   }, []);
 
-  // Marca como leidas
   useEffect(() => {
-    if (open && unreadCount > 0) {
-      setNotifications((prev) => prev.map((n) => ({ ...n, read: true })));
-    }
+    if (open && unread.length > 0) setNotifications((p) => p.map((n) => ({ ...n, read: true })));
   }, [open]);
 
   return (
@@ -73,31 +48,24 @@ export default function NotificationBell() {
         aria-expanded={open}
         aria-label="Notificaciones"
         onClick={() => setOpen((v) => !v)}
-        className="relative rounded-full p-2 hover:bg-gray-700"
+        className="relative rounded-full p-2 hover:bg-gray-100 transition-colors"
       >
-        <FaBell className="text-2xl text-white cursor-pointer" />
-        {unreadCount > 0 && lastBaseId && (
-          <span className="absolute top-0 right-0 inline-flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-xs text-white">
+        <FaBell className="text-lg text-gray-400 cursor-pointer" />
+        {unread.length > 0 && lastBaseId && (
+          <span className="absolute top-0 right-0 inline-flex h-3.5 w-3.5 items-center justify-center rounded-full bg-red-500 text-[9px] text-white font-bold">
             {lastBaseId}
           </span>
         )}
       </button>
 
       {open && (
-        <div className="absolute right-0 z-50 mt-2 w-70 max-w-sm rounded-lg border-none bg-gray-900 shadow-lg drop-shadow-[4px_4px_0_#7836cf]">
-          <div className="p-3">
-            <div className="mb-2 flex items-center justify-between">
-              <h4 className="text-xm font-bold text-gray-200 drop-shadow-[1px_1px_0_#7836cf]">
-                Notificaciones
-              </h4>
-            </div>
-
+        <div className="absolute right-0 z-50 mt-2 w-72 rounded-xl border border-gray-200 bg-white shadow-lg shadow-gray-200/60">
+          <div className="p-4">
+            <h4 className="text-sm font-semibold text-gray-800 mb-3">Notificaciones</h4>
             {read.length > 0 ? (
-              <ul className="max-h-48 divide-y divide-gray-800 overflow-auto">
+              <ul className="max-h-48 divide-y divide-gray-100 overflow-auto">
                 {read.map((n) => (
-                  <li key={n.id} className="py-2 text-sm text-gray-400">
-                    {n.text}
-                  </li>
+                  <li key={n.id} className="py-2.5 text-sm text-gray-500">{n.text}</li>
                 ))}
               </ul>
             ) : (

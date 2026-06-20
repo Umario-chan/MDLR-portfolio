@@ -1,29 +1,25 @@
-import {
-  FaLinkedinIn,
-  FaGithub,
-} from "react-icons/fa6";
+import { FaLinkedinIn, FaGithub } from "react-icons/fa6";
 
 const SocialIcons = () => {
   return (
-    <div className="my-5 flex items-center justify-center">
+    <div className="my-5 flex items-center justify-center gap-3">
       <a
         href="https://www.linkedin.com/in/mdlr89/"
         target="_blank"
         rel="noopener noreferrer"
-        className="mr-3 text-zinc-400 hover:text-[#69c7c7] drop-shadow-[1px_1px_0_#7836cf]"
+        className="text-gray-400 hover:text-[#1a6fec] transition-colors duration-200"
         aria-label="Linkedin"
       >
-        <FaLinkedinIn className="h-7 w-7" />
+        <FaLinkedinIn className="h-5 w-5" />
       </a>
-
       <a
         href="https://github.com/Umario-chan"
         target="_blank"
         rel="noopener noreferrer"
-        className="mx-3 text-zinc-400 hover:text-[#69c7c7] drop-shadow-[1px_1px_0_#7836cf]"
+        className="text-gray-400 hover:text-[#1a6fec] transition-colors duration-200"
         aria-label="Github"
       >
-        <FaGithub className="h-7 w-7" />
+        <FaGithub className="h-5 w-5" />
       </a>
     </div>
   );
