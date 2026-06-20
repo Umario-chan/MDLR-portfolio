@@ -1,6 +1,6 @@
 import patyRocks from "../assets/img-projects/patyrocks.png";
 import altia from "../assets/img-projects/altia.png";
-import Verbenas from "../assets/img-projects/verbenas-placeholder.svg";
+import comicShelf from "../assets/img-projects/comicshelf.jpeg";
 
 export const proyectos = [
   {
@@ -63,13 +63,42 @@ export const proyectos = [
     wip: true,
   },
   {
-    titulo: "Coming soon",
-    slug: "verbenas-paisajes",
-    descripcion: "Coming soon",
-    imagen: Verbenas.src,
-    tecnologias: [],
+    titulo: "ComicShelf",
+    slug: "comicshelf",
+    descripcion: "App Android para leer cómics digitales directamente desde el almacenamiento del dispositivo.",
+    subtitulo: "ComicShelf — App Android de lectura de cómics digitales",
+    descripcionLarga:
+      "ComicShelf es una app para Android que permite leer cómics digitales directamente desde el almacenamiento del dispositivo. Accede a carpetas del teléfono mediante el sistema de permisos de Android (SAF), muestra los archivos organizados en un estante de libros visual, y permite abrirlos y leerlos página a página.",
+    secciones: [
+      {
+        titulo: "Formatos soportados",
+        items: [
+          ".cbz — el más común, extracción por streaming directo",
+          ".cbr — soporte con librería junrar",
+          ".pdf — renderizado nativo de Android",
+        ],
+      },
+      {
+        titulo: "Interfaz",
+        items: [
+          "Estante de libros con planks de madera, portadas reales extraídas del archivo",
+          "Navegación por carpetas y subcarpetas",
+          "Lector inmersivo a pantalla completa con swipe entre páginas, scrubber de progreso arrastrable y rotación de pantalla",
+          "Guarda el progreso por archivo (qué página ibas)",
+          "Botón de atrás nativo de Android navega dentro de la app (lector → carpeta → raíz → minimizar)",
+        ],
+      },
+      {
+        titulo: "Filosofía técnica",
+        items: [
+          "Sin servidor, sin nube, sin cuenta. Todo local. Los archivos nunca se copian — se leen directamente donde están.",
+        ],
+      },
+    ],
+    imagen: comicShelf.src,
+    tecnologias: ["HTML5", "CSS3", "JavaScript", "Capacitor 6"],
     demo: "",
+    github: "https://github.com/Umario-chan/comicshelf",
     categoria: "Fullstack",
-    wip: true,
   },
 ];
