@@ -5,11 +5,11 @@ export interface Props {
   titulo: string;
   imagen: string;
   tecnologias: string[];
-  demo: string;
+  slug: string;
   codigo?: string;
 }
 
-const { titulo, imagen, tecnologias, demo } = Astro.props;
+const { titulo, imagen, tecnologias, slug } = Astro.props;
 ---
 
 <div class="group flex w-full max-w-md mx-auto flex-col overflow-hidden rounded-2xl bg-white border border-gray-200 transition-all duration-300 hover:shadow-xl hover:shadow-gray-200/80 hover:-translate-y-1">
@@ -35,9 +35,7 @@ const { titulo, imagen, tecnologias, demo } = Astro.props;
     </div>
 
     <a
-      href={demo}
-      target="_blank"
-      rel="noopener noreferrer"
+      href={`/proyectos/${slug}`}
       class="inline-flex items-center gap-1 text-sm font-semibold text-[#1a6fec] hover:gap-2 transition-all duration-200"
     >
       Ir al proyecto
