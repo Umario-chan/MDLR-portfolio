@@ -7,6 +7,7 @@
 body {
   font-weight: 400;
   letter-spacing: -0.01em;
+  line-height: 1.6;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -37,4 +38,20 @@ h1, h2, h3, h4, h5, h6 {
 .reveal-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Language toggle */
+html[lang="en"] .lang-es { display: none; }
+html[lang="es"] .lang-en { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }

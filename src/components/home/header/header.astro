@@ -4,32 +4,45 @@ import TypeEfect from "../header/typeEfect.jsx";
 ---
 
 <header class="relative min-h-[45vh] bg-white overflow-hidden flex items-center">
-  <!-- Dot grid background -->
   <div class="absolute inset-0 hero-dots pointer-events-none"></div>
-  <!-- Subtle blue glow -->
   <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[#1a6fec]/5 rounded-full blur-3xl pointer-events-none"></div>
 
   <main class="relative z-10 w-full flex flex-col items-center justify-center text-center px-4 pt-20 pb-8">
-    <h1 class="text-5xl md:text-7xl font-bold text-gray-900 leading-tight">
-      Hola, soy Mario
+    <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold text-gray-900 leading-tight">
+      <span class="lang-es">Hola, soy Mario</span>
+      <span class="lang-en">Hi, I'm Mario</span>
     </h1>
 
     <TypeEfect client:visible />
 
-    <p class="text-sm md:text-lg text-gray-500 max-w-md mt-4 leading-relaxed">
-      Explora mis proyectos, conoce un poco más sobre mí y, si deseas ponerte en
-      contacto, ¡estoy a solo un mensaje de distancia!
+    <p class="text-sm md:text-lg text-gray-500 max-w-md mt-4 leading-relaxed lang-es">
+      Explora mis proyectos, conoce un poco más sobre mí y si deseas ponerte en
+      contacto<br />¡estoy a solo un mensaje de distancia!
+    </p>
+    <p class="text-sm md:text-lg text-gray-500 max-w-md mt-4 leading-relaxed lang-en">
+      Explore my projects, learn more about me and if you'd like to get in
+      touch<br />I'm just a message away!
     </p>
 
-    <SocialIcons client:visible />
+    <div class="mt-6 flex flex-wrap items-center justify-center gap-3">
+      <a
+        href="/proyectos"
+        class="inline-flex items-center gap-2 px-7 py-3 bg-[#1a6fec] hover:bg-[#1255c4] text-white text-sm font-semibold rounded-full transition-all duration-200"
+      >
+        <span class="lang-es">Ver proyectos</span>
+        <span class="lang-en">View projects</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <a
+        href="/contact"
+        class="inline-flex items-center gap-2 px-7 py-3 border border-gray-300 hover:border-[#1a6fec] hover:text-[#1a6fec] text-gray-700 text-sm font-semibold rounded-full transition-all duration-200"
+      >
+        <span class="lang-es">Contáctame</span>
+        <span class="lang-en">Contact me</span>
+      </a>
+    </div>
 
-    <a
-      href="/proyectos"
-      class="mt-2 inline-flex items-center gap-2 px-7 py-3 bg-[#1a6fec] hover:bg-[#1255c4] text-white text-sm font-semibold rounded-full transition-all duration-200"
-    >
-      Ver proyectos
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-    </a>
+    <SocialIcons client:visible />
   </main>
 </header>
 

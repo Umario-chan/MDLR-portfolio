@@ -12,7 +12,13 @@ export async function getStaticPaths() {
 }
 
 const { proyecto } = Astro.props;
-const { titulo, subtitulo, descripcion, descripcionLarga, secciones, imagen, tecnologias, demo, github, categoria, wip } = proyecto;
+const {
+  titulo, subtitulo, subtituloEn,
+  descripcion, descripcionEn,
+  descripcionLarga, descripcionLargaEn,
+  secciones, seccionesEn,
+  imagen, tecnologias, demo, github, categoria, wip,
+} = proyecto;
 ---
 
 <Layout title={titulo} description={descripcion}>
@@ -24,7 +30,8 @@ const { titulo, subtitulo, descripcion, descripcionLarga, secciones, imagen, tec
         class="inline-flex items-center gap-2 text-sm font-semibold text-gray-400 hover:text-[#1a6fec] transition-colors duration-200 mb-10 group"
       >
         <HiArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform duration-200" />
-        Volver a proyectos
+        <span class="lang-es">Volver a proyectos</span>
+        <span class="lang-en">Back to projects</span>
       </a>
 
       {wip ? (
@@ -41,7 +48,8 @@ const { titulo, subtitulo, descripcion, descripcionLarga, secciones, imagen, tec
           </span>
           <h1 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">{titulo}</h1>
           <p class="text-gray-400 text-base max-w-md">
-            Este proyecto está en construcción. Pronto estará disponible con todos sus detalles.
+            <span class="lang-es">Este proyecto está en construcción. Pronto estará disponible con todos sus detalles.</span>
+            <span class="lang-en">This project is under construction. All the details will be available soon.</span>
           </p>
           <div class="flex items-center gap-2 mt-2">
             <span class="h-2 w-2 rounded-full bg-[#1a6fec] animate-pulse"></span>
@@ -71,22 +79,37 @@ const { titulo, subtitulo, descripcion, descripcionLarga, secciones, imagen, tec
             <div class="md:col-span-2 space-y-8">
               <div>
                 <p class="text-xs font-semibold tracking-[0.2em] uppercase text-[#1a6fec] mb-3">
-                  Sobre el proyecto
+                  <span class="lang-es">Sobre el proyecto</span>
+                  <span class="lang-en">About the project</span>
                 </p>
-                {subtitulo && (
-                  <p class="text-lg font-semibold text-gray-800 mb-2">{subtitulo}</p>
+                {(subtitulo || subtituloEn) && (
+                  <p class="text-lg font-semibold text-gray-800 mb-2">
+                    {subtituloEn ? (
+                      <>
+                        <span class="lang-es">{subtitulo}</span>
+                        <span class="lang-en">{subtituloEn}</span>
+                      </>
+                    ) : subtitulo}
+                  </p>
                 )}
                 <p class="text-gray-600 text-base leading-relaxed">
-                  {descripcionLarga ?? descripcion}
+                  {descripcionLargaEn ? (
+                    <>
+                      <span class="lang-es">{descripcionLarga ?? descripcion}</span>
+                      <span class="lang-en">{descripcionLargaEn ?? descripcionEn}</span>
+                    </>
+                  ) : (descripcionLarga ?? descripcion)}
                 </p>
               </div>
 
               {secciones && secciones.length > 0 && (
                 <div>
                   <p class="text-xs font-semibold tracking-[0.2em] uppercase text-[#1a6fec] mb-5">
-                    Flujos principales
+                    <span class="lang-es">Flujos principales</span>
+                    <span class="lang-en">Main flows</span>
                   </p>
-                  <div class="space-y-6">
+
+                  <div class="space-y-6 lang-es">
                     {secciones.map((seccion) => (
                       <div>
                         <p class="text-sm font-bold text-gray-800 mb-2">{seccion.titulo}</p>
@@ -101,6 +124,24 @@ const { titulo, subtitulo, descripcion, descripcionLarga, secciones, imagen, tec
                       </div>
                     ))}
                   </div>
+
+                  {seccionesEn && (
+                    <div class="space-y-6 lang-en">
+                      {seccionesEn.map((seccion) => (
+                        <div>
+                          <p class="text-sm font-bold text-gray-800 mb-2">{seccion.titulo}</p>
+                          <ul class="space-y-1.5">
+                            {seccion.items.map((item) => (
+                              <li class="flex gap-2 text-sm text-gray-600 leading-relaxed">
+                                <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#1a6fec]"></span>
+                                {item}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               )}
             </div>
@@ -108,7 +149,8 @@ const { titulo, subtitulo, descripcion, descripcionLarga, secciones, imagen, tec
             <aside class="flex flex-col gap-6">
               <div>
                 <p class="text-xs font-semibold tracking-[0.2em] uppercase text-gray-400 mb-3">
-                  Tecnologías
+                  <span class="lang-es">Tecnologías</span>
+                  <span class="lang-en">Technologies</span>
                 </p>
                 <div class="flex flex-wrap gap-2">
                   {tecnologias.map((tech) => (
@@ -128,7 +170,8 @@ const { titulo, subtitulo, descripcion, descripcionLarga, secciones, imagen, tec
                       rel="noopener noreferrer"
                       class="inline-flex items-center gap-2 text-sm font-semibold text-white bg-[#1a6fec] hover:bg-[#1255c4] px-5 py-2.5 rounded-xl transition-colors duration-200"
                     >
-                      Ver proyecto en vivo
+                      <span class="lang-es">Ver proyecto en vivo</span>
+                      <span class="lang-en">View live project</span>
                       <HiArrowUpRight size={15} />
                     </a>
                   )}

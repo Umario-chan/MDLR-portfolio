@@ -27,17 +27,29 @@ const links = [
             fill="none"
           ></path>
           <text fill="#1a6fec" font-size="16" font-weight="600" letter-spacing="2">
-            <textPath href="#circlePathText" startOffset="0%">
+            <textPath href="#circlePathText" startOffset="0%" class="lang-es">
               ✦ Hola ! ✦ Estoy disponible para nuevas oportunidades!
+            </textPath>
+            <textPath href="#circlePathText" startOffset="0%" class="lang-en">
+              ✦ Hi ! ✦ I'm open to new opportunities!
             </textPath>
           </text>
         </svg>
       </div>
     </div>
 
-    <p class="text-xs font-semibold tracking-[0.2em] uppercase text-[#1a6fec] mb-2">Contacto</p>
-    <h1 class="text-3xl font-bold text-gray-900 mb-2">Hablemos</h1>
-    <p class="text-gray-400 text-sm mb-8">Elige cómo quieres conectar conmigo</p>
+    <p class="text-xs font-semibold tracking-[0.2em] uppercase text-[#1a6fec] mb-2">
+      <span class="lang-es">Contacto</span>
+      <span class="lang-en">Contact</span>
+    </p>
+    <h1 class="text-3xl font-bold text-gray-900 mb-2">
+      <span class="lang-es">Hablemos</span>
+      <span class="lang-en">Let's talk</span>
+    </h1>
+    <p class="text-gray-400 text-sm mb-8">
+      <span class="lang-es">Elige cómo quieres conectar conmigo</span>
+      <span class="lang-en">Choose how you'd like to connect</span>
+    </p>
 
     <CopyMail client:visible />
 

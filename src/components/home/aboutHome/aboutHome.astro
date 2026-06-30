@@ -6,19 +6,32 @@ import MiFoto from "../../../assets/img/MiFoto.png";
 <section class="py-16 px-4 bg-gray-50 border-y border-gray-200 reveal">
   <div class="mx-auto flex max-w-5xl flex-col-reverse items-center gap-10 md:flex-row">
     <div class="flex-1">
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Sobre Mí</h2>
-      <p class="text-gray-500 leading-relaxed text-sm md:text-base">
-        Mi nombre es Mario, soy Desarrollador de Software y actualmente me
-        desempeño como Web Developer, con un enfoque en el Frontend y la
-        experiencia del usuario. Trabajo con tecnologías como React, Node.js,
-        Astro, JavaScript, TypeScript, Cypress, Tailwind CSS, SASS, Figma,
-        entre otras.
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <span class="lang-es">Sobre Mí</span>
+        <span class="lang-en">About Me</span>
+      </h2>
+      <p class="text-gray-500 leading-relaxed text-sm md:text-base lang-es">
+        Soy Mario, desarrollador con experiencia construyendo productos de principio
+        a fin — desde la base de datos hasta la interfaz. Cómodo en el backend como
+        en el frontend, previamente trabajé como automatizador QA, lo que me dejó
+        un ojo bastante crítico para los detalles y la calidad del software. Hoy
+        fusiono todo ese conocimiento para entregar aplicaciones de alta calidad que
+        no solo funcionan bien, sino que también se sienten bien.
+      </p>
+      <p class="text-gray-500 leading-relaxed text-sm md:text-base lang-en">
+        I'm Mario, a developer with experience building products end to end —
+        from the database to the interface. Comfortable on both backend and
+        frontend, I previously worked as a QA automation engineer, which gave me
+        a sharp eye for detail and software quality. Today I bring all of that
+        together to deliver high-quality applications that not only work well,
+        but also feel great.
       </p>
       <a
         href="/contact"
         class="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-[#1a6fec] hover:gap-3 transition-all duration-200"
       >
-        Contáctame
+        <span class="lang-es">Contáctame</span>
+        <span class="lang-en">Contact me</span>
         <HiArrowRight size={16} />
       </a>
     </div>
@@ -28,8 +41,13 @@ import MiFoto from "../../../assets/img/MiFoto.png";
         <img src={MiFoto.src} alt="Foto de Mario" class="h-full w-full object-cover" />
       </div>
       <div class="text-center">
-        <p class="text-xs font-semibold text-gray-700">Lic. en Ing. en Sistemas Computacionales</p>
-        <p class="text-xs text-gray-400 mt-0.5">Cédula Profesional: 7453612</p>
+        <p class="text-xs font-semibold text-gray-700 lang-es">Lic. en Ing. en Sistemas Computacionales</p>
+        <p class="text-xs font-semibold text-gray-700 lang-en">B.Eng. in Computer Systems Engineering</p>
+        <p class="text-xs text-gray-400 mt-0.5">
+          <span class="lang-es">Cédula Profesional:</span>
+          <span class="lang-en">Professional License:</span>
+          7453612
+        </p>
       </div>
     </div>
   </div>

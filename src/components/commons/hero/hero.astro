@@ -1,11 +1,21 @@
 ---
 export interface Props {
   titulo: string;
+  tituloEn?: string;
+  border?: boolean;
+  compact?: boolean;
 }
-const { titulo } = Astro.props;
+const { titulo, tituloEn, border = true, compact = false } = Astro.props;
 ---
 
-<section class="mt-[72px] border-b border-gray-200 bg-white px-6 py-16 text-center">
+<section class={`mt-[72px] bg-white px-6 text-center${border ? " border-b border-gray-200" : ""}${compact ? " pt-12 pb-6" : " py-16"}`}>
   <p class="text-xs font-semibold tracking-[0.2em] uppercase text-[#1a6fec] mb-3">Portfolio</p>
-  <h1 class="text-4xl md:text-6xl font-bold text-gray-900">{titulo}</h1>
+  {tituloEn ? (
+    <h1 class="text-4xl md:text-6xl font-bold text-gray-900">
+      <span class="lang-es">{titulo}</span>
+      <span class="lang-en">{tituloEn}</span>
+    </h1>
+  ) : (
+    <h1 class="text-4xl md:text-6xl font-bold text-gray-900">{titulo}</h1>
+  )}
 </section>

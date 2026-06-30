@@ -3,8 +3,10 @@ import { FiMenu, FiX } from "react-icons/fi";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa6";
 
 const links = [
-  { name: "Inicio", href: "/" },
-  { name: "Proyectos", href: "/proyectos" },
+  { nameEs: "Inicio", nameEn: "Home", href: "/" },
+  { nameEs: "Proyectos", nameEn: "Projects", href: "/proyectos" },
+  { nameEs: "Experiencia", nameEn: "Experience", href: "/experiencia" },
+  { nameEs: "Contacto", nameEn: "Contact", href: "/contact" },
 ];
 ---
 
@@ -25,35 +27,40 @@ const links = [
                 href={link.href}
                 class="nav-link text-base font-semibold text-gray-600 hover:text-[#1a6fec] transition-colors duration-200"
               >
-                {link.name}
+                <span class="lang-es">{link.nameEs}</span>
+                <span class="lang-en">{link.nameEn}</span>
               </a>
             </li>
           ))
         }
 
-        <li class="flex items-center gap-3">
-          <a
-            href="https://www.linkedin.com/in/mdlr89/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            class="text-gray-400 hover:text-[#1a6fec] transition-colors"
-          >
+        <li class="flex items-center gap-4">
+          <a href="https://www.linkedin.com/in/mdlr89/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-gray-400 hover:text-[#1a6fec] transition-colors">
             <FaLinkedinIn className="h-5 w-5" />
           </a>
-          <a
-            href="https://github.com/Umario-chan"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-            class="text-gray-400 hover:text-[#1a6fec] transition-colors"
-          >
+          <a href="https://github.com/Umario-chan" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="text-gray-400 hover:text-[#1a6fec] transition-colors">
             <FaGithub className="h-5 w-5" />
           </a>
+          <button
+            id="lang-toggle"
+            aria-label="Toggle language"
+            class="text-xs font-bold tracking-widest text-gray-400 hover:text-[#1a6fec] transition-colors border border-gray-200 hover:border-[#1a6fec] rounded-full px-3 py-1 cursor-pointer"
+          >
+            <span class="lang-es">EN</span>
+            <span class="lang-en">ES</span>
+          </button>
         </li>
       </ul>
 
-      <div class="flex md:hidden items-center gap-4 z-50">
+      <div class="flex md:hidden items-center gap-3 z-50">
+        <button
+          id="lang-toggle-mobile"
+          aria-label="Toggle language"
+          class="text-xs font-bold tracking-widest text-gray-400 hover:text-[#1a6fec] transition-colors border border-gray-200 rounded-full px-3 py-1 cursor-pointer"
+        >
+          <span class="lang-es">EN</span>
+          <span class="lang-en">ES</span>
+        </button>
         <label for="menu-toggle" class="cursor-pointer text-gray-600">
           <FiMenu className="h-6 w-6" />
         </label>
@@ -61,14 +68,9 @@ const links = [
     </div>
   </nav>
 
-  <label
-    for="menu-toggle"
-    class="fixed inset-0 bg-black/30 hidden peer-checked:block cursor-pointer z-40 md:hidden"
-  ></label>
+  <label for="menu-toggle" class="fixed inset-0 bg-black/30 hidden peer-checked:block cursor-pointer z-40 md:hidden"></label>
 
-  <div
-    class="fixed top-0 right-0 h-full w-64 bg-white border-l border-gray-200 shadow-xl transform translate-x-full transition-transform duration-300 peer-checked:translate-x-0 z-50 md:translate-x-full md:hidden"
-  >
+  <div class="fixed top-0 right-0 h-full w-64 bg-white border-l border-gray-200 shadow-xl transform translate-x-full transition-transform duration-300 peer-checked:translate-x-0 z-50 md:translate-x-full md:hidden">
     <div class="flex justify-end p-4">
       <label for="menu-toggle" class="cursor-pointer text-gray-500">
         <FiX className="h-6 w-6" />
@@ -79,11 +81,9 @@ const links = [
       {
         links.map((link) => (
           <li>
-            <a
-              href={link.href}
-              class="nav-link-mobile text-lg font-semibold text-gray-800 hover:text-[#1a6fec] transition-colors duration-200"
-            >
-              {link.name}
+            <a href={link.href} class="nav-link-mobile text-lg font-semibold text-gray-800 hover:text-[#1a6fec] transition-colors duration-200">
+              <span class="lang-es">{link.nameEs}</span>
+              <span class="lang-en">{link.nameEn}</span>
             </a>
           </li>
         ))
@@ -94,6 +94,7 @@ const links = [
 
 <script>
   (function () {
+    // Active link highlighting
     function markActiveLinks() {
       const currentPath = window.location.pathname.replace(/\/$/, "") || "/";
       const allLinks = [
@@ -120,5 +121,19 @@ const links = [
     document.addEventListener("astro:page-load", markActiveLinks);
     document.addEventListener("astro:after-swap", markActiveLinks);
     window.addEventListener("load", () => setTimeout(markActiveLinks, 50));
+
+    // Mobile lang toggle (mirrors the main toggle in Layout.astro)
+    function initMobileLangToggle() {
+      const btn = document.getElementById("lang-toggle-mobile");
+      if (!btn) return;
+      btn.addEventListener("click", () => {
+        const current = document.documentElement.getAttribute("lang");
+        const next = current === "es" ? "en" : "es";
+        document.documentElement.setAttribute("lang", next);
+        localStorage.setItem("lang", next);
+      });
+    }
+    initMobileLangToggle();
+    document.addEventListener("astro:page-load", initMobileLangToggle);
   })();
 </script>

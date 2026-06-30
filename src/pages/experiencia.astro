@@ -1,0 +1,21 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/commons/hero/hero.astro";
+import Banner from "../components/commons/banners/banner.astro";
+import ExperienceTimeline from "../components/experience/ExperienceTimeline.jsx";
+---
+
+<Layout
+  title="Experiencia"
+  description="Trayectoria profesional de Mario de la Rosa — Desarrollador Fullstack con experiencia en QA Automation."
+>
+  <Hero titulo="Experiencia" tituloEn="Experience" border={false} compact={true} />
+
+  <section class="pt-6 pb-4 px-6">
+    <div class="max-w-3xl mx-auto">
+      <ExperienceTimeline client:visible />
+    </div>
+  </section>
+
+  <Banner />
+</Layout>
