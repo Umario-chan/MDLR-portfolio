@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mdlr-portfolio.vercel.app/sitemap-index.xml

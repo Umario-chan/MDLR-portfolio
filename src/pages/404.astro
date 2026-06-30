@@ -2,20 +2,24 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="404" description="Error 404 - Página no encontrada">
+<Layout title="404" description="Página no encontrada">
   <section class="min-h-screen flex flex-col items-center justify-center px-6 text-center bg-white">
     <p class="text-xs font-semibold tracking-[0.2em] uppercase text-[#1a6fec] mb-4">Error</p>
     <h1 class="text-8xl md:text-9xl font-extrabold text-gray-900 mb-4">404</h1>
-    <h2 class="text-xl md:text-2xl font-semibold text-gray-700 mb-3">Página no encontrada</h2>
+    <h2 class="text-xl md:text-2xl font-semibold text-gray-700 mb-3">
+      <span class="lang-es">Página no encontrada</span>
+      <span class="lang-en">Page not found</span>
+    </h2>
     <p class="text-gray-400 max-w-sm mx-auto mb-10 text-sm leading-relaxed">
-      El enlace al que intentaste acceder no existe o fue movido.
-      Podés volver al inicio y seguir navegando.
+      <span class="lang-es">El enlace al que intentaste acceder no existe o fue movido. Vuelve al inicio y sigue navegando.</span>
+      <span class="lang-en">The link you tried to access doesn't exist or was moved. Head back home and keep browsing.</span>
     </p>
     <a
       href="/"
       class="inline-block bg-[#1a6fec] hover:bg-[#1255c4] text-white font-semibold px-8 py-3 rounded-full transition-colors duration-200 text-sm"
     >
-      Volver al inicio
+      <span class="lang-es">Volver al inicio</span>
+      <span class="lang-en">Back to home</span>
     </a>
   </section>
 </Layout>

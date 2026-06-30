@@ -1,0 +1,213 @@
+---
+// Página standalone de CV — sin Layout ni imports de CSS globales
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="robots" content="noindex" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <title>CV — Mario de la Rosa</title>
+    <style>
+      * { font-family: 'Outfit', sans-serif; box-sizing: border-box; }
+      body { background: white; color: #111; margin: 0; padding: 0; }
+      .cv { max-width: 780px; margin: 0 auto; padding: 48px 40px; }
+
+      .print-btn {
+        position: fixed; top: 16px; right: 16px;
+        background: #1a6fec; color: white; border: none;
+        padding: 10px 20px; border-radius: 999px;
+        font-size: 13px; font-weight: 600; cursor: pointer;
+        font-family: 'Outfit', sans-serif;
+        box-shadow: 0 2px 8px rgba(26,111,236,0.3);
+        transition: background 0.2s;
+      }
+      .print-btn:hover { background: #1255c4; }
+
+      .cv-header { border-bottom: 2px solid #1a6fec; padding-bottom: 20px; margin-bottom: 28px; }
+      .name { font-size: 36px; font-weight: 800; letter-spacing: -0.03em; color: #0f172a; margin: 0 0 4px; }
+      .role { font-size: 16px; font-weight: 600; color: #1a6fec; margin: 0 0 12px; }
+      .contacts { display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: 13px; color: #475569; }
+      .contacts a { color: #475569; text-decoration: none; }
+
+      .section-title { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+           color: #1a6fec; margin: 0 0 14px; padding-bottom: 6px; border-bottom: 1px solid #e2e8f0; }
+
+      .section { margin-bottom: 26px; }
+
+      .job { margin-bottom: 18px; }
+      .job-header { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+      .job-title { font-size: 14px; font-weight: 700; color: #0f172a; }
+      .job-company { font-size: 13px; font-weight: 600; color: #1a6fec; }
+      .job-period { font-size: 12px; color: #94a3b8; white-space: nowrap; }
+      .job-desc { font-size: 13px; color: #475569; margin: 4px 0 6px; line-height: 1.55; }
+      .job-items { margin: 0; padding-left: 16px; }
+      .job-items li { font-size: 12px; color: #475569; margin-bottom: 3px; line-height: 1.5; }
+      .tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+      .tag { font-size: 11px; background: #f1f5f9; color: #475569; padding: 2px 8px; border-radius: 999px; font-weight: 500; }
+
+      .edu-item { margin-bottom: 14px; }
+      .edu-header { display: flex; justify-content: space-between; align-items: baseline; }
+      .edu-title { font-size: 14px; font-weight: 700; color: #0f172a; }
+      .edu-inst { font-size: 13px; color: #64748b; }
+      .edu-period { font-size: 12px; color: #94a3b8; }
+      .edu-note { font-size: 12px; color: #64748b; margin-top: 2px; }
+
+      .skills-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+
+      @media print {
+        .print-btn { display: none; }
+        body { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+        .cv { padding: 24px 20px; }
+        @page { margin: 16mm 14mm; size: A4; }
+      }
+    </style>
+  </head>
+  <body>
+    <button class="print-btn" onclick="window.print()">⬇ Guardar como PDF</button>
+
+    <div class="cv">
+
+      <div class="cv-header">
+        <p class="name">Mario de la Rosa</p>
+        <p class="role">Full Stack Developer · QA Automation</p>
+        <div class="contacts">
+          <a href="mailto:mario.delarosa@live.com.mx">mario.delarosa@live.com.mx</a>
+          <a href="https://www.linkedin.com/in/mdlr89/" target="_blank">linkedin.com/in/mdlr89</a>
+          <a href="https://wa.me/525529044570" target="_blank">+52 55 2904 4570</a>
+          <span>Ciudad de México, México</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <p class="section-title">Experiencia laboral</p>
+
+        <div class="job">
+          <div class="job-header">
+            <div><div class="job-title">Programador Full Stack</div><div class="job-company">Paty Rocks</div></div>
+            <div class="job-period">Feb. 2026 — Presente</div>
+          </div>
+          <p class="job-desc">Diseñé y desarrollé Paty Rocks, plataforma web para organización de eventos sociales en México con marketplace integrado de proveedores.</p>
+          <ul class="job-items">
+            <li>Marketplace de proveedores con productos, paquetes y cotizaciones personalizadas</li>
+            <li>Sistema de invitaciones digitales con RSVP, seguimiento de asistencia y control de aforo</li>
+            <li>Pagos con Stripe: pagos únicos y pagos divididos entre invitados</li>
+            <li>Notificaciones automáticas por WhatsApp y email en hitos clave del evento</li>
+            <li>Arquitectura multi-rol: organizador, invitado, proveedor y administrador</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Vite</span>
+            <span class="tag">Back4App</span><span class="tag">Stripe</span><span class="tag">SendPulse</span><span class="tag">TailwindCSS</span>
+          </div>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div><div class="job-title">QA Lead</div><div class="job-company">Moons · Futuralabs</div></div>
+            <div class="job-period">Sept. 2021 — Sept. 2025</div>
+          </div>
+          <p class="job-desc">Lideré la estrategia de QA en múltiples sistemas, mejorando la eficiencia de gestión de pruebas mediante herramientas open-source y optimizadas en costo.</p>
+          <ul class="job-items">
+            <li>Gestión centralizada de casos de prueba con Qase, estandarizando procesos entre equipos</li>
+            <li>Automatización con Cypress y herramientas asistidas por IA (Testcraft)</li>
+            <li>Pruebas de API con Postman integradas en pipelines CI/CD</li>
+            <li>Coordinación QA–Dev con metodologías ágiles y Trello</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">Cypress</span><span class="tag">Qase</span><span class="tag">Postman</span>
+            <span class="tag">Testcraft</span><span class="tag">Scrum</span><span class="tag">Trello</span>
+          </div>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div><div class="job-title">Senior Software Tester</div><div class="job-company">GNP Seguros</div></div>
+            <div class="job-period">May. 2017 — Nov. 2022</div>
+          </div>
+          <p class="job-desc">Pruebas funcionales, de regresión y usabilidad para aplicaciones enterprise de seguros. Equipos Agile, entregas de alta calidad.</p>
+          <ul class="job-items">
+            <li>Gestión del ciclo de vida de defectos y documentación para release cycles estructurados</li>
+            <li>Mejoras de proceso que aumentaron la cobertura y trazabilidad de pruebas</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div><div class="job-title">Software QA Tester</div><div class="job-company">Extend Solutions SA de CV</div></div>
+            <div class="job-period">Mar. 2012 — Feb. 2017</div>
+          </div>
+          <p class="job-desc">Diseñé y ejecuté matrices de prueba con TFS. Impartí capacitaciones de QA a clientes empresariales (Estafeta, Fundación Dondé).</p>
+          <ul class="job-items">
+            <li>Seguimiento de defectos con Microsoft Test Manager</li>
+            <li>UAT, validación de bases de datos (SQL Server, MySQL) y pruebas móviles (Android &amp; iOS)</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">TFS</span><span class="tag">Microsoft Test Manager</span><span class="tag">SQL Server</span><span class="tag">MySQL</span>
+          </div>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div><div class="job-title">Programador Informático</div><div class="job-company">BBVA Bancomer</div></div>
+            <div class="job-period">Sept. 2011 — Feb. 2012</div>
+          </div>
+          <p class="job-desc">Programador analista en Centro Bancomer desarrollando sistemas ejecutivos de sucursales con HTML, Javascript, CSS y JSP.</p>
+          <div class="tags">
+            <span class="tag">HTML</span><span class="tag">JavaScript</span><span class="tag">CSS</span><span class="tag">JSP</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <p class="section-title">Proyectos destacados</p>
+        <div class="job">
+          <div class="job-header">
+            <div><div class="job-title">Paty Rocks</div><div class="job-company" style="color:#475569">patyrocks.com</div></div>
+          </div>
+          <p class="job-desc">Plataforma web para la organización de eventos sociales en México con marketplace de proveedores, sistema de invitaciones digitales y pagos en línea.</p>
+        </div>
+        <div class="job">
+          <div class="job-header">
+            <div><div class="job-title">ComicShelf</div><div class="job-company" style="color:#475569">github.com/Umario-chan/comicshelf</div></div>
+          </div>
+          <p class="job-desc">App Android para leer cómics digitales (.cbz, .cbr, .pdf) directamente desde el almacenamiento del dispositivo. Sin servidor, sin nube, sin cuenta.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <p class="section-title">Educación y certificaciones</p>
+        <div class="edu-item">
+          <div class="edu-header">
+            <div><div class="edu-title">Ing. en Sistemas Computacionales</div><div class="edu-inst">UNIVDEP</div></div>
+            <div class="edu-period">2007 — 2011</div>
+          </div>
+          <p class="edu-note">Cédula Profesional: 7453612</p>
+        </div>
+        <div class="edu-item">
+          <div class="edu-header">
+            <div><div class="edu-title">ISTQB Foundation Level</div><div class="edu-inst">ISTQB</div></div>
+            <div class="edu-period">2021</div>
+          </div>
+          <p class="edu-note">Certificate No. 15-CTFL-69117-03</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <p class="section-title">Tecnologías</p>
+        <div class="skills-grid">
+          <span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">JavaScript</span>
+          <span class="tag">Node.js</span><span class="tag">Astro</span><span class="tag">Vite</span>
+          <span class="tag">Tailwind CSS</span><span class="tag">SASS</span><span class="tag">HTML5</span><span class="tag">CSS3</span>
+          <span class="tag">Cypress</span><span class="tag">Qase</span><span class="tag">Postman</span><span class="tag">Testcraft</span>
+          <span class="tag">Back4App</span><span class="tag">MongoDB</span><span class="tag">Stripe</span><span class="tag">SendPulse</span>
+          <span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Scrum</span><span class="tag">Kanban</span><span class="tag">Figma</span>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>
