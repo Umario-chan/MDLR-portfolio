@@ -2,8 +2,8 @@ import React, { useState } from "react";
 
 const experiencia = [
   {
-    puestoEs: "Programador Full Stack",
-    puestoEn: "Full Stack Developer",
+    puestoEs: "Lead Developer",
+    puestoEn: "Lead Developer",
     empresa: "Paty Rocks",
     periodo: "Feb. 2026 — Presente",
     descripcionEs: "Diseñé y desarrollé Paty Rocks, una plataforma web para la organización de eventos sociales en México. Conecta organizadores con proveedores de servicios a través de un marketplace integrado.",
@@ -90,8 +90,8 @@ const experiencia = [
     tags: ["TFS", "Microsoft Test Manager", "SQL Server", "MySQL", "Android", "iOS"],
   },
   {
-    puestoEs: "Programador Informático",
-    puestoEn: "Software Developer",
+    puestoEs: "Developer Jr.",
+    puestoEn: "Junior Developer",
     empresa: "BBVA Bancomer",
     periodo: "Sept. 2011 — Feb. 2012",
     descripcionEs: "Programador analista en Centro Bancomer desarrollando sistemas ejecutivos de sucursales con HTML, Javascript, CSS y JSP.",
