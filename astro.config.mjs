@@ -6,7 +6,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://mdlr-portfolio.vercel.app", // ← actualiza con tu URL de Vercel
+  site: "https://mdlr-portfolio.vercel.app",
   vite: {
     plugins: [tailwindcss()],
   },
