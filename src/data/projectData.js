@@ -1,5 +1,6 @@
 import patyRocks from "../assets/img-projects/patyrocks.png";
-import altia from "../assets/img-projects/altia.png";
+import altia from "../assets/img-projects/altia.jpg";
+import neosis from "../assets/img-projects/neosis.png";
 import comicShelf from "../assets/img-projects/comicshelf.jpeg";
 
 export const proyectos = [
@@ -93,14 +94,103 @@ export const proyectos = [
     categoria: "Fullstack",
   },
   {
-    titulo: "Grupo Altia Croudfounding",
+    titulo: "Grupo Altía — Crowdfunding",
     slug: "altia",
     descripcion:
-      "Plataforma de crowdfunding para proyectos sociales y empresariales.",
+      "Plataforma de donativos y crowdfunding con tienda solidaria, pagos y facturación CFDI para una institución de asistencia privada.",
     descripcionEn:
-      "Crowdfunding platform for social and business projects.",
+      "Donation and crowdfunding platform with a solidarity store, payments, and CFDI invoicing for a private assistance institution.",
+    subtitulo: "Grupo Altía — Plataforma de donativos y crowdfunding",
+    subtituloEn: "Grupo Altía — Donation and Crowdfunding Platform",
+    descripcionLarga:
+      "Grupo Altía es una aplicación web para una Institución de Asistencia Privada (IAP) en México. Reúne en un solo lugar la recaudación de donativos para causas sociales, una tienda solidaria (\"Regalos con causa\"), la difusión de historias de impacto e informes de transparencia, y la facturación fiscal (CFDI) — todo administrable desde un panel, sin tocar código.",
+    descripcionLargaEn:
+      "Grupo Altía is a web application for a Private Assistance Institution (IAP) in Mexico. It brings together the collection of donations for social causes, a solidarity store (\"Regalos con causa\"), the sharing of impact stories and transparency reports, and fiscal invoicing (CFDI) — all manageable from a panel, without touching code.",
+    secciones: [
+      {
+        titulo: "Donante",
+        items: [
+          "Explora causas e historias de impacto y realiza un donativo único o recurrente (mensual) sin necesidad de crear cuenta",
+          "Paga con tarjeta o transferencia SPEI a través de Stripe",
+          "Compra \"Regalos con causa\" en la tienda solidaria y da seguimiento a su entrega",
+          "Solicita su recibo de donativo o factura (CFDI) y descarga el PDF/XML al instante",
+        ],
+      },
+      {
+        titulo: "Usuario registrado",
+        items: [
+          "Consulta su historial de donativos y pedidos desde \"Mi cuenta\"",
+          "Descarga sus comprobantes fiscales cuando los necesite",
+          "Gestiona sus donativos recurrentes",
+        ],
+      },
+      {
+        titulo: "Colaborador",
+        items: [
+          "Da seguimiento a los pedidos de la tienda y actualiza su estatus de entrega",
+          "Emite y reenvía facturas (CFDI) de pedidos y donativos según sus permisos",
+        ],
+      },
+      {
+        titulo: "Admin",
+        items: [
+          "Edita toda la landing —secciones, textos, imágenes y galerías— desde un panel, sin programar",
+          "Administra productos, aliados externos, calendario de entregas y testimonios",
+          "Configura los espacios Casa Altía y Salón Altía con galerías e información",
+          "Gestiona usuarios y roles del equipo, y publica los informes anuales de transparencia",
+        ],
+      },
+    ],
+    seccionesEn: [
+      {
+        titulo: "Donor",
+        items: [
+          "Browse causes and impact stories and make a one-time or recurring (monthly) donation without creating an account",
+          "Pay by card or SPEI bank transfer through Stripe",
+          "Shop in the solidarity store (\"Regalos con causa\") and track your delivery",
+          "Request a donation receipt or CFDI invoice and download the PDF/XML instantly",
+        ],
+      },
+      {
+        titulo: "Registered user",
+        items: [
+          "View your donation and order history from \"My account\"",
+          "Download your tax receipts whenever needed",
+          "Manage your recurring donations",
+        ],
+      },
+      {
+        titulo: "Collaborator",
+        items: [
+          "Track store orders and update delivery status",
+          "Issue and resend invoices (CFDI) for orders and donations according to their permissions",
+        ],
+      },
+      {
+        titulo: "Admin",
+        items: [
+          "Edit the entire landing page — sections, text, images, and galleries — from a panel, without coding",
+          "Manage products, external partners, delivery calendar, and testimonials",
+          "Configure Casa Altía and Salón Altía spaces with galleries and information",
+          "Manage team users and roles, and publish annual transparency reports",
+        ],
+      },
+    ],
     imagen: altia.src,
-    tecnologias: [],
+    tecnologias: ["React", "TypeScript", "Vite", "Tailwind CSS", "Back4App", "Node.js", "Stripe", "Facturapi", "Cloudflare Pages"],
+    demo: "https://grupoaltia.org",
+    github: "https://github.com/Umario-chan/altia",
+    categoria: "Fullstack",
+  },
+  {
+    titulo: "Neosis",
+    slug: "neosis",
+    descripcion:
+      "SaaS multi-inquilino de administración escolar para colegios privados: calificaciones, asistencia, boletas y documentos verificables por folio.",
+    descripcionEn:
+      "Multi-tenant school administration SaaS for private schools: grades, attendance, report cards, and folio-verifiable documents.",
+    imagen: neosis.src,
+    tecnologias: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL", "Motion", "Vercel"],
     demo: "",
     categoria: "Fullstack",
     wip: true,
