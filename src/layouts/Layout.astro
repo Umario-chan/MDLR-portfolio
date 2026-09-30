@@ -6,12 +6,77 @@ import Footer from "../components/commons/footer/footer.astro";
 interface Props {
   title?: string;
   description?: string;
+  noindex?: boolean;
+  jsonLd?: unknown;
 }
 
 const {
-  title = "Mario de la Rosa",
-  description = "Portfolio de Mario de la Rosa — Desarrollador Backend, React, Node.js y diseño UX/UI.",
+  title,
+  description = "Portafolio de Mario de la Rosa, desarrollador fullstack en Ciudad de México: proyectos con React, Astro y Node.js, y experiencia en QA Automation.",
+  noindex = false,
+  jsonLd,
 } = Astro.props;
+
+const siteName = "Mario de la Rosa";
+
+// Sin título propio (la portada) se usa el título completo, no "Nombre | Nombre"
+const pageTitle = title
+  ? `${title} | ${siteName}`
+  : "Mario de la Rosa — Desarrollador Fullstack | React, Astro, Node.js";
+
+// Canónica con la misma forma que publica el sitemap (con barra final),
+// para que las URLs de preview de Vercel no compitan con las buenas
+const canonicalPath = Astro.url.pathname.endsWith("/")
+  ? Astro.url.pathname
+  : `${Astro.url.pathname}/`;
+const canonicalURL = new URL(canonicalPath, Astro.site).href;
+const ogImage = new URL("/og-image.png", Astro.site).href;
+
+const identidad = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": new URL("/#website", Astro.site).href,
+      url: new URL("/", Astro.site).href,
+      name: siteName,
+      inLanguage: "es-MX",
+      publisher: { "@id": new URL("/#person", Astro.site).href },
+    },
+    {
+      "@type": "Person",
+      "@id": new URL("/#person", Astro.site).href,
+      name: "Mario de la Rosa",
+      url: new URL("/", Astro.site).href,
+      image: ogImage,
+      jobTitle: "Desarrollador Fullstack",
+      description:
+        "Desarrollador fullstack con experiencia previa en QA Automation. Construye productos de principio a fin, de la base de datos a la interfaz.",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Ciudad de México",
+        addressCountry: "MX",
+      },
+      alumniOf: { "@type": "CollegeOrUniversity", name: "UNIVDEP" },
+      knowsAbout: [
+        "Desarrollo web fullstack",
+        "React",
+        "Astro",
+        "Node.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "WordPress",
+        "Back4App",
+        "QA Automation",
+        "Cypress",
+      ],
+      sameAs: [
+        "https://www.linkedin.com/in/mdlr89/",
+        "https://github.com/Umario-chan",
+      ],
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -22,28 +87,34 @@ const {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Mario de la Rosa" />
-    <meta property="og:title" content={`${title} | Mario de la Rosa`} />
+    <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={Astro.url.href} />
-    <meta property="og:image" content={new URL("/og-image.png", Astro.site).href} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content="Portafolio de Mario de la Rosa, desarrollador fullstack" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="es_MX" />
 
     <!-- Twitter / X Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={`${title} | Mario de la Rosa`} />
+    <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={new URL("/og-image.png", Astro.site).href} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content="Portafolio de Mario de la Rosa, desarrollador fullstack" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
     <meta name="theme-color" content="#ffffff" />
-    <title>{title} | Mario de la Rosa</title>
+    <title>{pageTitle}</title>
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(identidad)} />
+    {jsonLd && <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />}
     <script is:inline>
       (function() {
         var lang = localStorage.getItem('lang') || 'es';

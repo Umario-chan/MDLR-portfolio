@@ -10,6 +10,10 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  integrations: [react(), sitemap()],
+  integrations: [
+    react(),
+    // El CV es noindex: no tiene sentido anunciarlo en el sitemap
+    sitemap({ filter: (page) => !page.includes("/cv") }),
+  ],
   devToolbar: { enabled: false },
 });

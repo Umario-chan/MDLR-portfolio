@@ -2,6 +2,8 @@ import patyRocks from "../assets/img-projects/patyrocks.png";
 import altia from "../assets/img-projects/altia.jpg";
 import neosis from "../assets/img-projects/neosis.png";
 import comicShelf from "../assets/img-projects/comicshelf.jpeg";
+import semiologia from "../assets/img-projects/semiologia.jpg";
+import novagenic from "../assets/img-projects/novagenic.jpg";
 
 export const proyectos = [
   {
@@ -181,6 +183,208 @@ export const proyectos = [
     demo: "https://grupoaltia.org",
     github: "https://github.com/Umario-chan/altia",
     categoria: "Fullstack",
+  },
+  {
+    titulo: "Semiología de la Vida Cotidiana® — 3 sitios",
+    slug: "semiologia",
+    descripcion:
+      "Migración de tres sitios hermanos de WordPress heredado a temas de bloques editables, conservando diseño, contenido y posicionamiento.",
+    descripcionEn:
+      "Migration of three sibling sites from legacy WordPress to editable block themes, preserving design, content, and search rankings.",
+    subtitulo: "Semiología de la Vida Cotidiana® — Ecosistema de tres sitios en WordPress",
+    subtituloEn: "Semiología de la Vida Cotidiana® — A three-site WordPress ecosystem",
+    descripcionLarga:
+      "Tres sitios de la misma marca —el instituto, su colegio y el sitio del fundador— vivían en WordPress sobre constructores visuales heredados (Gantry5, Elementor, Phlox Pro, JetEngine) que el equipo ya no podía mantener. Los reconstruí por completo y los devolví a WordPress como temas de bloques (Full Site Editing): el mismo diseño, el mismo contenido y las mismas direcciones, pero ahora cada texto, imagen y sección se edita desde el editor nativo, sin tocar código ni depender de un constructor de pago.",
+    descripcionLargaEn:
+      "Three sites under the same brand —the institute, its college, and the founder's own site— ran on WordPress atop inherited page builders (Gantry5, Elementor, Phlox Pro, JetEngine) the team could no longer maintain. I rebuilt all three from scratch and brought them back to WordPress as block themes (Full Site Editing): same design, same content, same URLs, but now every text, image, and section is edited from the native editor, with no code and no paid page builder.",
+    sitios: [
+      {
+        nombre: "Semiología de la Vida Cotidiana",
+        dominio: "semiologia.net",
+        descripcion:
+          "El sitio del instituto: cursos presenciales y en línea, entrevistas, calendario de actividades y un blog de 23 artículos, la mayoría con audio narrado.",
+      },
+      {
+        nombre: "Colegio de Consultores y Comunicadores",
+        dominio: "colegiodesemiologia.net",
+        descripcion:
+          "El sitio académico: estructura del plan de estudios, asignaturas vigentes, calendarios por generación, agenda de asesorías e inscripciones con pago en línea.",
+      },
+      {
+        nombre: "Alfonso Ruiz Soto®",
+        dominio: "alfonsoruizsoto.com",
+        descripcion:
+          "El sitio del fundador: 12 cursos con temario y pago en línea, 20 testimonios, 13 entrevistas, boletines y los programas de capacitación empresarial.",
+      },
+    ],
+    sitiosEn: [
+      {
+        nombre: "Semiología de la Vida Cotidiana",
+        dominio: "semiologia.net",
+        descripcion:
+          "The institute's site: in-person and online courses, interviews, an events calendar, and a 23-article blog, most of them with narrated audio.",
+      },
+      {
+        nombre: "Colegio de Consultores y Comunicadores",
+        dominio: "colegiodesemiologia.net",
+        descripcion:
+          "The academic site: curriculum structure, current subjects, per-cohort calendars, advisory scheduling, and enrollment with online payment.",
+      },
+      {
+        nombre: "Alfonso Ruiz Soto®",
+        dominio: "alfonsoruizsoto.com",
+        descripcion:
+          "The founder's site: 12 courses with syllabus and online payment, 20 testimonials, 13 interviews, newsletters, and corporate training programs.",
+      },
+    ],
+    seccionesTitulo: "El trabajo",
+    seccionesTituloEn: "The work",
+    secciones: [
+      {
+        titulo: "La migración",
+        items: [
+          "Analizador propio de HTML a bloques del núcleo de WordPress, sin dependencias, probado contra miles de elementos de las páginas originales",
+          "El sistema de diseño vive en theme.json: cualquier página nueva nace con los colores, las tipografías y los espaciados del sitio",
+          "Importador en PHP idempotente: se puede correr las veces que haga falta sin duplicar páginas ni fichas",
+          "Los iconos van como máscaras CSS, porque el editor los borra cuando viajan como SVG dentro del texto",
+        ],
+      },
+      {
+        titulo: "Editable de verdad",
+        items: [
+          "99,8 % de los bloques del Colegio y 96,8 % de los de Alfonso Ruiz se editan desde el editor nativo, no desde el código",
+          "Cursos, testimonios y entrevistas dejaron de vivir en el código: son fichas de WordPress con su propia entrada en el escritorio",
+          "Lo que se guarda es, carácter por carácter, lo que WordPress dibujaría: un atributo de más y el bloque deja de poder editarse",
+          "Cada sitio lleva sus manuales de uso instalados dentro, visibles sólo para quien lo administra",
+        ],
+      },
+      {
+        titulo: "Contenido y posicionamiento",
+        items: [
+          "Inventario completo de las direcciones del sitio anterior y redirecciones 301 comprobadas, para no perder el posicionamiento ganado",
+          "SEO por página: título, descripción, imagen para compartir, datos estructurados schema.org y sitemap con la fecha real de cada cambio",
+          "Imágenes servidas en .webp con las medidas exactas a las que se muestran, y los originales conservados como maestros",
+        ],
+      },
+    ],
+    seccionesEn: [
+      {
+        titulo: "The migration",
+        items: [
+          "Custom HTML-to-core-blocks parser, dependency-free, tested against thousands of elements from the original pages",
+          "The design system lives in theme.json, so any new page is born with the site's colors, typography, and spacing",
+          "Idempotent PHP importer: it can be run as many times as needed without duplicating pages or entries",
+          "Icons ship as CSS masks, because the editor strips them when they travel as inline SVG inside text",
+        ],
+      },
+      {
+        titulo: "Genuinely editable",
+        items: [
+          "99.8% of the College's blocks and 96.8% of Alfonso Ruiz's are editable from the native editor, not from code",
+          "Courses, testimonials, and interviews no longer live in code: they are WordPress entries with their own dashboard section",
+          "What gets saved is, character for character, what WordPress would render: one extra attribute and the block stops being editable",
+          "Each site ships with its own usage manuals installed inside, visible only to whoever administers it",
+        ],
+      },
+      {
+        titulo: "Content and search rankings",
+        items: [
+          "Full inventory of the previous site's URLs and verified 301 redirects, so no earned search ranking is lost",
+          "Per-page SEO: title, description, share image, schema.org structured data, and a sitemap with each page's real change date",
+          "Images served as .webp at the exact dimensions they are displayed, with the originals kept as masters",
+        ],
+      },
+    ],
+    imagen: semiologia.src,
+    tecnologias: ["WordPress", "Full Site Editing", "PHP", "Astro", "Node.js", "JavaScript", "CSS", "SEO"],
+    demo: "",
+    categoria: "Fullstack",
+    estado: "Migración terminada. Pendiente de salir a producción.",
+    estadoEn: "Migration complete. Pending production launch.",
+  },
+  {
+    titulo: "Novagenic — Farmacogenética clínica",
+    slug: "novagenic",
+    descripcion:
+      "Sistema clínico de tres roles que convierte la corrida del laboratorio en reportes de farmacogenética por paciente, con recomendaciones CPIC y fenoconversión por co-medicación.",
+    descripcionEn:
+      "Three-role clinical system that turns a lab run into per-patient pharmacogenomics reports, with CPIC recommendations and co-medication phenoconversion.",
+    subtitulo: "Novagenic Clínica — Del Excel del laboratorio al reporte del paciente",
+    subtituloEn: "Novagenic Clínica — From the lab's spreadsheet to the patient's report",
+    descripcionLarga:
+      "El laboratorio entrega la corrida del chip como una hoja de cálculo: decenas de muestras por cientos de SNPs, sin nombres y sin interpretación. Novagenic Clínica convierte eso en un reporte que un médico puede leer: llama los diplotipos de cada gen, consulta el fenotipo y las recomendaciones de las guías CPIC, y ajusta el resultado según los medicamentos que el paciente ya toma. Antes de esto, el rediseño partió de una auditoría técnica completa de la plataforma anterior y de un prototipo funcional de 20 pantallas.",
+    descripcionLargaEn:
+      "The lab delivers the chip run as a spreadsheet: dozens of samples across hundreds of SNPs, with no names and no interpretation. Novagenic Clínica turns that into a report a physician can read: it calls each gene's diplotypes, looks up the phenotype and recommendations from the CPIC guidelines, and adjusts the result for the medication the patient is already taking. The redesign began with a full technical audit of the previous platform and a working 20-screen prototype.",
+    seccionesTitulo: "Cómo funciona",
+    seccionesTituloEn: "How it works",
+    secciones: [
+      {
+        titulo: "Doctor",
+        items: [
+          "Sube el Excel de la corrida y el parser detecta las columnas de muestra, lee genotipos por rsID y valida la estructura",
+          "Asigna cada muestra a un paciente en una pantalla de mapeo obligatoria: sin vínculo confirmado no hay reporte",
+          "Captura y confirma la medicación actual, con reconocimiento de nombres comerciales del mercado mexicano",
+          "Genera el reporte, lo consulta en pantalla y lo descarga en PDF con sus advertencias y la versión de las tablas usadas",
+          "Consulta de prescripción: pregunta por un fármaco que el paciente aún no toma y ve el resultado antes de recetarlo",
+        ],
+      },
+      {
+        titulo: "Paciente y administrador",
+        items: [
+          "El paciente entra con su propia cuenta y ve únicamente su reporte y su PDF",
+          "El administrador gestiona doctores, pacientes y administradores, con buscador, paginación y exportación",
+          "Reasignación masiva de los pacientes de un doctor y borrado de corridas de laboratorio",
+          "Aislamiento entre roles probado: un paciente no lee reportes ajenos y un doctor no ve pacientes de otro",
+        ],
+      },
+      {
+        titulo: "El motor científico",
+        items: [
+          "Base de conocimiento CPIC/ClinPGx precompilada a JSON versionado: 68 SNPs, 37 farmacogenes y sus recomendaciones",
+          "Llamado de alelos con las definiciones de CPIC acotadas al panel, incluido el intento en hebra complementaria con su bandera",
+          "Fenoconversión: la co-medicación cruzada contra la tabla de inhibidores e inductores de la FDA ajusta el fenotipo",
+          "Catálogo de 239 fármacos y 587 nombres reconocidos, marcas comerciales de México incluidas",
+          "Limitaciones impresas en el propio reporte: panel dirigido sin CNV, ambigüedad de hebra y llamado por SNP clave",
+        ],
+      },
+    ],
+    seccionesEn: [
+      {
+        titulo: "Physician",
+        items: [
+          "Uploads the run's spreadsheet; the parser detects sample columns, reads genotypes by rsID, and validates the structure",
+          "Assigns each sample to a patient on a mandatory mapping screen: no confirmed link, no report",
+          "Records and confirms current medication, with brand-name recognition for the Mexican market",
+          "Generates the report, reviews it on screen, and downloads a PDF with its disclaimers and the version of the tables used",
+          "Prescription lookup: asks about a drug the patient is not yet taking and sees the result before prescribing it",
+        ],
+      },
+      {
+        titulo: "Patient and administrator",
+        items: [
+          "The patient signs in with their own account and sees only their report and PDF",
+          "The administrator manages physicians, patients, and admins, with search, pagination, and export",
+          "Bulk reassignment of a physician's patients and deletion of lab runs",
+          "Role isolation verified: a patient cannot read others' reports and a physician cannot see another's patients",
+        ],
+      },
+      {
+        titulo: "The scientific engine",
+        items: [
+          "CPIC/ClinPGx knowledge base precompiled into versioned JSON: 68 SNPs, 37 pharmacogenes, and their recommendations",
+          "Allele calling with CPIC definitions scoped to the panel, including a complementary-strand attempt with its own flag",
+          "Phenoconversion: co-medication cross-referenced against the FDA inhibitor and inducer table adjusts the phenotype",
+          "Catalog of 239 drugs and 587 recognized names, Mexican brand names included",
+          "Limitations printed in the report itself: targeted panel without CNV, strand ambiguity, and key-SNP calling",
+        ],
+      },
+    ],
+    imagen: novagenic.src,
+    tecnologias: ["JavaScript", "HTML5", "CSS3", "Back4App", "Parse Server", "Node.js", "Python", "Vercel"],
+    demo: "",
+    categoria: "Fullstack",
+    estado: "Prototipo funcional. Contenido clínico en borrador, pendiente de validación médica.",
+    estadoEn: "Working prototype. Clinical content is a draft, pending medical validation.",
   },
   {
     titulo: "Neosis",

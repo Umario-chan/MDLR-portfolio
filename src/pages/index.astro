@@ -5,9 +5,23 @@ import AboutHome from "../components/home/aboutHome/aboutHome.astro";
 import HomeProyect from "../components/home/homeProyect/homeProyect.astro";
 import FAQS from "../components/home/faqs/faqs.jsx";
 import Banner from "../components/commons/banners/banner.astro";
+import { faqs } from "../data/faqData.js";
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.questionEs,
+    acceptedAnswer: { "@type": "Answer", text: f.answerEs },
+  })),
+};
 ---
 
-<Layout>
+<Layout
+  description="Mario de la Rosa, desarrollador fullstack en Ciudad de México. Proyectos con React, Astro, Node.js y WordPress, y experiencia previa en QA Automation."
+  jsonLd={faqSchema}
+>
   <Header />
   <AboutHome />
   <HomeProyect />

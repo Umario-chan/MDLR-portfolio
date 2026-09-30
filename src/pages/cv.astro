@@ -1,5 +1,16 @@
 ---
 // Página standalone de CV — sin Layout ni imports de CSS globales
+import { experiencia, educacion } from "../data/experienceData.js";
+
+// El CV usa la versión condensada de cada puesto si existe (ver experienceData.js)
+const puestos = experiencia.map((p) => ({
+  titulo: p.puestoEs,
+  empresa: p.empresa,
+  periodo: p.periodo,
+  descripcion: p.cv?.descripcion ?? p.descripcionEs,
+  items: p.cv?.items ?? p.itemsEs,
+  tags: p.cv?.tags ?? p.tags,
+}));
 ---
 
 <!doctype html>
@@ -86,100 +97,25 @@
       <div class="section">
         <p class="section-title">Experiencia laboral</p>
 
-        <div class="job">
-          <div class="job-header">
-            <div><div class="job-title">Lead Developer</div><div class="job-company">Grupo Altía — Crowdfunding</div></div>
-            <div class="job-period">Jul. 2026 — Ago. 2026</div>
+        {puestos.map((p) => (
+          <div class="job">
+            <div class="job-header">
+              <div><div class="job-title">{p.titulo}</div><div class="job-company">{p.empresa}</div></div>
+              <div class="job-period">{p.periodo}</div>
+            </div>
+            <p class="job-desc">{p.descripcion}</p>
+            {p.items.length > 0 && (
+              <ul class="job-items">
+                {p.items.map((it) => <li>{it}</li>)}
+              </ul>
+            )}
+            {p.tags.length > 0 && (
+              <div class="tags">
+                {p.tags.map((t) => <span class="tag">{t}</span>)}
+              </div>
+            )}
           </div>
-          <p class="job-desc">Diseñé y desarrollé la plataforma digital de Grupo Altía IAP, integrando donativos recurrentes, tienda solidaria, facturación CFDI y panel de administración sin código.</p>
-          <ul class="job-items">
-            <li>Plataforma de donativos únicos y recurrentes con pagos por Stripe y SPEI</li>
-            <li>Tienda solidaria "Regalos con causa" con seguimiento de pedidos y entregas</li>
-            <li>Facturación fiscal (CFDI) automática vía Facturapi — PDF y XML descargables al instante</li>
-            <li>Panel de administración sin código para editar landing, productos, aliados y galería</li>
-            <li>Multi-rol: donante, usuario registrado, colaborador y administrador</li>
-          </ul>
-          <div class="tags">
-            <span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Vite</span>
-            <span class="tag">Tailwind CSS</span><span class="tag">Back4App</span><span class="tag">Node.js</span>
-            <span class="tag">Stripe</span><span class="tag">Facturapi</span><span class="tag">Cloudflare Pages</span>
-          </div>
-        </div>
-
-        <div class="job">
-          <div class="job-header">
-            <div><div class="job-title">Lead Developer</div><div class="job-company">Paty Rocks</div></div>
-            <div class="job-period">Feb. 2026 — Presente</div>
-          </div>
-          <p class="job-desc">Diseñé y desarrollé Paty Rocks, plataforma web para organización de eventos sociales en México con marketplace integrado de proveedores.</p>
-          <ul class="job-items">
-            <li>Marketplace de proveedores con productos, paquetes y cotizaciones personalizadas</li>
-            <li>Sistema de invitaciones digitales con RSVP, seguimiento de asistencia y control de aforo</li>
-            <li>Pagos con Stripe: pagos únicos y pagos divididos entre invitados</li>
-            <li>Notificaciones automáticas por WhatsApp y email en hitos clave del evento</li>
-            <li>Arquitectura multi-rol: organizador, invitado, proveedor y administrador</li>
-          </ul>
-          <div class="tags">
-            <span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Vite</span>
-            <span class="tag">Back4App</span><span class="tag">Stripe</span><span class="tag">SendPulse</span><span class="tag">TailwindCSS</span>
-          </div>
-        </div>
-
-        <div class="job">
-          <div class="job-header">
-            <div><div class="job-title">QA Lead</div><div class="job-company">Moons · Futuralabs</div></div>
-            <div class="job-period">Sept. 2021 — Sept. 2025</div>
-          </div>
-          <p class="job-desc">Lideré la estrategia de QA en múltiples sistemas, mejorando la eficiencia de gestión de pruebas mediante herramientas open-source y optimizadas en costo.</p>
-          <ul class="job-items">
-            <li>Gestión centralizada de casos de prueba con Qase, estandarizando procesos entre equipos</li>
-            <li>Automatización con Cypress y herramientas asistidas por IA (Testcraft)</li>
-            <li>Pruebas de API con Postman integradas en pipelines CI/CD</li>
-            <li>Coordinación QA–Dev con metodologías ágiles y Trello</li>
-          </ul>
-          <div class="tags">
-            <span class="tag">Cypress</span><span class="tag">Qase</span><span class="tag">Postman</span>
-            <span class="tag">Testcraft</span><span class="tag">Scrum</span><span class="tag">Trello</span>
-          </div>
-        </div>
-
-        <div class="job">
-          <div class="job-header">
-            <div><div class="job-title">Senior Software Tester</div><div class="job-company">GNP Seguros</div></div>
-            <div class="job-period">May. 2017 — Nov. 2022</div>
-          </div>
-          <p class="job-desc">Pruebas funcionales, de regresión y usabilidad para aplicaciones enterprise de seguros. Equipos Agile, entregas de alta calidad.</p>
-          <ul class="job-items">
-            <li>Gestión del ciclo de vida de defectos y documentación para release cycles estructurados</li>
-            <li>Mejoras de proceso que aumentaron la cobertura y trazabilidad de pruebas</li>
-          </ul>
-        </div>
-
-        <div class="job">
-          <div class="job-header">
-            <div><div class="job-title">Software QA Tester</div><div class="job-company">Extend Solutions SA de CV</div></div>
-            <div class="job-period">Mar. 2012 — Feb. 2017</div>
-          </div>
-          <p class="job-desc">Diseñé y ejecuté matrices de prueba con TFS. Impartí capacitaciones de QA a clientes empresariales (Estafeta, Fundación Dondé).</p>
-          <ul class="job-items">
-            <li>Seguimiento de defectos con Microsoft Test Manager</li>
-            <li>UAT, validación de bases de datos (SQL Server, MySQL) y pruebas móviles (Android &amp; iOS)</li>
-          </ul>
-          <div class="tags">
-            <span class="tag">TFS</span><span class="tag">Microsoft Test Manager</span><span class="tag">SQL Server</span><span class="tag">MySQL</span>
-          </div>
-        </div>
-
-        <div class="job">
-          <div class="job-header">
-            <div><div class="job-title">Developer Jr.</div><div class="job-company">BBVA Bancomer</div></div>
-            <div class="job-period">Sept. 2011 — Feb. 2012</div>
-          </div>
-          <p class="job-desc">Programador analista en Centro Bancomer desarrollando sistemas ejecutivos de sucursales con HTML, Javascript, CSS y JSP.</p>
-          <div class="tags">
-            <span class="tag">HTML</span><span class="tag">JavaScript</span><span class="tag">CSS</span><span class="tag">JSP</span>
-          </div>
-        </div>
+        ))}
       </div>
 
       <div class="section">
@@ -206,20 +142,15 @@
 
       <div class="section">
         <p class="section-title">Educación y certificaciones</p>
-        <div class="edu-item">
-          <div class="edu-header">
-            <div><div class="edu-title">Ing. en Sistemas Computacionales</div><div class="edu-inst">UNIVDEP</div></div>
-            <div class="edu-period">2007 — 2011</div>
+        {educacion.map((e) => (
+          <div class="edu-item">
+            <div class="edu-header">
+              <div><div class="edu-title">{e.tituloEs}</div><div class="edu-inst">{e.institucion}</div></div>
+              <div class="edu-period">{e.periodo}</div>
+            </div>
+            {e.notaCv && <p class="edu-note">{e.notaCv}</p>}
           </div>
-          <p class="edu-note">Cédula Profesional: 7453612</p>
-        </div>
-        <div class="edu-item">
-          <div class="edu-header">
-            <div><div class="edu-title">ISTQB Foundation Level</div><div class="edu-inst">ISTQB</div></div>
-            <div class="edu-period">2021</div>
-          </div>
-          <p class="edu-note">Certificate No. 15-CTFL-69117-03</p>
-        </div>
+        ))}
       </div>
 
       <div class="section">
@@ -227,6 +158,7 @@
         <div class="skills-grid">
           <span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">JavaScript</span>
           <span class="tag">Node.js</span><span class="tag">Astro</span><span class="tag">Vite</span>
+          <span class="tag">WordPress</span><span class="tag">PHP</span>
           <span class="tag">Tailwind CSS</span><span class="tag">SASS</span><span class="tag">HTML5</span><span class="tag">CSS3</span>
           <span class="tag">Cypress</span><span class="tag">Qase</span><span class="tag">Postman</span><span class="tag">Testcraft</span>
           <span class="tag">Back4App</span><span class="tag">MongoDB</span><span class="tag">Stripe</span><span class="tag">Facturapi</span><span class="tag">SendPulse</span>
