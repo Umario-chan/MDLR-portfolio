@@ -300,8 +300,6 @@ export const proyectos = [
     tecnologias: ["WordPress", "Full Site Editing", "PHP", "Astro", "Node.js", "JavaScript", "CSS", "SEO"],
     demo: "",
     categoria: "Fullstack",
-    estado: "Migración terminada. Pendiente de salir a producción.",
-    estadoEn: "Migration complete. Pending production launch.",
   },
   {
     titulo: "Novagenic — Farmacogenética clínica",

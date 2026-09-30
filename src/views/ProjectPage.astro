@@ -104,7 +104,15 @@ const { imagen, tecnologias, demo, github, categoria, wip } = proyecto;
                     {sitios.map((sitio) => (
                       <div class="rounded-xl border border-gray-200 p-4">
                         <p class="text-sm font-bold text-gray-800">{sitio.nombre}</p>
-                        <p class="text-xs font-medium text-[#1a6fec] mb-2">{sitio.dominio}</p>
+                        <a
+                          href={`https://${sitio.dominio}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="inline-flex items-center gap-1 text-xs font-medium text-[#1a6fec] hover:underline mb-2"
+                        >
+                          {sitio.dominio}
+                          <HiArrowUpRight size={11} />
+                        </a>
                         <p class="text-sm text-gray-600 leading-relaxed">{sitio.descripcion}</p>
                       </div>
                     ))}
