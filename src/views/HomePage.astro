@@ -1,0 +1,37 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/home/header/header.astro";
+import AboutHome from "../components/home/aboutHome/aboutHome.astro";
+import HomeProyect from "../components/home/homeProyect/homeProyect.astro";
+import FAQS from "../components/home/faqs/faqs.jsx";
+import Banner from "../components/commons/banners/banner.astro";
+import { faqs } from "../data/faqData.js";
+import { getLangFromPath, translator } from "../i18n";
+
+const lang = getLangFromPath(Astro.url.pathname);
+const t = translator(lang);
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: t(f.questionEs, f.questionEn),
+    acceptedAnswer: { "@type": "Answer", text: t(f.answerEs, f.answerEn) },
+  })),
+};
+---
+
+<Layout
+  description={t(
+    "Mario de la Rosa, desarrollador fullstack en Ciudad de México. Proyectos con React, Astro, Node.js y WordPress, y experiencia previa en QA Automation.",
+    "Mario de la Rosa, fullstack developer in Mexico City. Projects built with React, Astro, Node.js, and WordPress, with a background in QA Automation."
+  )}
+  jsonLd={faqSchema}
+>
+  <Header />
+  <AboutHome />
+  <HomeProyect />
+  <FAQS lang={lang} client:visible />
+  <Banner />
+</Layout>

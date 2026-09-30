@@ -5,17 +5,14 @@ export interface Props {
   border?: boolean;
   compact?: boolean;
 }
+import { getLangFromPath } from "../../../i18n";
+
 const { titulo, tituloEn, border = true, compact = false } = Astro.props;
+const lang = getLangFromPath(Astro.url.pathname);
+const heading = lang === "en" && tituloEn ? tituloEn : titulo;
 ---
 
 <section class={`mt-[72px] bg-white px-6 text-center${border ? " border-b border-gray-200" : ""}${compact ? " pt-12 pb-6" : " py-16"}`}>
   <p class="text-xs font-semibold tracking-[0.2em] uppercase text-[#1a6fec] mb-3">Portfolio</p>
-  {tituloEn ? (
-    <h1 class="text-4xl md:text-6xl font-bold text-gray-900">
-      <span class="lang-es">{titulo}</span>
-      <span class="lang-en">{tituloEn}</span>
-    </h1>
-  ) : (
-    <h1 class="text-4xl md:text-6xl font-bold text-gray-900">{titulo}</h1>
-  )}
+  <h1 class="text-4xl md:text-6xl font-bold text-gray-900">{heading}</h1>
 </section>

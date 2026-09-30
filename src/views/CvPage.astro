@@ -1,0 +1,201 @@
+---
+// Página standalone de CV — sin Layout ni imports de CSS globales
+import { experiencia, educacion } from "../data/experienceData.js";
+import { getAlternatePath, getLangFromPath, locales, translator } from "../i18n";
+import langRedirect from "../i18n/lang-redirect.js?raw";
+
+const lang = getLangFromPath(Astro.url.pathname);
+const t = translator(lang);
+const alternates = {
+  es: getAlternatePath(Astro.url.pathname, "es"),
+  en: getAlternatePath(Astro.url.pathname, "en"),
+};
+
+// El CV usa la versión condensada de cada puesto si existe (ver experienceData.js)
+const puestos = experiencia.map((p) => ({
+  titulo: t(p.puestoEs, p.puestoEn),
+  empresa: p.empresa,
+  periodo: t(p.periodo, p.periodoEn),
+  descripcion: p.cv?.[lang]?.descripcion ?? t(p.descripcionEs, p.descripcionEn),
+  items: p.cv?.[lang]?.items ?? t(p.itemsEs, p.itemsEn),
+  tags: p.cv?.tags ?? t(p.tags, p.tagsEn ?? p.tags),
+}));
+
+const proyectosCv = [
+  {
+    titulo: "Grupo Altía — Crowdfunding",
+    url: "grupoaltia.org",
+    descripcion: t(
+      "Plataforma de donativos y crowdfunding con tienda solidaria, pagos con Stripe/SPEI, facturación CFDI y panel de administración sin código para una IAP en México.",
+      "Donation and crowdfunding platform with a solidarity store, Stripe/SPEI payments, CFDI invoicing, and a no-code admin panel for a private assistance institution (IAP) in Mexico."
+    ),
+  },
+  {
+    titulo: "Paty Rocks",
+    url: "patyrocks.com",
+    descripcion: t(
+      "Plataforma web para la organización de eventos sociales en México con marketplace de proveedores, sistema de invitaciones digitales y pagos en línea.",
+      "Web platform for organizing social events in Mexico with a provider marketplace, digital invitations, and online payments."
+    ),
+  },
+  {
+    titulo: "ComicShelf",
+    url: "github.com/Umario-chan/comicshelf",
+    descripcion: t(
+      "App Android para leer cómics digitales (.cbz, .cbr, .pdf) directamente desde el almacenamiento del dispositivo. Sin servidor, sin nube, sin cuenta.",
+      "Android app for reading digital comics (.cbz, .cbr, .pdf) straight from device storage. No server, no cloud, no account."
+    ),
+  },
+];
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="robots" content="noindex" />
+    <link rel="alternate" hreflang={locales.es} href={new URL(alternates.es!, Astro.site).href} />
+    <link rel="alternate" hreflang={locales.en} href={new URL(alternates.en!, Astro.site).href} />
+    <script is:inline set:html={langRedirect} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <title>CV — Mario de la Rosa</title>
+    <style>
+      * { font-family: 'Outfit', sans-serif; box-sizing: border-box; }
+      body { background: white; color: #111; margin: 0; padding: 0; }
+      .cv { max-width: 780px; margin: 0 auto; padding: 48px 40px; }
+
+      .print-btn {
+        position: fixed; top: 16px; right: 16px;
+        background: #1a6fec; color: white; border: none;
+        padding: 10px 20px; border-radius: 999px;
+        font-size: 13px; font-weight: 600; cursor: pointer;
+        font-family: 'Outfit', sans-serif;
+        box-shadow: 0 2px 8px rgba(26,111,236,0.3);
+        transition: background 0.2s;
+      }
+      .print-btn:hover { background: #1255c4; }
+
+      .cv-header { border-bottom: 2px solid #1a6fec; padding-bottom: 20px; margin-bottom: 28px; }
+      .name { font-size: 36px; font-weight: 800; letter-spacing: -0.03em; color: #0f172a; margin: 0 0 4px; }
+      .role { font-size: 16px; font-weight: 600; color: #1a6fec; margin: 0 0 12px; }
+      .contacts { display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: 13px; color: #475569; }
+      .contacts a { color: #475569; text-decoration: none; }
+
+      .section-title { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+           color: #1a6fec; margin: 0 0 14px; padding-bottom: 6px; border-bottom: 1px solid #e2e8f0; }
+
+      .section { margin-bottom: 26px; }
+
+      .job { margin-bottom: 18px; }
+      .job-header { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+      .job-title { font-size: 14px; font-weight: 700; color: #0f172a; }
+      .job-company { font-size: 13px; font-weight: 600; color: #1a6fec; }
+      .job-period { font-size: 12px; color: #94a3b8; white-space: nowrap; }
+      .job-desc { font-size: 13px; color: #475569; margin: 4px 0 6px; line-height: 1.55; }
+      .job-items { margin: 0; padding-left: 16px; }
+      .job-items li { font-size: 12px; color: #475569; margin-bottom: 3px; line-height: 1.5; }
+      .tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+      .tag { font-size: 11px; background: #f1f5f9; color: #475569; padding: 2px 8px; border-radius: 999px; font-weight: 500; }
+
+      .edu-item { margin-bottom: 14px; }
+      .edu-header { display: flex; justify-content: space-between; align-items: baseline; }
+      .edu-title { font-size: 14px; font-weight: 700; color: #0f172a; }
+      .edu-inst { font-size: 13px; color: #64748b; }
+      .edu-period { font-size: 12px; color: #94a3b8; }
+      .edu-note { font-size: 12px; color: #64748b; margin-top: 2px; }
+
+      .skills-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+
+      @media print {
+        .print-btn { display: none; }
+        body { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+        .cv { padding: 24px 20px; }
+        @page { margin: 16mm 14mm; size: A4; }
+      }
+    </style>
+  </head>
+  <body>
+    <button class="print-btn" onclick="window.print()">{t("⬇ Guardar como PDF", "⬇ Save as PDF")}</button>
+
+    <div class="cv">
+
+      <div class="cv-header">
+        <p class="name">Mario de la Rosa</p>
+        <p class="role">Full Stack Developer · QA Automation</p>
+        <div class="contacts">
+          <a href="mailto:mario.delarosa@live.com.mx">mario.delarosa@live.com.mx</a>
+          <a href="https://www.linkedin.com/in/mdlr89/" target="_blank">linkedin.com/in/mdlr89</a>
+          <a href="https://wa.me/525529044570" target="_blank">+52 55 2904 4570</a>
+          <span>{t("Ciudad de México, México", "Mexico City, Mexico")}</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <p class="section-title">{t("Experiencia laboral", "Work experience")}</p>
+
+        {puestos.map((p) => (
+          <div class="job">
+            <div class="job-header">
+              <div><div class="job-title">{p.titulo}</div><div class="job-company">{p.empresa}</div></div>
+              <div class="job-period">{p.periodo}</div>
+            </div>
+            <p class="job-desc">{p.descripcion}</p>
+            {p.items.length > 0 && (
+              <ul class="job-items">
+                {p.items.map((it) => <li>{it}</li>)}
+              </ul>
+            )}
+            {p.tags.length > 0 && (
+              <div class="tags">
+                {p.tags.map((t) => <span class="tag">{t}</span>)}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+
+      <div class="section">
+        <p class="section-title">{t("Proyectos destacados", "Featured projects")}</p>
+        {proyectosCv.map((p) => (
+          <div class="job">
+            <div class="job-header">
+              <div><div class="job-title">{p.titulo}</div><div class="job-company" style="color:#475569">{p.url}</div></div>
+            </div>
+            <p class="job-desc">{p.descripcion}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="section">
+        <p class="section-title">{t("Educación y certificaciones", "Education & certifications")}</p>
+        {educacion.map((e) => (
+          <div class="edu-item">
+            <div class="edu-header">
+              <div><div class="edu-title">{t(e.tituloEs, e.tituloEn)}</div><div class="edu-inst">{e.institucion}</div></div>
+              <div class="edu-period">{e.periodo}</div>
+            </div>
+            {e.notaCv && <p class="edu-note">{e.notaCv[lang]}</p>}
+          </div>
+        ))}
+      </div>
+
+      <div class="section">
+        <p class="section-title">{t("Tecnologías", "Technologies")}</p>
+        <div class="skills-grid">
+          <span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">JavaScript</span>
+          <span class="tag">Node.js</span><span class="tag">Astro</span><span class="tag">Vite</span>
+          <span class="tag">WordPress</span><span class="tag">PHP</span>
+          <span class="tag">Tailwind CSS</span><span class="tag">SASS</span><span class="tag">HTML5</span><span class="tag">CSS3</span>
+          <span class="tag">Cypress</span><span class="tag">Qase</span><span class="tag">Postman</span><span class="tag">Testcraft</span>
+          <span class="tag">Back4App</span><span class="tag">MongoDB</span><span class="tag">Stripe</span><span class="tag">Facturapi</span><span class="tag">SendPulse</span>
+          <span class="tag">Supabase</span><span class="tag">PostgreSQL</span><span class="tag">Cloudflare Pages</span>
+          <span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Scrum</span><span class="tag">Kanban</span><span class="tag">Figma</span>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>

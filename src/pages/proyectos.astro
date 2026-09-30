@@ -1,37 +1,5 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Hero from "../components/commons/hero/hero.astro";
-import ProjectCard from "../components/project/proyectCard.astro";
-import Banner from "../components/commons/banners/banner.astro";
-import { proyectos } from "../data/projectData.js";
+import ProjectsPage from "../views/ProjectsPage.astro";
 ---
 
-<Layout
-  title="Proyectos"
-  description="Proyectos de Mario de la Rosa: plataformas de eventos y donativos, farmacogenética clínica, migraciones a WordPress y apps móviles, con React, Astro, Node.js y Back4App."
->
-  <Hero titulo="Proyectos" tituloEn="Projects" />
-
-  <div
-    id="projects-container"
-    class="4xl:px-96 flex flex-wrap justify-center gap-5 px-3 pt-2 xl:px-32 2xl:px-60"
-  >
-    {
-      proyectos.map((proyecto, index) => (
-        <ProjectCard
-          index={index}
-          titulo={proyecto.titulo}
-          descripcion={proyecto.descripcion}
-          imagen={proyecto.imagen}
-          tecnologias={proyecto.tecnologias}
-          slug={proyecto.slug}
-          categoria={proyecto.categoria}
-        />
-      ))
-    }
-  </div>
-
-  <div class="mt-8">
-    <Banner />
-  </div>
-</Layout>
+<ProjectsPage />

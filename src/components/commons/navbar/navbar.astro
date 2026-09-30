@@ -1,13 +1,22 @@
 ---
 import { FiMenu, FiX } from "react-icons/fi";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa6";
+import { getAlternatePath, getLangFromPath, getPath, translator } from "../../../i18n";
+
+const lang = getLangFromPath(Astro.url.pathname);
+const t = translator(lang);
+const otherLang = lang === "en" ? "es" : "en";
+// Sin equivalente (el 404) el botón lleva al inicio del otro idioma
+const switchHref = getAlternatePath(Astro.url.pathname, otherLang) ?? getPath("home", otherLang);
 
 const links = [
-  { nameEs: "Inicio", nameEn: "Home", href: "/" },
-  { nameEs: "Proyectos", nameEn: "Projects", href: "/proyectos" },
-  { nameEs: "Experiencia", nameEn: "Experience", href: "/experiencia" },
-  { nameEs: "Contacto", nameEn: "Contact", href: "/contact" },
+  { name: t("Inicio", "Home"), href: getPath("home", lang) },
+  { name: t("Proyectos", "Projects"), href: getPath("projects", lang) },
+  { name: t("Experiencia", "Experience"), href: getPath("experience", lang) },
+  { name: t("Contacto", "Contact"), href: getPath("contact", lang) },
 ];
+
+const switchLabel = t("Ver este sitio en inglés", "View this site in Spanish");
 ---
 
 <nav class="relative">
@@ -15,7 +24,7 @@ const links = [
 
   <nav class="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-sm border-b border-gray-200">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="/" class="flex items-center">
+      <a href={getPath("home", lang)} class="flex items-center">
         <h3 class="text-[#1a6fec] text-2xl font-bold tracking-tight">MDLR</h3>
       </a>
 
@@ -27,8 +36,7 @@ const links = [
                 href={link.href}
                 class="nav-link text-base font-semibold text-gray-600 hover:text-[#1a6fec] transition-colors duration-200"
               >
-                <span class="lang-es">{link.nameEs}</span>
-                <span class="lang-en">{link.nameEn}</span>
+                {link.name}
               </a>
             </li>
           ))
@@ -41,26 +49,30 @@ const links = [
           <a href="https://github.com/Umario-chan" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="text-gray-400 hover:text-[#1a6fec] transition-colors">
             <FaGithub className="h-5 w-5" />
           </a>
-          <button
-            id="lang-toggle"
-            aria-label="Toggle language"
+          <a
+            href={switchHref}
+            hreflang={otherLang}
+            data-lang-switch={otherLang}
+            data-astro-history="replace"
+            aria-label={switchLabel}
             class="text-xs font-bold tracking-widest text-gray-400 hover:text-[#1a6fec] transition-colors border border-gray-200 hover:border-[#1a6fec] rounded-full px-3 py-1 cursor-pointer"
           >
-            <span class="lang-es">EN</span>
-            <span class="lang-en">ES</span>
-          </button>
+            {otherLang.toUpperCase()}
+          </a>
         </li>
       </ul>
 
       <div class="flex md:hidden items-center gap-3 z-50">
-        <button
-          id="lang-toggle-mobile"
-          aria-label="Toggle language"
+        <a
+          href={switchHref}
+          hreflang={otherLang}
+          data-lang-switch={otherLang}
+          data-astro-history="replace"
+          aria-label={switchLabel}
           class="text-xs font-bold tracking-widest text-gray-400 hover:text-[#1a6fec] transition-colors border border-gray-200 rounded-full px-3 py-1 cursor-pointer"
         >
-          <span class="lang-es">EN</span>
-          <span class="lang-en">ES</span>
-        </button>
+          {otherLang.toUpperCase()}
+        </a>
         <label for="menu-toggle" class="cursor-pointer text-gray-600">
           <FiMenu className="h-6 w-6" />
         </label>
@@ -82,8 +94,7 @@ const links = [
         links.map((link) => (
           <li>
             <a href={link.href} class="nav-link-mobile text-lg font-semibold text-gray-800 hover:text-[#1a6fec] transition-colors duration-200">
-              <span class="lang-es">{link.nameEs}</span>
-              <span class="lang-en">{link.nameEn}</span>
+              {link.name}
             </a>
           </li>
         ))
@@ -93,47 +104,20 @@ const links = [
 </nav>
 
 <script>
-  (function () {
-    // Active link highlighting
-    function markActiveLinks() {
-      const currentPath = window.location.pathname.replace(/\/$/, "") || "/";
-      const allLinks = [
-        ...Array.from(document.querySelectorAll("#navbar-links .nav-link")),
-        ...Array.from(document.querySelectorAll("#navbar-links-mobile .nav-link-mobile")),
-      ];
-      allLinks.forEach((link) => {
-        const href = (link.getAttribute("href") ?? "").replace(/\/$/, "") || "/";
-        if (href === currentPath) {
-          link.classList.add("text-[#1a6fec]", "font-semibold");
-          link.classList.remove("text-gray-600", "text-gray-800");
-        } else {
-          link.classList.remove("text-[#1a6fec]", "font-semibold");
-        }
-      });
-    }
+  // Resalta el enlace de la página actual. Con el ClientRouter el navbar se
+  // reemplaza en cada navegación, así que basta con correr en astro:page-load.
+  function markActiveLinks() {
+    const currentPath = window.location.pathname.replace(/\/$/, "") || "/";
+    document.querySelectorAll("#navbar-links .nav-link, #navbar-links-mobile .nav-link-mobile").forEach((link) => {
+      const href = (link.getAttribute("href") ?? "").replace(/\/$/, "") || "/";
+      if (href === currentPath) {
+        link.classList.add("text-[#1a6fec]", "font-semibold");
+        link.classList.remove("text-gray-600", "text-gray-800");
+      } else {
+        link.classList.remove("text-[#1a6fec]", "font-semibold");
+      }
+    });
+  }
 
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", markActiveLinks);
-    } else {
-      markActiveLinks();
-    }
-    window.addEventListener("popstate", markActiveLinks);
-    document.addEventListener("astro:page-load", markActiveLinks);
-    document.addEventListener("astro:after-swap", markActiveLinks);
-    window.addEventListener("load", () => setTimeout(markActiveLinks, 50));
-
-    // Mobile lang toggle (mirrors the main toggle in Layout.astro)
-    function initMobileLangToggle() {
-      const btn = document.getElementById("lang-toggle-mobile");
-      if (!btn) return;
-      btn.addEventListener("click", () => {
-        const current = document.documentElement.getAttribute("lang");
-        const next = current === "es" ? "en" : "es";
-        document.documentElement.setAttribute("lang", next);
-        localStorage.setItem("lang", next);
-      });
-    }
-    initMobileLangToggle();
-    document.addEventListener("astro:page-load", initMobileLangToggle);
-  })();
+  document.addEventListener("astro:page-load", markActiveLinks);
 </script>

@@ -1,22 +1,27 @@
 ---
 import { HiArrowUpRight } from "react-icons/hi2";
+import { getLangFromPath, getProjectPath, translator } from "../../../i18n";
 
 export interface Props {
   titulo: string;
+  tituloEn?: string;
   imagen: string;
   tecnologias: string[];
   slug: string;
   codigo?: string;
 }
 
-const { titulo, imagen, tecnologias, slug } = Astro.props;
+const { imagen, tecnologias, slug } = Astro.props;
+const lang = getLangFromPath(Astro.url.pathname);
+const t = translator(lang);
+const titulo = t(Astro.props.titulo, Astro.props.tituloEn ?? Astro.props.titulo);
 ---
 
-<a href={`/proyectos/${slug}`} class="group flex w-full max-w-md mx-auto flex-col overflow-hidden rounded-2xl bg-white border border-gray-200 transition-all duration-300 hover:border-[#1a6fec]/40 hover:shadow-xl hover:shadow-[#1a6fec]/10 hover:-translate-y-1 no-underline cursor-pointer">
+<a href={getProjectPath(slug, lang)} class="group flex w-full max-w-md mx-auto flex-col overflow-hidden rounded-2xl bg-white border border-gray-200 transition-all duration-300 hover:border-[#1a6fec]/40 hover:shadow-xl hover:shadow-[#1a6fec]/10 hover:-translate-y-1 no-underline cursor-pointer">
   <div class="overflow-hidden bg-gray-50">
     <img
       src={imagen}
-      alt={`Proyecto: ${titulo}`}
+      alt={t(`Proyecto: ${titulo}`, `Project: ${titulo}`)}
       class="w-full h-52 object-cover transition-transform duration-500 group-hover:scale-105"
     />
   </div>
@@ -35,8 +40,7 @@ const { titulo, imagen, tecnologias, slug } = Astro.props;
     </div>
 
     <span class="inline-flex items-center gap-1 text-sm font-semibold text-[#1a6fec] group-hover:gap-2 transition-all duration-200">
-      <span class="lang-es">Ir al proyecto</span>
-      <span class="lang-en">View project</span>
+      {t("Ir al proyecto", "View project")}
       <HiArrowUpRight size={14} />
     </span>
   </div>

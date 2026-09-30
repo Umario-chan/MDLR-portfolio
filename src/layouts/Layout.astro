@@ -2,6 +2,9 @@
 import "../styles/global.css";
 import Navbar from "../components/commons/navbar/navbar.astro";
 import Footer from "../components/commons/footer/footer.astro";
+import { ClientRouter } from "astro:transitions";
+import { getAlternatePath, getLangFromPath, locales, translator } from "../i18n";
+import langRedirect from "../i18n/lang-redirect.js?raw";
 
 interface Props {
   title?: string;
@@ -10,9 +13,15 @@ interface Props {
   jsonLd?: unknown;
 }
 
+const lang = getLangFromPath(Astro.url.pathname);
+const t = translator(lang);
+
 const {
   title,
-  description = "Portafolio de Mario de la Rosa, desarrollador fullstack en Ciudad de México: proyectos con React, Astro y Node.js, y experiencia en QA Automation.",
+  description = t(
+    "Portafolio de Mario de la Rosa, desarrollador fullstack en Ciudad de México: proyectos con React, Astro y Node.js, y experiencia en QA Automation.",
+    "Portfolio of Mario de la Rosa, a fullstack developer in Mexico City: projects built with React, Astro, and Node.js, plus a background in QA Automation."
+  ),
   noindex = false,
   jsonLd,
 } = Astro.props;
@@ -22,7 +31,10 @@ const siteName = "Mario de la Rosa";
 // Sin título propio (la portada) se usa el título completo, no "Nombre | Nombre"
 const pageTitle = title
   ? `${title} | ${siteName}`
-  : "Mario de la Rosa — Desarrollador Fullstack | React, Astro, Node.js";
+  : t(
+      "Mario de la Rosa — Desarrollador Fullstack | React, Astro, Node.js",
+      "Mario de la Rosa — Fullstack Developer | React, Astro, Node.js"
+    );
 
 // Canónica con la misma forma que publica el sitemap (con barra final),
 // para que las URLs de preview de Vercel no compitan con las buenas
@@ -31,6 +43,17 @@ const canonicalPath = Astro.url.pathname.endsWith("/")
   : `${Astro.url.pathname}/`;
 const canonicalURL = new URL(canonicalPath, Astro.site).href;
 const ogImage = new URL("/og-image.png", Astro.site).href;
+const ogImageAlt = t(
+  "Portafolio de Mario de la Rosa, desarrollador fullstack",
+  "Portfolio of Mario de la Rosa, fullstack developer"
+);
+
+// Versión de esta página en cada idioma, para hreflang. El 404 no tiene.
+const alternates = {
+  es: getAlternatePath(Astro.url.pathname, "es"),
+  en: getAlternatePath(Astro.url.pathname, "en"),
+};
+const hasAlternates = Boolean(alternates.es && alternates.en);
 
 const identidad = {
   "@context": "https://schema.org",
@@ -40,7 +63,7 @@ const identidad = {
       "@id": new URL("/#website", Astro.site).href,
       url: new URL("/", Astro.site).href,
       name: siteName,
-      inLanguage: "es-MX",
+      inLanguage: [locales.es, locales.en],
       publisher: { "@id": new URL("/#person", Astro.site).href },
     },
     {
@@ -49,17 +72,19 @@ const identidad = {
       name: "Mario de la Rosa",
       url: new URL("/", Astro.site).href,
       image: ogImage,
-      jobTitle: "Desarrollador Fullstack",
-      description:
+      jobTitle: t("Desarrollador Fullstack", "Fullstack Developer"),
+      description: t(
         "Desarrollador fullstack con experiencia previa en QA Automation. Construye productos de principio a fin, de la base de datos a la interfaz.",
+        "Fullstack developer with a background in QA Automation. Builds products end to end, from the database to the interface."
+      ),
       address: {
         "@type": "PostalAddress",
-        addressLocality: "Ciudad de México",
+        addressLocality: t("Ciudad de México", "Mexico City"),
         addressCountry: "MX",
       },
       alumniOf: { "@type": "CollegeOrUniversity", name: "UNIVDEP" },
       knowsAbout: [
-        "Desarrollo web fullstack",
+        t("Desarrollo web fullstack", "Fullstack web development"),
         "React",
         "Astro",
         "Node.js",
@@ -80,7 +105,7 @@ const identidad = {
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -88,6 +113,13 @@ const identidad = {
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
+    {hasAlternates && (
+      <>
+        <link rel="alternate" hreflang={locales.es} href={new URL(alternates.es, Astro.site).href} />
+        <link rel="alternate" hreflang={locales.en} href={new URL(alternates.en, Astro.site).href} />
+        <link rel="alternate" hreflang="x-default" href={new URL(alternates.es, Astro.site).href} />
+      </>
+    )}
     {noindex && <meta name="robots" content="noindex, follow" />}
 
     <!-- Open Graph -->
@@ -97,17 +129,18 @@ const identidad = {
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:image:alt" content="Portafolio de Mario de la Rosa, desarrollador fullstack" />
+    <meta property="og:image:alt" content={ogImageAlt} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:locale" content="es_MX" />
+    <meta property="og:locale" content={lang === "en" ? "en_US" : "es_MX"} />
+    <meta property="og:locale:alternate" content={lang === "en" ? "es_MX" : "en_US"} />
 
     <!-- Twitter / X Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
-    <meta name="twitter:image:alt" content="Portafolio de Mario de la Rosa, desarrollador fullstack" />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -115,12 +148,8 @@ const identidad = {
     <title>{pageTitle}</title>
     <script type="application/ld+json" is:inline set:html={JSON.stringify(identidad)} />
     {jsonLd && <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />}
-    <script is:inline>
-      (function() {
-        var lang = localStorage.getItem('lang') || 'es';
-        document.documentElement.setAttribute('lang', lang);
-      })();
-    </script>
+    <script is:inline set:html={langRedirect} />
+    <ClientRouter />
   </head>
   <body class="bg-white text-gray-900">
     <Navbar />
@@ -130,6 +159,30 @@ const identidad = {
 </html>
 
 <script>
+  // Cada idioma tiene su propia URL (/ y /en/), pero el botón de idioma no
+  // recarga: el ClientRouter trae la otra versión y la intercambia en sitio.
+  // Aquí se guarda la preferencia y se conserva el scroll al cambiar.
+  let langSwitch: { scrollY: number } | null = null;
+
+  document.addEventListener("click", (event) => {
+    const link = (event.target as Element).closest<HTMLAnchorElement>("a[data-lang-switch]");
+    if (!link) return;
+    const next = link.dataset.langSwitch!;
+    try {
+      localStorage.setItem("lang", next);
+    } catch {}
+    langSwitch = { scrollY: window.scrollY };
+  });
+
+  document.addEventListener("astro:after-swap", () => {
+    if (!langSwitch) return;
+    // Es la misma página en otro idioma: se queda donde estaba y sin volver a
+    // animar las secciones que ya se habían mostrado
+    document.querySelectorAll(".reveal").forEach((el) => el.classList.add("reveal-visible"));
+    window.scrollTo({ top: langSwitch.scrollY, behavior: "instant" });
+    langSwitch = null;
+  });
+
   function initReveal() {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -143,22 +196,8 @@ const identidad = {
       { threshold: 0.1 }
     );
 
-    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    document.querySelectorAll(".reveal:not(.reveal-visible)").forEach((el) => observer.observe(el));
   }
 
-  initReveal();
   document.addEventListener("astro:page-load", initReveal);
-
-  function initLangToggle() {
-    const btn = document.getElementById("lang-toggle");
-    if (!btn) return;
-    btn.addEventListener("click", () => {
-      const current = document.documentElement.getAttribute("lang");
-      const next = current === "es" ? "en" : "es";
-      document.documentElement.setAttribute("lang", next);
-      localStorage.setItem("lang", next);
-    });
-  }
-  initLangToggle();
-  document.addEventListener("astro:page-load", initLangToggle);
 </script>

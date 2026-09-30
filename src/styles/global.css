@@ -40,7 +40,7 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(0);
 }
 
-/* Language toggle */
+/* Solo el 404 usa esto: es una sola página para ambos idiomas y elige con html[lang] */
 html[lang="en"] .lang-es { display: none; }
 html[lang="es"] .lang-en { display: none; }
 

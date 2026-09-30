@@ -1,39 +1,35 @@
 ---
 import { FaLinkedinIn, FaGithub } from "react-icons/fa6";
+import { getLangFromPath, getPath, translator } from "../../../i18n";
+
+const lang = getLangFromPath(Astro.url.pathname);
+const t = translator(lang);
+
+const links = [
+  { name: t("Inicio", "Home"), href: getPath("home", lang) },
+  { name: t("Proyectos", "Projects"), href: getPath("projects", lang) },
+  { name: t("Experiencia", "Experience"), href: getPath("experience", lang) },
+  { name: t("Contacto", "Contact"), href: getPath("contact", lang) },
+];
 ---
 
 <footer class="bg-gray-50 border-t border-gray-200">
   <div class="max-w-7xl mx-auto flex flex-col items-center justify-between gap-6 px-6 py-10 md:flex-row">
-    <a href="/" class="flex items-center">
+    <a href={getPath("home", lang)} class="flex items-center">
       <span class="text-[#1a6fec] text-xl font-bold tracking-tight">MDLR</span>
     </a>
 
     <nav>
       <ul class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-sm text-gray-500">
-        <li>
-          <a href="/" class="hover:text-gray-900 transition-colors">
-            <span class="lang-es">Inicio</span>
-            <span class="lang-en">Home</span>
-          </a>
-        </li>
-        <li>
-          <a href="/proyectos" class="hover:text-gray-900 transition-colors">
-            <span class="lang-es">Proyectos</span>
-            <span class="lang-en">Projects</span>
-          </a>
-        </li>
-        <li>
-          <a href="/experiencia" class="hover:text-gray-900 transition-colors">
-            <span class="lang-es">Experiencia</span>
-            <span class="lang-en">Experience</span>
-          </a>
-        </li>
-        <li>
-          <a href="/contact" class="hover:text-gray-900 transition-colors">
-            <span class="lang-es">Contacto</span>
-            <span class="lang-en">Contact</span>
-          </a>
-        </li>
+        {
+          links.map((link) => (
+            <li>
+              <a href={link.href} class="hover:text-gray-900 transition-colors">
+                {link.name}
+              </a>
+            </li>
+          ))
+        }
       </ul>
     </nav>
 

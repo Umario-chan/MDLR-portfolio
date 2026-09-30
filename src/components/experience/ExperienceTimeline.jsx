@@ -18,7 +18,8 @@ function TimelineItem({ open, onToggle, dot, showLine, children }) {
   );
 }
 
-export default function ExperienceTimeline() {
+export default function ExperienceTimeline({ lang = "es" }) {
+  const t = (es, en) => (lang === "en" ? en : es);
   const [openWork, setOpenWork] = useState(-1);
   const [openEdu, setOpenEdu] = useState(-1);
 
@@ -27,12 +28,10 @@ export default function ExperienceTimeline() {
       {/* Experiencia laboral */}
       <div className="mb-16">
         <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#1a6fec] mb-1">
-          <span className="lang-es">Trayectoria</span>
-          <span className="lang-en">Career</span>
+          {t("Trayectoria", "Career")}
         </p>
         <h2 className="text-3xl font-bold text-gray-900 mb-10">
-          <span className="lang-es">Experiencia laboral</span>
-          <span className="lang-en">Work experience</span>
+          {t("Experiencia laboral", "Work experience")}
         </h2>
 
         <div className="flex flex-col">
@@ -52,13 +51,12 @@ export default function ExperienceTimeline() {
                   >
                     <div>
                       <p className="text-base font-bold text-gray-900 group-hover:text-[#1a6fec] transition-colors duration-200">
-                        <span className="lang-es">{item.puestoEs}</span>
-                        <span className="lang-en">{item.puestoEn}</span>
+                        {t(item.puestoEs, item.puestoEn)}
                       </p>
                       <p className="text-sm font-semibold text-[#1a6fec]">{item.empresa}</p>
                     </div>
                     <div className="flex items-center gap-2 shrink-0 mt-0.5">
-                      <span className="text-xs font-medium text-gray-400 whitespace-nowrap">{item.periodo}</span>
+                      <span className="text-xs font-medium text-gray-400 whitespace-nowrap">{t(item.periodo, item.periodoEn)}</span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
@@ -77,19 +75,12 @@ export default function ExperienceTimeline() {
                   <div className={`overflow-hidden transition-all duration-300 ${open ? "max-h-[600px] mt-3" : "max-h-0"}`}>
                     <div className="border-t border-gray-100 pt-3 space-y-3">
                       <p className="text-sm text-gray-500 leading-relaxed">
-                        <span className="lang-es">{item.descripcionEs}</span>
-                        <span className="lang-en">{item.descripcionEn}</span>
+                        {t(item.descripcionEs, item.descripcionEn)}
                       </p>
-                      {item.itemsEs && item.itemsEs.length > 0 && (
+                      {item.itemsEs.length > 0 && (
                         <ul className="space-y-1.5">
-                          {item.itemsEs.map((it, j) => (
-                            <li key={j} className="lang-es flex gap-2 text-sm text-gray-500 leading-relaxed">
-                              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#1a6fec]"></span>
-                              {it}
-                            </li>
-                          ))}
-                          {item.itemsEn.map((it, j) => (
-                            <li key={j} className="lang-en flex gap-2 text-sm text-gray-500 leading-relaxed">
+                          {t(item.itemsEs, item.itemsEn).map((it, j) => (
+                            <li key={j} className="flex gap-2 text-sm text-gray-500 leading-relaxed">
                               <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#1a6fec]"></span>
                               {it}
                             </li>
@@ -98,7 +89,7 @@ export default function ExperienceTimeline() {
                       )}
                       {item.tags.length > 0 && (
                         <div className="flex flex-wrap gap-1.5 pt-1">
-                          {item.tags.map((tag) => (
+                          {t(item.tags, item.tagsEn ?? item.tags).map((tag) => (
                             <span key={tag} className="text-xs bg-gray-100 text-gray-600 px-2.5 py-0.5 rounded-full font-medium">
                               {tag}
                             </span>
@@ -117,12 +108,10 @@ export default function ExperienceTimeline() {
       {/* Educación */}
       <div className="mt-16">
         <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#1a6fec] mb-1">
-          <span className="lang-es">Formación</span>
-          <span className="lang-en">Education</span>
+          {t("Formación", "Education")}
         </p>
         <h2 className="text-3xl font-bold text-gray-900 mb-10">
-          <span className="lang-es">Educación y certificaciones</span>
-          <span className="lang-en">Education & certifications</span>
+          {t("Educación y certificaciones", "Education & certifications")}
         </h2>
 
         <div className="flex flex-col">
@@ -142,13 +131,12 @@ export default function ExperienceTimeline() {
                   >
                     <div>
                       <p className="text-base font-bold text-gray-900 group-hover:text-[#1a6fec] transition-colors duration-200">
-                        <span className="lang-es">{item.tituloEs}</span>
-                        <span className="lang-en">{item.tituloEn}</span>
+                        {t(item.tituloEs, item.tituloEn)}
                       </p>
                       <p className="text-sm font-semibold text-gray-500">{item.institucion}</p>
                     </div>
                     <div className="flex items-center gap-2 shrink-0 mt-0.5">
-                      <span className="text-xs font-medium text-gray-400 whitespace-nowrap">{item.periodo}</span>
+                      <span className="text-xs font-medium text-gray-400 whitespace-nowrap">{t(item.periodo, item.periodoEn)}</span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
@@ -166,8 +154,7 @@ export default function ExperienceTimeline() {
 
                   <div className={`overflow-hidden transition-all duration-300 ${open ? "max-h-96 mt-3" : "max-h-0"}`}>
                     <p className="text-sm text-gray-500 leading-relaxed border-t border-gray-100 pt-3">
-                      <span className="lang-es">{item.descripcionEs}</span>
-                      <span className="lang-en">{item.descripcionEn}</span>
+                      {t(item.descripcionEs, item.descripcionEn)}
                     </p>
                   </div>
                 </>

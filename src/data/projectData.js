@@ -186,6 +186,7 @@ export const proyectos = [
   },
   {
     titulo: "Semiología de la Vida Cotidiana® — 3 sitios",
+    tituloEn: "Semiología de la Vida Cotidiana® — 3 sites",
     slug: "semiologia",
     descripcion:
       "Migración de tres sitios hermanos de WordPress heredado a temas de bloques editables, conservando diseño, contenido y posicionamiento.",
@@ -304,6 +305,7 @@ export const proyectos = [
   },
   {
     titulo: "Novagenic — Farmacogenética clínica",
+    tituloEn: "Novagenic — Clinical pharmacogenomics",
     slug: "novagenic",
     descripcion:
       "Sistema clínico de tres roles que convierte la corrida del laboratorio en reportes de farmacogenética por paciente, con recomendaciones CPIC y fenoconversión por co-medicación.",

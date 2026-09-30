@@ -1,0 +1,44 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/commons/hero/hero.astro";
+import ProjectCard from "../components/project/proyectCard.astro";
+import Banner from "../components/commons/banners/banner.astro";
+import { proyectos } from "../data/projectData.js";
+import { getLangFromPath, translator } from "../i18n";
+
+const lang = getLangFromPath(Astro.url.pathname);
+const t = translator(lang);
+---
+
+<Layout
+  title={t("Proyectos", "Projects")}
+  description={t(
+    "Proyectos de Mario de la Rosa: plataformas de eventos y donativos, farmacogenética clínica, migraciones a WordPress y apps móviles, con React, Astro, Node.js y Back4App.",
+    "Projects by Mario de la Rosa: event and donation platforms, clinical pharmacogenomics, WordPress migrations, and mobile apps, built with React, Astro, Node.js, and Back4App."
+  )}
+>
+  <Hero titulo="Proyectos" tituloEn="Projects" />
+
+  <div
+    id="projects-container"
+    class="4xl:px-96 flex flex-wrap justify-center gap-5 px-3 pt-2 xl:px-32 2xl:px-60"
+  >
+    {
+      proyectos.map((proyecto, index) => (
+        <ProjectCard
+          index={index}
+          titulo={t(proyecto.titulo, proyecto.tituloEn ?? proyecto.titulo)}
+          descripcion={t(proyecto.descripcion, proyecto.descripcionEn)}
+          imagen={proyecto.imagen}
+          tecnologias={proyecto.tecnologias}
+          slug={proyecto.slug}
+          categoria={proyecto.categoria}
+        />
+      ))
+    }
+  </div>
+
+  <div class="mt-8">
+    <Banner />
+  </div>
+</Layout>

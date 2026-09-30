@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { faqs as skills } from "../../../data/faqData.js";
 
 
-const SkillsList = () => {
+const SkillsList = ({ lang = "es" }) => {
+  const t = (es, en) => (lang === "en" ? en : es);
   const [openItem, setOpenItem] = useState(-1);
 
   return (
@@ -10,8 +11,7 @@ const SkillsList = () => {
       <div className="mx-auto max-w-3xl">
         <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#1a6fec] mb-1 text-center">FAQ</p>
         <h2 className="text-3xl font-bold text-gray-900 mb-10 text-center">
-          <span className="lang-es">Sobre mí y mi trabajo</span>
-          <span className="lang-en">About me and my work</span>
+          {t("Sobre mí y mi trabajo", "About me and my work")}
         </h2>
 
         <div className="space-y-3">
@@ -25,8 +25,7 @@ const SkillsList = () => {
                 className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left hover:bg-gray-50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1a6fec] focus-visible:ring-inset"
               >
                 <span className="text-sm font-semibold text-gray-900">
-                  <span className="lang-es">{item.questionEs}</span>
-                  <span className="lang-en">{item.questionEn}</span>
+                  {t(item.questionEs, item.questionEn)}
                 </span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -48,8 +47,7 @@ const SkillsList = () => {
                 }`}
               >
                 <p className="px-5 pb-4 text-sm text-gray-500 leading-relaxed border-t border-gray-100 pt-3">
-                  <span className="lang-es">{item.answerEs}</span>
-                  <span className="lang-en">{item.answerEn}</span>
+                  {t(item.answerEs, item.answerEn)}
                 </p>
               </div>
             </div>
