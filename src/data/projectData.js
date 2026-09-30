@@ -4,7 +4,11 @@ import neosis from "../assets/img-projects/neosis.png";
 import comicShelf from "../assets/img-projects/comicshelf.jpeg";
 import semiologia from "../assets/img-projects/semiologia.jpg";
 import novagenic from "../assets/img-projects/novagenic.jpg";
+import cruzRoja from "../assets/img-projects/cruz-roja.jpeg";
+import patyRocksPivot from "../assets/img-projects/paty-rocks-pivot.jpeg";
 
+// El orden del arreglo es el orden en el sitio. Los que llevan `enProgreso: true`
+// salen en la sección "En progreso" de /proyectos; el resto en "Terminados".
 export const proyectos = [
   {
     titulo: "Paty Rocks",
@@ -398,6 +402,7 @@ export const proyectos = [
     demo: "",
     categoria: "Fullstack",
     wip: true,
+    enProgreso: true,
   },
   {
     titulo: "ComicShelf",
@@ -467,5 +472,139 @@ export const proyectos = [
     demo: "",
     github: "https://github.com/Umario-chan/comicshelf",
     categoria: "Fullstack",
+  },
+  {
+    titulo: "Donante de Sangre — Cruz Roja Mexicana",
+    tituloEn: "Blood Donor — Mexican Red Cross",
+    slug: "cruz-roja",
+    descripcion:
+      "App móvil de donación de sangre para la Cruz Roja Mexicana: registro, agendado de citas, cuestionario de la NOM-253, credencial digital e historial del donante.",
+    descripcionEn:
+      "Blood donation mobile app for the Mexican Red Cross: sign-up, appointment booking, the NOM-253 screening questionnaire, a digital donor card, and donation history.",
+    subtitulo: "Donante de Sangre — App para la Cruz Roja Mexicana",
+    subtituloEn: "Blood Donor — An app for the Mexican Red Cross",
+    descripcionLarga:
+      "Una app para que cualquier persona agende su donación de sangre con la Cruz Roja Mexicana y lleve su historial como donante. Toma como referencia los flujos de la app Blood Donor de la Cruz Roja Americana y los adapta a México: edad de 18 a 65 años, hemoglobina ajustada por altitud según la NOM-253-SSA1-2012, código postal de cinco dígitos, kilómetros y consentimiento de datos conforme a la LFPDPPP. El proyecto empezó con el análisis funcional, el back office y los requisitos, y con prototipos navegables para validar los flujos con el personal de Cruz Roja.",
+    descripcionLargaEn:
+      "An app that lets anyone book a blood donation with the Mexican Red Cross and keep track of their donor history. It builds on the flows of the American Red Cross Blood Donor app and adapts them to Mexico: ages 18 to 65, altitude-adjusted hemoglobin under the NOM-253-SSA1-2012 standard, five-digit postal codes, kilometers, and data consent under Mexico's LFPDPPP privacy law. The project began with the functional analysis, back office, and requirements, plus clickable prototypes to validate the flows with Red Cross staff.",
+    seccionesTitulo: "Qué incluye",
+    seccionesTituloEn: "What it includes",
+    secciones: [
+      {
+        titulo: "Donante",
+        items: [
+          "Registro en diez pasos con corte por edad y los campos del formulario de donantes del banco de sangre",
+          "Agendado de citas por tipo de donación, lugar, día y hora, también como invitado",
+          "Cuestionario de la NOM-253 dentro de la app y pase con código QR para la recepción",
+          "Credencial de donante digital con unidades donadas, tipo de sangre y número de donante",
+          "Historial de donaciones y gráficas de presión y hemoglobina",
+          "Cuarenta páginas educativas sobre requisitos y el proceso de donación",
+        ],
+      },
+      {
+        titulo: "Construcción",
+        items: [
+          "React Native con Expo y expo-router: una sola base de código para iOS, Android y web",
+          "Capa de datos simulada con la misma forma que la API de referencia (55 endpoints), lista para cambiarse por el backend real",
+          "Inicio de sesión con biometría, mapas de sedes y notificaciones",
+          "Datos de prueba marcados en todo el sistema para que nunca lleguen a producción",
+        ],
+      },
+    ],
+    seccionesEn: [
+      {
+        titulo: "Donor",
+        items: [
+          "Ten-step sign-up with an age check and the fields from the blood bank's donor form",
+          "Appointment booking by donation type, location, day, and time, including as a guest",
+          "The NOM-253 screening questionnaire built into the app, plus a QR pass for check-in",
+          "Digital donor card with units donated, blood type, and donor number",
+          "Donation history and blood pressure and hemoglobin charts",
+          "Forty educational pages on requirements and the donation process",
+        ],
+      },
+      {
+        titulo: "How it's built",
+        items: [
+          "React Native with Expo and expo-router: one codebase for iOS, Android, and web",
+          "A simulated data layer shaped like the reference API (55 endpoints), ready to swap for the real backend",
+          "Biometric sign-in, location maps, and notifications",
+          "Test data flagged across the system so it never reaches production",
+        ],
+      },
+    ],
+    imagen: cruzRoja.src,
+    tecnologias: ["React Native", "Expo", "TypeScript", "expo-router", "React Native Maps", "Reanimated"],
+    demo: "",
+    categoria: "Mobile",
+    estado: "Frontend completo sobre datos simulados. Pendiente de backend y de validación médica del cuestionario.",
+    estadoEn: "Frontend complete on simulated data. Backend and medical sign-off on the questionnaire are pending.",
+    enProgreso: true,
+  },
+  {
+    titulo: "Paty Rocks — Organizador de fiestas",
+    tituloEn: "Paty Rocks — Party planner",
+    slug: "paty-rocks-pivot",
+    descripcion:
+      "Nueva versión de Paty Rocks: organizar una fiesta es gratis y los proveedores compran el contacto sólo cuando la persona pide propuestas y lo autoriza.",
+    descripcionEn:
+      "The new take on Paty Rocks: planning a party is free, and vendors buy a lead only when the host asks for proposals and consents to share their contact.",
+    subtitulo: "Paty Rocks — Organizador de fiestas con marketplace de leads",
+    subtituloEn: "Paty Rocks — A party planner with a lead marketplace",
+    descripcionLarga:
+      "El pivot de Paty Rocks cambia el modelo de negocio: la plataforma es gratuita para quien organiza y los ingresos vienen de los proveedores. La persona planea su fiesta con checklist, presupuesto e invitados; cuando le falta el salón, la comida o el DJ, pide propuestas y autoriza que hasta tres proveedores la contacten. Cada contacto revelado queda ligado a un consentimiento versionado. Es un proyecto aparte de la primera versión, con su propia base de datos y sin código compartido, y arranca en la Ciudad de México con el catálogo geográfico listo para todo el país.",
+    descripcionLargaEn:
+      "The Paty Rocks pivot changes the business model: the platform is free for hosts and revenue comes from vendors. Hosts plan their party with a checklist, budget, and guest list; when they still need a venue, catering, or a DJ, they ask for proposals and authorize up to three vendors to reach out. Every revealed contact is tied to a versioned consent record. It is separate from the first version, with its own database and no shared code, and it launches in Mexico City with a geographic catalog ready for the whole country.",
+    seccionesTitulo: "Cómo funciona",
+    seccionesTituloEn: "How it works",
+    secciones: [
+      {
+        titulo: "Quien organiza",
+        items: [
+          "Crea su fiesta en un asistente por pasos y la cuenta nace ahí mismo",
+          "Tablero con la próxima acción, checklist con fechas, presupuesto por categoría e invitados con confirmaciones",
+          "Cada necesidad (salón, comida, música…) trae su brief; pedir propuestas es un botón aparte que genera el consentimiento",
+          "Recibe propuestas y conversa dentro de su fiesta; contratar marca la necesidad como cubierta y deja lista la reseña",
+        ],
+      },
+      {
+        titulo: "Proveedores y operación",
+        items: [
+          "Alta de proveedores con cobertura por categoría y municipio, y galería de fotos",
+          "Cola de revisión humana: cada solicitud se aprueba, se devuelve con motivo o se descarta antes de repartirse",
+          "El proveedor ve el tipo de fiesta, la fecha, los invitados y el presupuesto, pero nunca el contacto hasta tomarlo",
+          "Embudo por cohorte, devoluciones y auditoría de cada contacto revelado con su consentimiento",
+          "Verificación de cuenta y recuperación de contraseña con códigos de seis dígitos por correo",
+        ],
+      },
+    ],
+    seccionesEn: [
+      {
+        titulo: "Hosts",
+        items: [
+          "Create their party in a step-by-step wizard, and the account is created right there",
+          "Dashboard with the next action, a dated checklist, per-category budget, and a guest list with RSVPs",
+          "Each need (venue, food, music…) has its own brief; asking for proposals is a separate button that records consent",
+          "Proposals and conversations live inside the party; hiring marks the need as covered and opens the review",
+        ],
+      },
+      {
+        titulo: "Vendors and operations",
+        items: [
+          "Vendor sign-up with coverage by category and municipality, plus a photo gallery",
+          "Human review queue: every request is approved, sent back with a reason, or discarded before it is distributed",
+          "Vendors see the party type, date, guest count, and budget, but never the contact until they take the lead",
+          "Cohort funnel, refund requests, and an audit of every revealed contact with its consent",
+          "Account verification and password recovery with six-digit email codes",
+        ],
+      },
+    ],
+    imagen: patyRocksPivot.src,
+    tecnologias: ["Next.js 16", "React 19", "TypeScript", "Back4App", "Parse Server", "Zod", "Docker", "Oracle Cloud"],
+    demo: "",
+    categoria: "Fullstack",
+    estado: "El circuito completo ya funciona en software. Pendiente de correo SMTP, textos legales y proveedores de campo antes del lanzamiento.",
+    estadoEn: "The full flow already works in software. Email (SMTP), legal copy, and onboarding field vendors are pending before launch.",
+    enProgreso: true,
   },
 ];

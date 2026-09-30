@@ -8,6 +8,19 @@ import { getLangFromPath, translator } from "../i18n";
 
 const lang = getLangFromPath(Astro.url.pathname);
 const t = translator(lang);
+
+const secciones = [
+  {
+    id: "terminados",
+    titulo: t("Terminados", "Completed"),
+    proyectos: proyectos.filter((p) => !p.enProgreso),
+  },
+  {
+    id: "en-progreso",
+    titulo: t("En progreso", "In progress"),
+    proyectos: proyectos.filter((p) => p.enProgreso),
+  },
+];
 ---
 
 <Layout
@@ -19,24 +32,31 @@ const t = translator(lang);
 >
   <Hero titulo="Proyectos" tituloEn="Projects" />
 
-  <div
-    id="projects-container"
-    class="4xl:px-96 flex flex-wrap justify-center gap-5 px-3 pt-2 xl:px-32 2xl:px-60"
-  >
-    {
-      proyectos.map((proyecto, index) => (
-        <ProjectCard
-          index={index}
-          titulo={t(proyecto.titulo, proyecto.tituloEn ?? proyecto.titulo)}
-          descripcion={t(proyecto.descripcion, proyecto.descripcionEn)}
-          imagen={proyecto.imagen}
-          tecnologias={proyecto.tecnologias}
-          slug={proyecto.slug}
-          categoria={proyecto.categoria}
-        />
-      ))
-    }
-  </div>
+  {
+    secciones.map((seccion) => (
+      <section id={seccion.id} class="pt-10 first-of-type:pt-2">
+        <h2 class="mb-6 px-6 text-center text-2xl font-bold text-gray-900">
+          {seccion.titulo}
+          <span class="ml-2 align-middle text-sm font-semibold text-gray-400">{seccion.proyectos.length}</span>
+        </h2>
+        <div class="4xl:px-96 flex flex-wrap justify-center gap-5 px-3 xl:px-32 2xl:px-60">
+          {
+            seccion.proyectos.map((proyecto, index) => (
+              <ProjectCard
+                index={index}
+                titulo={t(proyecto.titulo, proyecto.tituloEn ?? proyecto.titulo)}
+                descripcion={t(proyecto.descripcion, proyecto.descripcionEn)}
+                imagen={proyecto.imagen}
+                tecnologias={proyecto.tecnologias}
+                slug={proyecto.slug}
+                categoria={proyecto.categoria}
+              />
+            ))
+          }
+        </div>
+      </section>
+    ))
+  }
 
   <div class="mt-8">
     <Banner />
