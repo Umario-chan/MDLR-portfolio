@@ -11,6 +11,9 @@ interface Props {
   description?: string;
   noindex?: boolean;
   jsonLd?: unknown;
+  // Una sola página para ambos idiomas (el 404): navbar y footer traen los dos
+  // y el CSS muestra el de html[lang]
+  bilingual?: boolean;
 }
 
 const lang = getLangFromPath(Astro.url.pathname);
@@ -24,6 +27,7 @@ const {
   ),
   noindex = false,
   jsonLd,
+  bilingual = false,
 } = Astro.props;
 
 const siteName = "Mario de la Rosa";
@@ -42,7 +46,7 @@ const canonicalPath = Astro.url.pathname.endsWith("/")
   ? Astro.url.pathname
   : `${Astro.url.pathname}/`;
 const canonicalURL = new URL(canonicalPath, Astro.site).href;
-const ogImage = new URL("/og-image.png", Astro.site).href;
+const ogImage = new URL(t("/og-image.png", "/og-image-en.png"), Astro.site).href;
 const ogImageAlt = t(
   "Portafolio de Mario de la Rosa, desarrollador fullstack",
   "Portfolio of Mario de la Rosa, fullstack developer"
@@ -152,9 +156,9 @@ const identidad = {
     <ClientRouter />
   </head>
   <body class="bg-white text-gray-900">
-    <Navbar />
+    <Navbar bilingual={bilingual} />
     <slot />
-    <Footer />
+    <Footer bilingual={bilingual} />
   </body>
 </html>
 

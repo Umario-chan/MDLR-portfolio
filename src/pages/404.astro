@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="404" description="Página no encontrada" noindex={true}>
+<Layout title="404" description="Página no encontrada" noindex={true} bilingual={true}>
   <!-- Vercel sirve este mismo 404 para cualquier ruta: bajo /en/ se muestra en inglés -->
   <script is:inline>
     if (location.pathname.startsWith("/en/")) document.documentElement.lang = "en";
@@ -18,12 +18,7 @@ import Layout from "../layouts/Layout.astro";
       <span class="lang-es">El enlace al que intentaste acceder no existe o fue movido. Vuelve al inicio y sigue navegando.</span>
       <span class="lang-en">The link you tried to access doesn't exist or was moved. Head back home and keep browsing.</span>
     </p>
-    <a
-      href="/"
-      class="inline-block bg-[#1a6fec] hover:bg-[#1255c4] text-white font-semibold px-8 py-3 rounded-full transition-colors duration-200 text-sm"
-    >
-      <span class="lang-es">Volver al inicio</span>
-      <span class="lang-en">Back to home</span>
-    </a>
+    <a href="/" class="lang-es inline-block bg-[#1a6fec] hover:bg-[#1255c4] text-white font-semibold px-8 py-3 rounded-full transition-colors duration-200 text-sm">Volver al inicio</a>
+    <a href="/en/" class="lang-en inline-block bg-[#1a6fec] hover:bg-[#1255c4] text-white font-semibold px-8 py-3 rounded-full transition-colors duration-200 text-sm">Back to home</a>
   </section>
 </Layout>

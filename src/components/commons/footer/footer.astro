@@ -2,33 +2,45 @@
 import { FaLinkedinIn, FaGithub } from "react-icons/fa6";
 import { getLangFromPath, getPath, translator } from "../../../i18n";
 
-const lang = getLangFromPath(Astro.url.pathname);
-const t = translator(lang);
+const { bilingual = false } = Astro.props;
+const pageLang = getLangFromPath(Astro.url.pathname);
 
-const links = [
-  { name: t("Inicio", "Home"), href: getPath("home", lang) },
-  { name: t("Proyectos", "Projects"), href: getPath("projects", lang) },
-  { name: t("Experiencia", "Experience"), href: getPath("experience", lang) },
-  { name: t("Contacto", "Contact"), href: getPath("contact", lang) },
-];
+// En una página bilingüe (el 404) se pintan ambos idiomas; el CSS oculta uno
+const versions = (bilingual ? ["es", "en"] : [pageLang]).map((lang) => {
+  const t = translator(lang);
+  return {
+    cls: bilingual ? `lang-${lang}` : "",
+    home: getPath("home", lang),
+    links: [
+      { name: t("Inicio", "Home"), href: getPath("home", lang) },
+      { name: t("Proyectos", "Projects"), href: getPath("projects", lang) },
+      { name: t("Experiencia", "Experience"), href: getPath("experience", lang) },
+      { name: t("Contacto", "Contact"), href: getPath("contact", lang) },
+    ],
+  };
+});
 ---
 
 <footer class="bg-gray-50 border-t border-gray-200">
   <div class="max-w-7xl mx-auto flex flex-col items-center justify-between gap-6 px-6 py-10 md:flex-row">
-    <a href={getPath("home", lang)} class="flex items-center">
-      <span class="text-[#1a6fec] text-xl font-bold tracking-tight">MDLR</span>
-    </a>
+    {versions.map((v) => (
+      <a href={v.home} class:list={["flex items-center", v.cls]}>
+        <span class="text-[#1a6fec] text-xl font-bold tracking-tight">MDLR</span>
+      </a>
+    ))}
 
     <nav>
       <ul class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-sm text-gray-500">
         {
-          links.map((link) => (
-            <li>
-              <a href={link.href} class="hover:text-gray-900 transition-colors">
-                {link.name}
-              </a>
-            </li>
-          ))
+          versions.map((v) =>
+            v.links.map((link) => (
+              <li class={v.cls}>
+                <a href={link.href} class="hover:text-gray-900 transition-colors">
+                  {link.name}
+                </a>
+              </li>
+            ))
+          )
         }
       </ul>
     </nav>
