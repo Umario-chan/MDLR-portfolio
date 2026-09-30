@@ -184,7 +184,7 @@ const { imagen, tecnologias, demo, github, categoria, wip } = proyecto;
                       <HiArrowUpRight size={15} />
                     </a>
                   )}
-                  {github ? (
+                  {github && (
                     <a
                       href={github}
                       target="_blank"
@@ -194,11 +194,6 @@ const { imagen, tecnologias, demo, github, categoria, wip } = proyecto;
                       <FaGithub size={15} />
                       GitHub
                     </a>
-                  ) : demo && (
-                    <span class="inline-flex items-center gap-2 text-sm font-semibold text-gray-700 border border-gray-200 px-5 py-2.5 rounded-xl cursor-not-allowed opacity-50">
-                      <FaGithub size={15} />
-                      GitHub
-                    </span>
                   )}
                 </div>
               )}

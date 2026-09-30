@@ -96,7 +96,6 @@ export const proyectos = [
     imagen: patyRocks.src,
     tecnologias: ["React", "TypeScript", "Tailwind CSS", "Back4App", "Node.js", "MongoDB", "Stripe", "SendPulse"],
     demo: "https://patyrocks.com/",
-    github: "https://github.com/Umario-chan/paty-rocks-app",
     categoria: "Fullstack",
   },
   {
@@ -185,7 +184,6 @@ export const proyectos = [
     imagen: altia.src,
     tecnologias: ["React", "TypeScript", "Vite", "Tailwind CSS", "Back4App", "Node.js", "Stripe", "Facturapi", "Cloudflare Pages"],
     demo: "https://grupoaltia.org",
-    github: "https://github.com/Umario-chan/altia",
     categoria: "Fullstack",
   },
   {

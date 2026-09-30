@@ -32,31 +32,33 @@ const secciones = [
 >
   <Hero titulo="Proyectos" tituloEn="Projects" />
 
-  {
-    secciones.map((seccion) => (
-      <section id={seccion.id} class="pt-10 first-of-type:pt-2">
-        <h2 class="mb-6 px-6 text-center text-2xl font-bold text-gray-900">
-          {seccion.titulo}
-          <span class="ml-2 align-middle text-sm font-semibold text-gray-400">{seccion.proyectos.length}</span>
-        </h2>
-        <div class="4xl:px-96 flex flex-wrap justify-center gap-5 px-3 xl:px-32 2xl:px-60">
-          {
-            seccion.proyectos.map((proyecto, index) => (
-              <ProjectCard
-                index={index}
-                titulo={t(proyecto.titulo, proyecto.tituloEn ?? proyecto.titulo)}
-                descripcion={t(proyecto.descripcion, proyecto.descripcionEn)}
-                imagen={proyecto.imagen}
-                tecnologias={proyecto.tecnologias}
-                slug={proyecto.slug}
-                categoria={proyecto.categoria}
-              />
-            ))
-          }
-        </div>
-      </section>
-    ))
-  }
+  <div>
+    {
+      secciones.map((seccion) => (
+        <section id={seccion.id} class="pt-12 pb-4 first:pt-4">
+          <div class="mb-10 flex flex-col items-center px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900">{seccion.titulo}</h2>
+            <span class="mt-4 h-1 w-12 rounded-full bg-[#1a6fec]"></span>
+          </div>
+          <div class="4xl:px-96 flex flex-wrap justify-center gap-5 px-3 xl:px-32 2xl:px-60">
+            {
+              seccion.proyectos.map((proyecto, index) => (
+                <ProjectCard
+                  index={index}
+                  titulo={t(proyecto.titulo, proyecto.tituloEn ?? proyecto.titulo)}
+                  descripcion={t(proyecto.descripcion, proyecto.descripcionEn)}
+                  imagen={proyecto.imagen}
+                  tecnologias={proyecto.tecnologias}
+                  slug={proyecto.slug}
+                  categoria={proyecto.categoria}
+                />
+              ))
+            }
+          </div>
+        </section>
+      ))
+    }
+  </div>
 
   <div class="mt-8">
     <Banner />
