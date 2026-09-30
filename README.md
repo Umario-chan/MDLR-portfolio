@@ -4,7 +4,7 @@ Portafolio personal de Mario de la Rosa, desarrollador fullstack en Ciudad de M�
 
 **Sitio:** [mariodelarosa.dev](https://mariodelarosa.dev) · **English:** [mariodelarosa.dev/en/](https://mariodelarosa.dev/en/)
 
-![Mario de la Rosa — Developer](public/og-image.png)
+![Mario de la Rosa — Abierto a ofertas de trabajo](public/og-image.jpg)
 
 ## Stack
 

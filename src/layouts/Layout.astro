@@ -46,10 +46,10 @@ const canonicalPath = Astro.url.pathname.endsWith("/")
   ? Astro.url.pathname
   : `${Astro.url.pathname}/`;
 const canonicalURL = new URL(canonicalPath, Astro.site).href;
-const ogImage = new URL(t("/og-image.png", "/og-image-en.png"), Astro.site).href;
+const ogImage = new URL(t("/og-image.jpg", "/og-image-en.jpg"), Astro.site).href;
 const ogImageAlt = t(
-  "Portafolio de Mario de la Rosa, desarrollador fullstack",
-  "Portfolio of Mario de la Rosa, fullstack developer"
+  "Mario de la Rosa, desarrollador fullstack, abierto a ofertas de trabajo",
+  "Mario de la Rosa, fullstack developer, open to job offers"
 );
 
 // Versión de esta página en cada idioma, para hreflang. El 404 no tiene.
