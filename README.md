@@ -17,6 +17,7 @@ Portafolio personal de Mario de la Rosa, desarrollador fullstack en Ciudad de M�
 
 - Inicio, proyectos con página de detalle, experiencia, contacto y un CV imprimible (`/cv`) que se guarda como PDF desde el navegador.
 - **Dos idiomas en URLs separadas:** el español vive en la raíz y el inglés bajo `/en/`, con rutas traducidas. El botón de idioma cambia a la otra versión sin recargar la página y conserva el scroll. En la primera visita, si el navegador está en inglés, redirige a `/en/`.
+- **Modo oscuro:** sigue la preferencia del sistema hasta que la persona elige con el botón del navbar; la elección se guarda. Los colores oscuros son variantes `dark:` de Tailwind en cada componente.
 - **SEO técnico:** canónicas, `hreflang` en cada página y en el sitemap, Open Graph, y datos estructurados (`WebSite`, `Person` y `FAQPage`). El CV y el 404 son `noindex`.
 
 ## Desarrollo

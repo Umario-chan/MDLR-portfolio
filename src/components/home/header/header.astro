@@ -7,24 +7,24 @@ const lang = getLangFromPath(Astro.url.pathname);
 const t = translator(lang);
 ---
 
-<header class="relative min-h-[45vh] bg-white overflow-hidden flex items-center">
+<header class="relative min-h-[45vh] bg-white dark:bg-gray-950 overflow-hidden flex items-center">
   <div class="absolute inset-0 hero-dots pointer-events-none"></div>
   <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[#1a6fec]/5 rounded-full blur-3xl pointer-events-none"></div>
 
   <main class="relative z-10 w-full flex flex-col items-center justify-center text-center px-4 pt-20 pb-8">
-    <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold text-gray-900 leading-tight">
+    <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold text-gray-900 dark:text-gray-100 leading-tight">
       {t("Hola, soy Mario", "Hi, I'm Mario")}
     </h1>
 
     <TypeEfect lang={lang} client:visible />
 
     {lang === "en" ? (
-      <p class="text-sm md:text-lg text-gray-500 max-w-md mt-4 leading-relaxed">
+      <p class="text-sm md:text-lg text-gray-500 dark:text-gray-400 max-w-md mt-4 leading-relaxed">
         Explore my projects, learn more about me and if you'd like to get in
         touch<br />I'm just a message away!
       </p>
     ) : (
-      <p class="text-sm md:text-lg text-gray-500 max-w-md mt-4 leading-relaxed">
+      <p class="text-sm md:text-lg text-gray-500 dark:text-gray-400 max-w-md mt-4 leading-relaxed">
         Explora mis proyectos, conoce un poco más sobre mí y si deseas ponerte en
         contacto<br />¡estoy a solo un mensaje de distancia!
       </p>
@@ -40,7 +40,7 @@ const t = translator(lang);
       </a>
       <a
         href={getPath("contact", lang)}
-        class="inline-flex items-center gap-2 px-7 py-3 border border-gray-300 hover:border-[#1a6fec] hover:text-[#1a6fec] text-gray-700 text-sm font-semibold rounded-full transition-all duration-200"
+        class="inline-flex items-center gap-2 px-7 py-3 border border-gray-300 dark:border-gray-700 hover:border-[#1a6fec] hover:text-[#1a6fec] text-gray-700 dark:text-gray-300 text-sm font-semibold rounded-full transition-all duration-200"
       >
         {t("Contáctame", "Contact me")}
       </a>
@@ -57,5 +57,8 @@ const t = translator(lang);
     opacity: 0.5;
     -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
     mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+  }
+  :global(.dark) .hero-dots {
+    background-image: radial-gradient(circle, #374151 1px, transparent 1px);
   }
 </style>

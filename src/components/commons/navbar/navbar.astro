@@ -1,10 +1,11 @@
 ---
-import { FiMenu, FiX } from "react-icons/fi";
+import { FiMenu, FiMoon, FiSun, FiX } from "react-icons/fi";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa6";
 import { getAlternatePath, getLangFromPath, getPath, translator } from "../../../i18n";
 
 const { bilingual = false } = Astro.props;
 const pageLang = getLangFromPath(Astro.url.pathname);
+const themeLabel = translator(pageLang)("Cambiar entre modo claro y oscuro", "Toggle light and dark mode");
 
 // Lo que cambia por idioma. Normalmente se pinta solo el de la página; en una
 // página bilingüe (el 404) se pintan los dos y el CSS oculta el que no toca.
@@ -31,7 +32,7 @@ const versions = (bilingual ? ["es", "en"] : [pageLang]).map((lang) => {
 <nav class="relative">
   <input id="menu-toggle" type="checkbox" class="peer hidden md:hidden" />
 
-  <nav class="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-sm border-b border-gray-200">
+  <nav class="fixed top-0 left-0 w-full z-50 bg-white/90 dark:bg-gray-950/90 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
       {versions.map((v) => (
         <a href={v.home} class:list={["flex items-center", v.cls]}>
@@ -46,7 +47,7 @@ const versions = (bilingual ? ["es", "en"] : [pageLang]).map((lang) => {
               <li class={v.cls}>
                 <a
                   href={link.href}
-                  class="nav-link text-base font-semibold text-gray-600 hover:text-[#1a6fec] transition-colors duration-200"
+                  class="nav-link text-base font-semibold text-gray-600 dark:text-gray-400 hover:text-[#1a6fec] transition-colors duration-200"
                 >
                   {link.name}
                 </a>
@@ -56,12 +57,22 @@ const versions = (bilingual ? ["es", "en"] : [pageLang]).map((lang) => {
         }
 
         <li class="flex items-center gap-4">
-          <a href="https://www.linkedin.com/in/mdlr89/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-gray-400 hover:text-[#1a6fec] transition-colors">
+          <a href="https://www.linkedin.com/in/mdlr89/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-gray-400 dark:text-gray-500 hover:text-[#1a6fec] transition-colors">
             <FaLinkedinIn className="h-5 w-5" />
           </a>
-          <a href="https://github.com/Umario-chan" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="text-gray-400 hover:text-[#1a6fec] transition-colors">
+          <a href="https://github.com/Umario-chan" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="text-gray-400 dark:text-gray-500 hover:text-[#1a6fec] transition-colors">
             <FaGithub className="h-5 w-5" />
           </a>
+          <button
+            type="button"
+            data-theme-toggle
+            aria-label={themeLabel}
+            title={themeLabel}
+            class="text-gray-400 dark:text-gray-500 hover:text-[#1a6fec] transition-colors cursor-pointer"
+          >
+            <FiMoon className="h-5 w-5 dark:hidden" />
+            <FiSun className="hidden h-5 w-5 dark:block" />
+          </button>
           {versions.map((v) => (
             <a
               href={v.switchHref}
@@ -69,7 +80,7 @@ const versions = (bilingual ? ["es", "en"] : [pageLang]).map((lang) => {
               data-lang-switch={v.otherLang}
               data-astro-history="replace"
               aria-label={v.switchLabel}
-              class:list={["text-xs font-bold tracking-widest text-gray-400 hover:text-[#1a6fec] transition-colors border border-gray-200 hover:border-[#1a6fec] rounded-full px-3 py-1 cursor-pointer", v.cls]}
+              class:list={["text-xs font-bold tracking-widest text-gray-400 dark:text-gray-500 hover:text-[#1a6fec] transition-colors border border-gray-200 dark:border-gray-800 hover:border-[#1a6fec] rounded-full px-3 py-1 cursor-pointer", v.cls]}
             >
               {v.otherLang.toUpperCase()}
             </a>
@@ -78,6 +89,16 @@ const versions = (bilingual ? ["es", "en"] : [pageLang]).map((lang) => {
       </ul>
 
       <div class="flex md:hidden items-center gap-3 z-50">
+        <button
+          type="button"
+          data-theme-toggle
+          aria-label={themeLabel}
+          title={themeLabel}
+          class="text-gray-400 dark:text-gray-500 hover:text-[#1a6fec] transition-colors cursor-pointer"
+        >
+          <FiMoon className="h-5 w-5 dark:hidden" />
+          <FiSun className="hidden h-5 w-5 dark:block" />
+        </button>
         {versions.map((v) => (
           <a
             href={v.switchHref}
@@ -85,12 +106,12 @@ const versions = (bilingual ? ["es", "en"] : [pageLang]).map((lang) => {
             data-lang-switch={v.otherLang}
             data-astro-history="replace"
             aria-label={v.switchLabel}
-            class:list={["text-xs font-bold tracking-widest text-gray-400 hover:text-[#1a6fec] transition-colors border border-gray-200 rounded-full px-3 py-1 cursor-pointer", v.cls]}
+            class:list={["text-xs font-bold tracking-widest text-gray-400 dark:text-gray-500 hover:text-[#1a6fec] transition-colors border border-gray-200 dark:border-gray-800 rounded-full px-3 py-1 cursor-pointer", v.cls]}
           >
             {v.otherLang.toUpperCase()}
           </a>
         ))}
-        <label for="menu-toggle" class="cursor-pointer text-gray-600">
+        <label for="menu-toggle" class="cursor-pointer text-gray-600 dark:text-gray-400">
           <FiMenu className="h-6 w-6" />
         </label>
       </div>
@@ -99,9 +120,9 @@ const versions = (bilingual ? ["es", "en"] : [pageLang]).map((lang) => {
 
   <label for="menu-toggle" class="fixed inset-0 bg-black/30 hidden peer-checked:block cursor-pointer z-40 md:hidden"></label>
 
-  <div class="fixed top-0 right-0 h-full w-64 bg-white border-l border-gray-200 shadow-xl transform translate-x-full transition-transform duration-300 peer-checked:translate-x-0 z-50 md:translate-x-full md:hidden">
+  <div class="fixed top-0 right-0 h-full w-64 bg-white dark:bg-gray-950 border-l border-gray-200 dark:border-gray-800 shadow-xl transform translate-x-full transition-transform duration-300 peer-checked:translate-x-0 z-50 md:translate-x-full md:hidden">
     <div class="flex justify-end p-4">
-      <label for="menu-toggle" class="cursor-pointer text-gray-500">
+      <label for="menu-toggle" class="cursor-pointer text-gray-500 dark:text-gray-400">
         <FiX className="h-6 w-6" />
       </label>
     </div>
@@ -111,7 +132,7 @@ const versions = (bilingual ? ["es", "en"] : [pageLang]).map((lang) => {
         versions.map((v) =>
           v.links.map((link) => (
             <li class={v.cls}>
-              <a href={link.href} class="nav-link-mobile text-lg font-semibold text-gray-800 hover:text-[#1a6fec] transition-colors duration-200">
+              <a href={link.href} class="nav-link-mobile text-lg font-semibold text-gray-800 dark:text-gray-200 hover:text-[#1a6fec] transition-colors duration-200">
                 {link.name}
               </a>
             </li>
@@ -131,7 +152,7 @@ const versions = (bilingual ? ["es", "en"] : [pageLang]).map((lang) => {
       const href = (link.getAttribute("href") ?? "").replace(/\/$/, "") || "/";
       if (href === currentPath) {
         link.classList.add("text-[#1a6fec]", "font-semibold");
-        link.classList.remove("text-gray-600", "text-gray-800");
+        link.classList.remove("text-gray-600 dark:text-gray-400", "text-gray-800 dark:text-gray-200");
       } else {
         link.classList.remove("text-[#1a6fec]", "font-semibold");
       }

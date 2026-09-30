@@ -22,13 +22,13 @@ const links = [
     "Get in touch with Mario de la Rosa, fullstack developer in Mexico City. LinkedIn, GitHub, WhatsApp, and email."
   )}
 >
-  <section class="min-h-screen flex flex-col items-center justify-center px-6 bg-white pt-24 pb-16">
+  <section class="min-h-screen flex flex-col items-center justify-center px-6 bg-white dark:bg-gray-950 pt-24 pb-16">
     <div class="mb-8">
       <div class="relative flex items-center justify-center">
         <img
           src={MiFoto.src}
           alt={t("Foto de Mario", "Photo of Mario")}
-          class="h-28 w-28 rounded-full border-2 border-gray-200 shadow-sm object-cover"
+          class="h-28 w-28 rounded-full border-2 border-gray-200 dark:border-gray-800 shadow-sm object-cover"
         />
         <svg viewBox="0 0 200 200" class="animate-spin-slow absolute h-44 w-44">
           <path
@@ -48,10 +48,10 @@ const links = [
     <p class="text-xs font-semibold tracking-[0.2em] uppercase text-[#1a6fec] mb-2">
       {t("Contacto", "Contact")}
     </p>
-    <h1 class="text-3xl font-bold text-gray-900 mb-2">
+    <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">
       {t("Hablemos", "Let's talk")}
     </h1>
-    <p class="text-gray-400 text-sm mb-8">
+    <p class="text-gray-400 dark:text-gray-500 text-sm mb-8">
       {t("Elige cómo quieres conectar conmigo", "Choose how you'd like to connect")}
     </p>
 
@@ -64,7 +64,7 @@ const links = [
             href={link.href}
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center justify-center w-full rounded-xl border border-gray-200 bg-white hover:border-[#1a6fec]/40 hover:bg-gray-50 px-6 py-3 text-sm font-semibold text-gray-700 transition-all duration-200"
+            class="flex items-center justify-center w-full rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950 hover:border-[#1a6fec]/40 hover:bg-gray-50 dark:hover:bg-gray-900 px-6 py-3 text-sm font-semibold text-gray-700 dark:text-gray-300 transition-all duration-200"
           >
             {link.label}
           </a>
@@ -75,7 +75,7 @@ const links = [
     <a
       href={getPath("cv", lang)}
       target="_blank"
-      class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-gray-400 hover:text-[#1a6fec] transition-colors duration-200"
+      class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-gray-400 dark:text-gray-500 hover:text-[#1a6fec] transition-colors duration-200"
     >
       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
       {t("Descargar CV", "Download CV")}

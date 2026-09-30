@@ -10,7 +10,7 @@ const SkillsList = ({ lang = "es" }) => {
     <section className="py-16 px-4 reveal">
       <div className="mx-auto max-w-3xl">
         <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#1a6fec] mb-1 text-center">FAQ</p>
-        <h2 className="text-3xl font-bold text-gray-900 mb-10 text-center">
+        <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-10 text-center">
           {t("Sobre mí y mi trabajo", "About me and my work")}
         </h2>
 
@@ -18,13 +18,13 @@ const SkillsList = ({ lang = "es" }) => {
           {skills.map((item, index) => (
             <div
               key={item.questionEs}
-              className="border border-gray-200 rounded-xl overflow-hidden"
+              className="border border-gray-200 dark:border-gray-800 rounded-xl overflow-hidden"
             >
               <button
                 onClick={() => setOpenItem(openItem === index ? -1 : index)}
-                className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left hover:bg-gray-50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1a6fec] focus-visible:ring-inset"
+                className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1a6fec] focus-visible:ring-inset"
               >
-                <span className="text-sm font-semibold text-gray-900">
+                <span className="text-sm font-semibold text-gray-900 dark:text-gray-100">
                   {t(item.questionEs, item.questionEn)}
                 </span>
                 <svg
@@ -35,7 +35,7 @@ const SkillsList = ({ lang = "es" }) => {
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className={`h-4 w-4 shrink-0 text-gray-400 transition-transform duration-200 ${openItem === index ? "rotate-180" : ""}`}
+                  className={`h-4 w-4 shrink-0 text-gray-400 dark:text-gray-500 transition-transform duration-200 ${openItem === index ? "rotate-180" : ""}`}
                 >
                   <path d="m6 9 6 6 6-6" />
                 </svg>
@@ -46,7 +46,7 @@ const SkillsList = ({ lang = "es" }) => {
                   openItem === index ? "max-h-96" : "max-h-0"
                 }`}
               >
-                <p className="px-5 pb-4 text-sm text-gray-500 leading-relaxed border-t border-gray-100 pt-3">
+                <p className="px-5 pb-4 text-sm text-gray-500 dark:text-gray-400 leading-relaxed border-t border-gray-100 dark:border-gray-800 pt-3">
                   {t(item.answerEs, item.answerEn)}
                 </p>
               </div>

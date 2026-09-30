@@ -7,7 +7,7 @@ const SocialIcons = () => {
         href="https://www.linkedin.com/in/mdlr89/"
         target="_blank"
         rel="noopener noreferrer"
-        className="text-gray-400 hover:text-[#1a6fec] transition-colors duration-200"
+        className="text-gray-400 dark:text-gray-500 hover:text-[#1a6fec] transition-colors duration-200"
         aria-label="Linkedin"
       >
         <FaLinkedinIn className="h-5 w-5" />
@@ -16,7 +16,7 @@ const SocialIcons = () => {
         href="https://github.com/Umario-chan"
         target="_blank"
         rel="noopener noreferrer"
-        className="text-gray-400 hover:text-[#1a6fec] transition-colors duration-200"
+        className="text-gray-400 dark:text-gray-500 hover:text-[#1a6fec] transition-colors duration-200"
         aria-label="Github"
       >
         <FaGithub className="h-5 w-5" />

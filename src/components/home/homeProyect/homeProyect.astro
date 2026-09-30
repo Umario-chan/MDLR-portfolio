@@ -14,7 +14,7 @@ const t = translator(lang);
         <p class="text-xs font-semibold tracking-[0.2em] uppercase text-[#1a6fec] mb-1">
           {t("Trabajo reciente", "Recent work")}
         </p>
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100">
           {t("Proyectos destacados", "Featured projects")}
         </h2>
       </div>
@@ -34,7 +34,7 @@ const t = translator(lang);
     <div class="mt-8 flex justify-center md:hidden">
       <a
         href={getPath("projects", lang)}
-        class="inline-flex items-center gap-2 px-6 py-2.5 border border-gray-300 rounded-full text-sm font-semibold text-gray-700 hover:border-[#1a6fec] hover:text-[#1a6fec] transition-all duration-200"
+        class="inline-flex items-center gap-2 px-6 py-2.5 border border-gray-300 dark:border-gray-700 rounded-full text-sm font-semibold text-gray-700 dark:text-gray-300 hover:border-[#1a6fec] hover:text-[#1a6fec] transition-all duration-200"
       >
         {t("Ver todos los proyectos", "View all projects")}
       </a>

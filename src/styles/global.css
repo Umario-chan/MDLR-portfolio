@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+/* Modo oscuro por clase en <html>, no por la preferencia del sistema: así el
+   botón del navbar puede forzarlo. El script de theme.js decide la clase. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+html.dark {
+  color-scheme: dark;
+}
+
 * {
   font-family: 'Outfit', sans-serif;
 }

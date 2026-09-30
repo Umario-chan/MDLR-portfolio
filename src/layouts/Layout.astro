@@ -5,6 +5,7 @@ import Footer from "../components/commons/footer/footer.astro";
 import { ClientRouter } from "astro:transitions";
 import { getAlternatePath, getLangFromPath, locales, translator } from "../i18n";
 import langRedirect from "../i18n/lang-redirect.js?raw";
+import themeScript from "../theme/theme.js?raw";
 
 interface Props {
   title?: string;
@@ -148,14 +149,16 @@ const identidad = {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#030712" />
     <title>{pageTitle}</title>
     <script type="application/ld+json" is:inline set:html={JSON.stringify(identidad)} />
     {jsonLd && <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />}
     <script is:inline set:html={langRedirect} />
+    <script is:inline set:html={themeScript} />
     <ClientRouter />
   </head>
-  <body class="bg-white text-gray-900">
+  <body class="bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100">
     <Navbar bilingual={bilingual} />
     <slot />
     <Footer bilingual={bilingual} />
@@ -185,6 +188,17 @@ const identidad = {
     document.querySelectorAll(".reveal").forEach((el) => el.classList.add("reveal-visible"));
     window.scrollTo({ top: langSwitch.scrollY, behavior: "instant" });
     langSwitch = null;
+  });
+
+  // Botón de tema del navbar: alterna y guarda la elección
+  document.addEventListener("click", (event) => {
+    const button = (event.target as Element).closest("[data-theme-toggle]");
+    if (!button) return;
+    const dark = !document.documentElement.classList.contains("dark");
+    document.documentElement.classList.toggle("dark", dark);
+    try {
+      localStorage.setItem("theme", dark ? "dark" : "light");
+    } catch {}
   });
 
   function initReveal() {
