@@ -2,7 +2,7 @@
 
 Portafolio personal de Mario de la Rosa, desarrollador fullstack en Ciudad de México con experiencia previa en QA Automation. Bilingüe (español e inglés).
 
-**Sitio:** [mdlr-portfolio.vercel.app](https://mdlr-portfolio.vercel.app) · **English:** [mdlr-portfolio.vercel.app/en/](https://mdlr-portfolio.vercel.app/en/)
+**Sitio:** [mariodelarosa.dev](https://mariodelarosa.dev) · **English:** [mariodelarosa.dev/en/](https://mariodelarosa.dev/en/)
 
 ![Mario de la Rosa — Developer](public/og-image.png)
 
@@ -11,7 +11,7 @@ Portafolio personal de Mario de la Rosa, desarrollador fullstack en Ciudad de M�
 - [Astro 5](https://astro.build/) — sitio estático, con React solo en los componentes interactivos
 - [React 19](https://react.dev/) — timeline de experiencia, FAQ, efecto de texto y botón de copiar correo
 - [Tailwind CSS 4](https://tailwindcss.com/)
-- Desplegado en [Vercel](https://vercel.com/)
+- Desplegado en [Vercel](https://vercel.com/), con el dominio en Cloudflare
 
 ## Qué incluye
 

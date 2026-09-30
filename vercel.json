@@ -1,0 +1,11 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "mdlr-portfolio.vercel.app" }],
+      "destination": "https://mariodelarosa.dev/:path*",
+      "permanent": true
+    }
+  ]
+}

@@ -5,7 +5,7 @@ import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import { getAlternatePath, locales } from "./src/i18n/index.js";
 
-const site = "https://mdlr-portfolio.vercel.app";
+const site = "https://mariodelarosa.dev";
 
 // https://astro.build/config
 export default defineConfig({
