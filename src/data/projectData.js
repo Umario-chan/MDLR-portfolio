@@ -540,8 +540,8 @@ export const proyectos = [
     enProgreso: true,
   },
   {
-    titulo: "Paty Rocks — Organizador de fiestas",
-    tituloEn: "Paty Rocks — Party planner",
+    titulo: "Paty Rocks Pivot",
+    tituloEn: "Paty Rocks Pivot",
     slug: "paty-rocks-pivot",
     descripcion:
       "Nueva versión de Paty Rocks: organizar una fiesta es gratis y los proveedores compran el contacto sólo cuando la persona pide propuestas y lo autoriza.",
