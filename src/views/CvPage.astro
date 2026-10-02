@@ -1,11 +1,14 @@
 ---
 // Página standalone de CV — sin Layout ni imports de CSS globales
 import { experiencia, educacion } from "../data/experienceData.js";
-import { getAlternatePath, getLangFromPath, locales, translator } from "../i18n";
+import { getAlternatePath, getLangFromPath, getPath, locales, translator } from "../i18n";
 import langRedirect from "../i18n/lang-redirect.js?raw";
 
 const lang = getLangFromPath(Astro.url.pathname);
 const t = translator(lang);
+// Enlace al portafolio en el idioma del CV; se muestra solo el dominio
+const sitioUrl = new URL(getPath("home", lang), Astro.site).href;
+const sitioTexto = Astro.site!.host;
 const alternates = {
   es: getAlternatePath(Astro.url.pathname, "es"),
   en: getAlternatePath(Astro.url.pathname, "en"),
@@ -126,6 +129,7 @@ const proyectosCv = [
         <p class="name">Mario de la Rosa</p>
         <p class="role">Full Stack Developer · QA Automation</p>
         <div class="contacts">
+          <a href={sitioUrl} target="_blank">{sitioTexto}</a>
           <a href="mailto:mario.delarosa@live.com.mx">mario.delarosa@live.com.mx</a>
           <a href="https://www.linkedin.com/in/mdlr89/" target="_blank">linkedin.com/in/mdlr89</a>
           <a href="https://wa.me/525529044570" target="_blank">+52 55 2904 4570</a>
