@@ -8,6 +8,52 @@ export const experiencia = [
   {
     puestoEs: "Lead Developer",
     puestoEn: "Lead Developer",
+    empresa: "AILead · Mi Fiesta, Me Mudo, Mi Dulce Hogar",
+    periodo: "Sept. 2026 — Presente",
+    periodoEn: "Sep. 2026 — Present",
+    descripcionEs: "Desarrollo la plataforma de AILead, una holding mexicana que conecta a personas que necesitan un servicio con proveedores que pagan por oportunidades calificadas. Construí el motor de leads de sus tres marcas —fiestas, mudanzas y servicios del hogar— y el sitio de la holding.",
+    descripcionEn: "I build the platform for AILead, a Mexican holding company that connects people who need a service with vendors who pay for qualified leads. I built the lead engine behind its three brands —parties, moving, and home services— and the holding company's website.",
+    itemsEs: [
+      "Mi Fiesta: organizador de fiestas gratuito con marketplace de leads, consentimiento versionado y créditos recargables con Stripe",
+      "Me Mudo: el mismo motor adaptado a mudanzas, con reparto por zona, capacidad de las unidades y fechas",
+      "Mi Dulce Hogar: servicios del hogar con verificación por WhatsApp, pruebas automatizadas e integración continua",
+      "Los datos de contacto se revelan sólo cuando el proveedor paga, con auditoría de cada revelación",
+      "Paneles de administración con embudo de conversión y reglas editables sin desplegar",
+      "Sitio de la holding en React con animaciones en Motion",
+    ],
+    itemsEn: [
+      "Mi Fiesta: a free party planner with a lead marketplace, versioned consent, and credits topped up with Stripe",
+      "Me Mudo: the same engine adapted to moving, with distribution by area, vehicle capacity, and dates",
+      "Mi Dulce Hogar: home services with WhatsApp verification, automated tests, and continuous integration",
+      "Contact details are revealed only after the vendor pays, with an audit of every reveal",
+      "Admin panels with a conversion funnel and rules editable without a deploy",
+      "The holding company's website in React with Motion animations",
+    ],
+    tags: ["Next.js", "React", "TypeScript", "Back4App", "Stripe", "Docker", "Claude Code"],
+    cv: {
+      es: {
+        descripcion: "Desarrollo la plataforma de AILead, una holding mexicana de generación de leads: el motor de sus tres marcas —fiestas, mudanzas y servicios del hogar— y el sitio de la holding.",
+        items: [
+          "Mi Fiesta, Me Mudo y Mi Dulce Hogar: marketplaces de leads con consentimiento versionado y créditos recargables con Stripe",
+          "Los datos de contacto se revelan sólo cuando el proveedor paga, con auditoría de cada revelación",
+          "Paneles de administración con embudo de conversión y reglas editables sin desplegar",
+          "Pruebas automatizadas e integración continua en GitHub Actions",
+        ],
+      },
+      en: {
+        descripcion: "I build the platform for AILead, a Mexican lead-generation holding company: the engine behind its three brands —parties, moving, and home services— and the holding company's website.",
+        items: [
+          "Mi Fiesta, Me Mudo, and Mi Dulce Hogar: lead marketplaces with versioned consent and credits topped up with Stripe",
+          "Contact details are revealed only after the vendor pays, with an audit of every reveal",
+          "Admin panels with a conversion funnel and rules editable without a deploy",
+          "Automated tests and continuous integration on GitHub Actions",
+        ],
+      },
+    },
+  },
+  {
+    puestoEs: "Lead Developer",
+    puestoEn: "Lead Developer",
     empresa: "Semiología de la Vida Cotidiana®",
     periodo: "Ago. 2026 — Sept. 2026",
     periodoEn: "Aug. 2026 — Sep. 2026",

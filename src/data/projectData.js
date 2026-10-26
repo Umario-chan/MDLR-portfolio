@@ -527,6 +527,7 @@ export const proyectos = [
     tecnologias: ["React 19", "Vite", "Tailwind CSS 4", "Motion", "Lucide", "Vercel"],
     demo: "https://ia-lead-psi.vercel.app/",
     categoria: "Frontend",
+    enProgreso: true,
     claudeCode: true,
   },
   {
