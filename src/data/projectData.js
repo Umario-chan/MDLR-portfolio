@@ -5,10 +5,14 @@ import comicShelf from "../assets/img-projects/comicshelf.jpeg";
 import semiologia from "../assets/img-projects/semiologia.jpg";
 import novagenic from "../assets/img-projects/novagenic.jpg";
 import cruzRoja from "../assets/img-projects/cruz-roja.jpeg";
-import patyRocksPivot from "../assets/img-projects/paty-rocks-pivot.jpeg";
+import ailead from "../assets/img-projects/ailead.jpeg";
+import miFiesta from "../assets/img-projects/mi-fiesta.jpeg";
+import meMudo from "../assets/img-projects/me-mudo.jpeg";
+import miDulceHogar from "../assets/img-projects/mi-dulce-hogar.jpeg";
 
 // El orden del arreglo es el orden en el sitio. Los que llevan `enProgreso: true`
 // salen en la sección "En progreso" de /proyectos; el resto en "Terminados".
+// `claudeCode: true` marca los proyectos hechos en parte con Claude Code.
 export const proyectos = [
   {
     titulo: "Paty Rocks",
@@ -97,6 +101,7 @@ export const proyectos = [
     tecnologias: ["React", "TypeScript", "Tailwind CSS", "Back4App", "Node.js", "MongoDB", "Stripe", "SendPulse"],
     demo: "https://patyrocks.com/",
     categoria: "Fullstack",
+    claudeCode: true,
   },
   {
     titulo: "Grupo Altía — Crowdfunding",
@@ -185,6 +190,7 @@ export const proyectos = [
     tecnologias: ["React", "TypeScript", "Vite", "Tailwind CSS", "Back4App", "Node.js", "Stripe", "Facturapi", "Cloudflare Pages"],
     demo: "https://grupoaltia.org",
     categoria: "Fullstack",
+    claudeCode: true,
   },
   {
     titulo: "Semiología de la Vida Cotidiana® — 3 sitios",
@@ -302,6 +308,7 @@ export const proyectos = [
     tecnologias: ["WordPress", "Full Site Editing", "PHP", "Astro", "Node.js", "JavaScript", "CSS", "SEO"],
     demo: "",
     categoria: "Fullstack",
+    claudeCode: true,
   },
   {
     titulo: "Novagenic — Farmacogenética clínica",
@@ -387,20 +394,7 @@ export const proyectos = [
     categoria: "Fullstack",
     estado: "Prototipo funcional. Contenido clínico en borrador, pendiente de validación médica.",
     estadoEn: "Working prototype. Clinical content is a draft, pending medical validation.",
-  },
-  {
-    titulo: "Neosis",
-    slug: "neosis",
-    descripcion:
-      "SaaS multi-inquilino de administración escolar para colegios privados: calificaciones, asistencia, boletas y documentos verificables por folio.",
-    descripcionEn:
-      "Multi-tenant school administration SaaS for private schools: grades, attendance, report cards, and folio-verifiable documents.",
-    imagen: neosis.src,
-    tecnologias: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL", "Motion", "Vercel"],
-    demo: "",
-    categoria: "Fullstack",
-    wip: true,
-    enProgreso: true,
+    claudeCode: true,
   },
   {
     titulo: "ComicShelf",
@@ -470,6 +464,272 @@ export const proyectos = [
     demo: "",
     github: "https://github.com/Umario-chan/comicshelf",
     categoria: "Fullstack",
+    claudeCode: true,
+  },
+  {
+    titulo: "AILead",
+    slug: "ailead",
+    descripcion:
+      "Sitio de AILead, la holding detrás de Mi Fiesta, Me Mudo y Mi Dulce Hogar: explica su modelo de generación de oportunidades y presenta sus tres marcas.",
+    descripcionEn:
+      "Website for AILead, the holding company behind Mi Fiesta, Me Mudo, and Mi Dulce Hogar: it explains its lead-generation model and presents its three brands.",
+    subtitulo: "AILead — Generamos demanda, conectamos negocio",
+    subtituloEn: "AILead — We generate demand and connect businesses",
+    descripcionLarga:
+      "AILead es una holding tecnológica mexicana que conecta a personas que necesitan un servicio con proveedores que pagan por recibir oportunidades calificadas, a través de tres marcas: Mi Fiesta, Me Mudo y Mi Dulce Hogar. Recreé en React el sitio que la marca tenía hecho en Lovable y le agregué una capa de animaciones con Motion, cuidando el rendimiento y respetando a quien prefiere menos movimiento.",
+    descripcionLargaEn:
+      "AILead is a Mexican tech holding company that connects people who need a service with vendors who pay for qualified leads, through three brands: Mi Fiesta, Me Mudo, and Mi Dulce Hogar. I rebuilt in React the site the brand had made in Lovable and added a layer of Motion animations, keeping performance in check and respecting visitors who prefer reduced motion.",
+    seccionesTitulo: "Qué incluye",
+    seccionesTituloEn: "What it includes",
+    secciones: [
+      {
+        titulo: "Contenido",
+        items: [
+          "El modelo en cuatro pasos: solicitud, calificación, conexión y cierre",
+          "El ecosistema de marcas: Mi Fiesta, Me Mudo y Mi Dulce Hogar, cada una con sus servicios",
+          "La ventaja compartida: marketing y SEO, IA para captar y calificar, CRM y cobros, medición y recompra",
+          "Llamadas a la acción para proveedores y para contactar a la holding",
+        ],
+      },
+      {
+        titulo: "Animaciones",
+        items: [
+          "Titular que aparece palabra por palabra y barra de progreso de lectura",
+          "Parallax en el hero y en las fotos de cada marca",
+          "Tarjetas que se inclinan en 3D siguiendo el cursor y botones magnéticos",
+          "Cinta animada con los doce servicios de las tres marcas",
+          "Respeta la preferencia de movimiento reducido del sistema",
+        ],
+      },
+    ],
+    seccionesEn: [
+      {
+        titulo: "Content",
+        items: [
+          "The model in four steps: request, qualification, connection, and close",
+          "The brand ecosystem: Mi Fiesta, Me Mudo, and Mi Dulce Hogar, each with its services",
+          "The shared advantage: marketing and SEO, AI to capture and qualify, CRM and billing, measurement and repeat business",
+          "Calls to action for vendors and to contact the holding company",
+        ],
+      },
+      {
+        titulo: "Animations",
+        items: [
+          "Headline revealed word by word and a reading progress bar",
+          "Parallax on the hero and on each brand's photos",
+          "Cards that tilt in 3D with the cursor and magnetic buttons",
+          "Animated ticker with the twelve services across the three brands",
+          "Honors the system's reduced-motion preference",
+        ],
+      },
+    ],
+    imagen: ailead.src,
+    tecnologias: ["React 19", "Vite", "Tailwind CSS 4", "Motion", "Lucide", "Vercel"],
+    demo: "https://ia-lead-psi.vercel.app/",
+    categoria: "Frontend",
+    claudeCode: true,
+  },
+  {
+    titulo: "Mi Fiesta",
+    slug: "mi-fiesta",
+    descripcion:
+      "Antes Paty Rocks Pivot. Organizar una fiesta es gratis y los proveedores pagan con créditos sólo los contactos que la persona autoriza.",
+    descripcionEn:
+      "Formerly Paty Rocks Pivot. Planning a party is free, and vendors pay with credits only for the contacts the host authorizes.",
+    subtitulo: "Mi Fiesta — Organizador de fiestas con marketplace de leads (antes Paty Rocks Pivot)",
+    subtituloEn: "Mi Fiesta — A party planner with a lead marketplace (formerly Paty Rocks Pivot)",
+    descripcionLarga:
+      "Mi Fiesta es el pivot de Paty Rocks, renombrado como una de las tres marcas de AILead. La plataforma es gratuita para quien organiza: planea su fiesta con checklist, presupuesto e invitados y, cuando le falta el salón, la comida o el DJ, pide propuestas y autoriza que hasta cinco proveedores la contacten. Los proveedores compran créditos y los gastan sólo en los contactos que deciden tomar. Cada contacto revelado queda ligado a un consentimiento versionado. Es un proyecto aparte de la primera versión de Paty Rocks, con su propia base de datos y sin código compartido.",
+    descripcionLargaEn:
+      "Mi Fiesta is the Paty Rocks pivot, renamed as one of AILead's three brands. The platform is free for hosts: they plan their party with a checklist, budget, and guest list and, when they still need a venue, catering, or a DJ, they ask for proposals and authorize up to five vendors to reach out. Vendors buy credits and spend them only on the leads they choose to take. Every revealed contact is tied to a versioned consent record. It is separate from the first version of Paty Rocks, with its own database and no shared code.",
+    seccionesTitulo: "Cómo funciona",
+    seccionesTituloEn: "How it works",
+    secciones: [
+      {
+        titulo: "Quien organiza",
+        items: [
+          "Crea su fiesta en un asistente por pasos y la cuenta nace ahí mismo",
+          "Tablero con la próxima acción, checklist con fechas, presupuesto por categoría e invitados con confirmaciones",
+          "Cada necesidad (salón, comida, música…) trae su brief; pedir propuestas es un botón aparte que genera el consentimiento",
+          "Si nadie cubre su municipio, puede ampliar la búsqueda a toda la entidad",
+          "Recibe propuestas y conversa dentro de su fiesta; contratar marca la necesidad como cubierta y deja lista la reseña",
+        ],
+      },
+      {
+        titulo: "Proveedores, créditos y operación",
+        items: [
+          "Alta con cobertura por categoría y municipio, galería de fotos y documentos",
+          "Créditos recargables con Stripe Checkout; sólo el webhook acredita y lo hace una sola vez por pago",
+          "El proveedor ve tipo de fiesta, fecha, invitados y presupuesto, pero nunca el contacto hasta tomarlo",
+          "Reparto automático con cola de revisión humana opcional, devoluciones y auditoría de cada contacto revelado",
+          "Avisos por correo con plantilla propia y verificación de cuenta con códigos de seis dígitos",
+        ],
+      },
+    ],
+    seccionesEn: [
+      {
+        titulo: "Hosts",
+        items: [
+          "Create their party in a step-by-step wizard, and the account is created right there",
+          "Dashboard with the next action, a dated checklist, per-category budget, and a guest list with RSVPs",
+          "Each need (venue, food, music…) has its own brief; asking for proposals is a separate button that records consent",
+          "If no vendor covers their municipality, they can widen the search to the whole state",
+          "Proposals and conversations live inside the party; hiring marks the need as covered and opens the review",
+        ],
+      },
+      {
+        titulo: "Vendors, credits, and operations",
+        items: [
+          "Sign-up with coverage by category and municipality, a photo gallery, and documents",
+          "Credits topped up with Stripe Checkout; only the webhook credits them, exactly once per payment",
+          "Vendors see the party type, date, guest count, and budget, but never the contact until they take the lead",
+          "Automatic distribution with an optional human review queue, refund requests, and an audit of every revealed contact",
+          "Branded email notifications and account verification with six-digit codes",
+        ],
+      },
+    ],
+    imagen: miFiesta.src,
+    tecnologias: ["Next.js 16", "React 19", "TypeScript", "Back4App", "Parse Server", "Stripe", "Zod", "Docker"],
+    demo: "",
+    categoria: "Fullstack",
+    estado: "Funciona de punta a punta en su ambiente de pruebas. Pendiente de dominio, textos legales, cuenta de Stripe propia y proveedores de campo antes del lanzamiento.",
+    estadoEn: "Works end to end in its test environment. A domain, legal copy, its own Stripe account, and field vendors are pending before launch.",
+    enProgreso: true,
+    claudeCode: true,
+  },
+  {
+    titulo: "Me Mudo",
+    slug: "me-mudo",
+    descripcion:
+      "Marketplace de mudanzas, fletes y almacenamiento de AILead: la persona describe su traslado y hasta cinco mudanceros de su zona pueden tomar el contacto.",
+    descripcionEn:
+      "AILead's marketplace for moves, freight, and storage: people describe their move and up to five movers in their area can take the lead.",
+    subtitulo: "Me Mudo — Mudanzas, fletes y almacenamiento",
+    subtituloEn: "Me Mudo — Moves, freight, and storage",
+    descripcionLarga:
+      "Me Mudo es la segunda marca de AILead. Quien se muda describe su traslado sin pagar nada, y la plataforma lo reparte a un máximo de cinco mudanceros que cubren su alcaldía, su tipo de carga y sus fechas. Cada mudancero paga con créditos sólo los contactos que decide tomar, y antes de pagar sólo ve la alcaldía y la colonia. El motor de leads viene de Mi Fiesta, adaptado a mudanzas, con su propia base de datos y sin nada compartido en tiempo de ejecución.",
+    descripcionLargaEn:
+      "Me Mudo is AILead's second brand. People who are moving describe their move for free, and the platform distributes it to up to five movers who cover their borough, load type, and dates. Each mover pays with credits only for the leads they choose to take, and before paying they only see the borough and neighborhood. The lead engine comes from Mi Fiesta, adapted to moving, with its own database and nothing shared at runtime.",
+    seccionesTitulo: "Cómo funciona",
+    seccionesTituloEn: "How it works",
+    secciones: [
+      {
+        titulo: "Quien se muda",
+        items: [
+          "Cotizador de cuatro pasos que llega prellenado desde el buscador de la portada",
+          "La cuenta se confirma con un código por correo y, al confirmarla, la mudanza se reparte sola",
+          "Seguimiento de la mudanza, comparación de presupuestos y «Aceptar y contratar»",
+          "Chat con cada mudancero y calificación al terminar",
+        ],
+      },
+      {
+        titulo: "Mudanceros y operación",
+        items: [
+          "Perfil con flotilla, seguro de carga, personal, galería y alcaldías que cubre",
+          "Reparto por servicio, zona, capacidad de las unidades, anticipación y fechas bloqueadas",
+          "Orden de servicio imprimible para la cuadrilla y presupuesto con partidas, IVA y vigencia",
+          "Pólizas con vigencia que dan y retiran sellos de confianza automáticamente",
+          "Panel de administración con embudo de conversión, reglas editables sin desplegar y auditoría de contactos revelados",
+          "Ajustado al plan gratuito de Back4app: consultas agrupadas, reintentos y caché",
+        ],
+      },
+    ],
+    seccionesEn: [
+      {
+        titulo: "People moving",
+        items: [
+          "Four-step quote wizard, prefilled from the search box on the home page",
+          "The account is confirmed with an email code and, once confirmed, the move is distributed automatically",
+          "Move tracking, quote comparison, and «Accept and hire»",
+          "Chat with each mover and a rating at the end",
+        ],
+      },
+      {
+        titulo: "Movers and operations",
+        items: [
+          "Profile with fleet, cargo insurance, crew, gallery, and the boroughs they cover",
+          "Distribution by service, area, vehicle capacity, lead time, and blocked dates",
+          "Printable work order for the crew and itemized quotes with VAT and expiry",
+          "Insurance policies with expiry dates that grant and remove trust badges automatically",
+          "Admin panel with a conversion funnel, rules editable without a deploy, and an audit of revealed contacts",
+          "Tuned for Back4app's free plan: grouped queries, retries, and caching",
+        ],
+      },
+    ],
+    imagen: meMudo.src,
+    tecnologias: ["Next.js 16", "React 19", "TypeScript", "Back4App", "Parse Server", "Stripe", "Zod", "Vercel"],
+    demo: "",
+    categoria: "Fullstack",
+    estado: "Circuito completo en su ambiente de pruebas, con cobros de Stripe probados. Pendiente de dominio, cuenta de Stripe propia, precio de los créditos y revisión legal.",
+    estadoEn: "Full flow running in its test environment, with Stripe payments tested. A domain, its own Stripe account, credit pricing, and legal review are pending.",
+    enProgreso: true,
+    claudeCode: true,
+  },
+  {
+    titulo: "Mi Dulce Hogar",
+    slug: "mi-dulce-hogar",
+    descripcion:
+      "Marketplace de servicios para el hogar en CDMX de AILead: pedir es gratis y recibes hasta cinco propuestas de profesionales verificados de tu zona.",
+    descripcionEn:
+      "AILead's home services marketplace in Mexico City: asking is free and you get up to five proposals from verified professionals in your area.",
+    subtitulo: "Mi Dulce Hogar — Lo que tu casa necesita, con gente de confianza",
+    subtituloEn: "Mi Dulce Hogar — What your home needs, from people you can trust",
+    descripcionLarga:
+      "Mi Dulce Hogar es la tercera marca de AILead: limpieza, plomería y electricidad, pintura, carpintería y mantenimiento. La persona cuenta qué necesita, recibe hasta cinco propuestas de profesionales verificados, compara presupuestos y contrata. Los proveedores compran paquetes de créditos y cada contacto cuesta un crédito. Nació como un servicio de limpieza con personal propio y se rehízo como marketplace con el motor de leads de Mi Fiesta, con su propia base de datos.",
+    descripcionLargaEn:
+      "Mi Dulce Hogar is AILead's third brand: cleaning, plumbing and electrical work, painting, carpentry, and maintenance. People describe what they need, get up to five proposals from verified professionals, compare quotes, and hire. Vendors buy credit packages, and each lead costs one credit. It started as a cleaning service with in-house staff and was rebuilt as a marketplace on Mi Fiesta's lead engine, with its own database.",
+    seccionesTitulo: "Cómo funciona",
+    seccionesTituloEn: "How it works",
+    secciones: [
+      {
+        titulo: "Quien pide un servicio",
+        items: [
+          "Solicitud en cuatro pasos: servicio, cuestionario con fotos opcionales, fecha y domicilio, y consentimiento",
+          "Confirma su celular con un código por WhatsApp y la solicitud se reparte sola",
+          "Compara presupuestos lado a lado y contrata; las demás propuestas se cierran",
+          "Chat con cada proveedor y calificación a partir del día del servicio",
+        ],
+      },
+      {
+        titulo: "Proveedores y operación",
+        items: [
+          "Cobertura de hasta cuatro servicios y veinte municipios, con documentos que otorgan sellos",
+          "Antes de pagar, el proveedor ve el trabajo sin datos de contacto; al tomarlo se cobra el crédito y se revela",
+          "Presupuesto por partidas, recarga de créditos con Stripe y devoluciones dentro de siete días",
+          "Administración con tablero, servicios y cuestionarios editables, reglas de reparto y bitácora de auditoría",
+          "Pruebas automatizadas de la lógica de negocio e integración continua en GitHub Actions",
+        ],
+      },
+    ],
+    seccionesEn: [
+      {
+        titulo: "People requesting a service",
+        items: [
+          "Four-step request: service, questionnaire with optional photos, date and address, and consent",
+          "They confirm their phone with a WhatsApp code and the request is distributed automatically",
+          "Side-by-side quote comparison and hiring; the other proposals are closed",
+          "Chat with each vendor and a rating from the day of the service",
+        ],
+      },
+      {
+        titulo: "Vendors and operations",
+        items: [
+          "Coverage of up to four services and twenty municipalities, with documents that grant badges",
+          "Before paying, vendors see the job without contact details; taking it charges the credit and reveals them",
+          "Itemized quotes, credit top-ups with Stripe, and refunds within seven days",
+          "Admin with a dashboard, editable services and questionnaires, distribution rules, and an audit log",
+          "Automated tests for the business logic and continuous integration on GitHub Actions",
+        ],
+      },
+    ],
+    imagen: miDulceHogar.src,
+    tecnologias: ["Next.js 16", "React 19", "TypeScript", "Back4App", "Stripe", "SendPulse", "GitHub Actions", "Docker"],
+    demo: "",
+    categoria: "Fullstack",
+    estado: "Las siete fases del plan están hechas y probadas en local. Pendiente de WhatsApp con número propio, cuenta de Stripe de producción, dominio y reclutar proveedores.",
+    estadoEn: "All seven phases of the plan are done and tested locally. WhatsApp with its own number, a production Stripe account, the domain, and vendor recruiting are pending.",
+    enProgreso: true,
+    claudeCode: true,
   },
   {
     titulo: "Donante de Sangre — Cruz Roja Mexicana",
@@ -538,71 +798,20 @@ export const proyectos = [
     estado: "Frontend completo sobre datos simulados. Pendiente de backend y de validación médica del cuestionario.",
     estadoEn: "Frontend complete on simulated data. Backend and medical sign-off on the questionnaire are pending.",
     enProgreso: true,
+    claudeCode: true,
   },
   {
-    titulo: "Paty Rocks Pivot",
-    tituloEn: "Paty Rocks Pivot",
-    slug: "paty-rocks-pivot",
+    titulo: "Neosis",
+    slug: "neosis",
     descripcion:
-      "Nueva versión de Paty Rocks: organizar una fiesta es gratis y los proveedores compran el contacto sólo cuando la persona pide propuestas y lo autoriza.",
+      "SaaS multi-inquilino de administración escolar para colegios privados: calificaciones, asistencia, boletas y documentos verificables por folio.",
     descripcionEn:
-      "The new take on Paty Rocks: planning a party is free, and vendors buy a lead only when the host asks for proposals and consents to share their contact.",
-    subtitulo: "Paty Rocks — Organizador de fiestas con marketplace de leads",
-    subtituloEn: "Paty Rocks — A party planner with a lead marketplace",
-    descripcionLarga:
-      "El pivot de Paty Rocks cambia el modelo de negocio: la plataforma es gratuita para quien organiza y los ingresos vienen de los proveedores. La persona planea su fiesta con checklist, presupuesto e invitados; cuando le falta el salón, la comida o el DJ, pide propuestas y autoriza que hasta tres proveedores la contacten. Cada contacto revelado queda ligado a un consentimiento versionado. Es un proyecto aparte de la primera versión, con su propia base de datos y sin código compartido, y arranca en la Ciudad de México con el catálogo geográfico listo para todo el país.",
-    descripcionLargaEn:
-      "The Paty Rocks pivot changes the business model: the platform is free for hosts and revenue comes from vendors. Hosts plan their party with a checklist, budget, and guest list; when they still need a venue, catering, or a DJ, they ask for proposals and authorize up to three vendors to reach out. Every revealed contact is tied to a versioned consent record. It is separate from the first version, with its own database and no shared code, and it launches in Mexico City with a geographic catalog ready for the whole country.",
-    seccionesTitulo: "Cómo funciona",
-    seccionesTituloEn: "How it works",
-    secciones: [
-      {
-        titulo: "Quien organiza",
-        items: [
-          "Crea su fiesta en un asistente por pasos y la cuenta nace ahí mismo",
-          "Tablero con la próxima acción, checklist con fechas, presupuesto por categoría e invitados con confirmaciones",
-          "Cada necesidad (salón, comida, música…) trae su brief; pedir propuestas es un botón aparte que genera el consentimiento",
-          "Recibe propuestas y conversa dentro de su fiesta; contratar marca la necesidad como cubierta y deja lista la reseña",
-        ],
-      },
-      {
-        titulo: "Proveedores y operación",
-        items: [
-          "Alta de proveedores con cobertura por categoría y municipio, y galería de fotos",
-          "Cola de revisión humana: cada solicitud se aprueba, se devuelve con motivo o se descarta antes de repartirse",
-          "El proveedor ve el tipo de fiesta, la fecha, los invitados y el presupuesto, pero nunca el contacto hasta tomarlo",
-          "Embudo por cohorte, devoluciones y auditoría de cada contacto revelado con su consentimiento",
-          "Verificación de cuenta y recuperación de contraseña con códigos de seis dígitos por correo",
-        ],
-      },
-    ],
-    seccionesEn: [
-      {
-        titulo: "Hosts",
-        items: [
-          "Create their party in a step-by-step wizard, and the account is created right there",
-          "Dashboard with the next action, a dated checklist, per-category budget, and a guest list with RSVPs",
-          "Each need (venue, food, music…) has its own brief; asking for proposals is a separate button that records consent",
-          "Proposals and conversations live inside the party; hiring marks the need as covered and opens the review",
-        ],
-      },
-      {
-        titulo: "Vendors and operations",
-        items: [
-          "Vendor sign-up with coverage by category and municipality, plus a photo gallery",
-          "Human review queue: every request is approved, sent back with a reason, or discarded before it is distributed",
-          "Vendors see the party type, date, guest count, and budget, but never the contact until they take the lead",
-          "Cohort funnel, refund requests, and an audit of every revealed contact with its consent",
-          "Account verification and password recovery with six-digit email codes",
-        ],
-      },
-    ],
-    imagen: patyRocksPivot.src,
-    tecnologias: ["Next.js 16", "React 19", "TypeScript", "Back4App", "Parse Server", "Zod", "Docker", "Oracle Cloud"],
+      "Multi-tenant school administration SaaS for private schools: grades, attendance, report cards, and folio-verifiable documents.",
+    imagen: neosis.src,
+    tecnologias: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL", "Motion", "Vercel"],
     demo: "",
     categoria: "Fullstack",
-    estado: "El circuito completo ya funciona en software. Pendiente de correo SMTP, textos legales y proveedores de campo antes del lanzamiento.",
-    estadoEn: "The full flow already works in software. Email (SMTP), legal copy, and onboarding field vendors are pending before launch.",
+    wip: true,
     enProgreso: true,
   },
 ];

@@ -29,7 +29,7 @@ export const experiencia = [
       "Courses, testimonials, and interviews turned into manageable WordPress entries",
       "URL inventory, 301 redirects, per-page SEO, and schema.org structured data",
     ],
-    tags: ["WordPress", "Full Site Editing", "PHP", "Astro", "Node.js", "JavaScript", "CSS", "SEO"],
+    tags: ["WordPress", "Full Site Editing", "PHP", "Astro", "Node.js", "JavaScript", "CSS", "SEO", "Claude Code"],
     cv: {
       es: {
         items: [
@@ -75,7 +75,7 @@ export const experiencia = [
       "Multi-role system: donor, registered user, collaborator, and administrator",
       "Deployed on Cloudflare Pages with Back4App as backend",
     ],
-    tags: ["React", "TypeScript", "Vite", "Tailwind CSS", "Back4App", "Node.js", "Stripe", "Facturapi", "Cloudflare Pages"],
+    tags: ["React", "TypeScript", "Vite", "Tailwind CSS", "Back4App", "Node.js", "Stripe", "Facturapi", "Cloudflare Pages", "Claude Code"],
     cv: {
       es: {
         descripcion: "Diseñé y desarrollé la plataforma digital de Grupo Altía IAP, integrando donativos recurrentes, tienda solidaria, facturación CFDI y panel de administración sin código.",
@@ -123,7 +123,7 @@ export const experiencia = [
       "Administrative portal for managing providers, products, orders, and refunds",
       "Multi-role architecture: organizer, guest, provider, and administrator",
     ],
-    tags: ["React", "TypeScript", "Vite", "Back4App", "Stripe", "SendPulse", "TailwindCSS"],
+    tags: ["React", "TypeScript", "Vite", "Back4App", "Stripe", "SendPulse", "TailwindCSS", "Claude Code"],
     cv: {
       es: {
         descripcion: "Diseñé y desarrollé Paty Rocks, plataforma web para organización de eventos sociales en México con marketplace integrado de proveedores.",

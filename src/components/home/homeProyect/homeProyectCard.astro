@@ -1,6 +1,7 @@
 ---
 import { HiArrowUpRight } from "react-icons/hi2";
 import { getLangFromPath, getProjectPath, translator } from "../../../i18n";
+import ClaudeCodeBadge from "../../project/ClaudeCodeBadge.astro";
 
 export interface Props {
   titulo: string;
@@ -9,9 +10,10 @@ export interface Props {
   tecnologias: string[];
   slug: string;
   codigo?: string;
+  claudeCode?: boolean;
 }
 
-const { imagen, tecnologias, slug } = Astro.props;
+const { imagen, tecnologias, slug, claudeCode = false } = Astro.props;
 const lang = getLangFromPath(Astro.url.pathname);
 const t = translator(lang);
 const titulo = t(Astro.props.titulo, Astro.props.tituloEn ?? Astro.props.titulo);
@@ -27,6 +29,7 @@ const titulo = t(Astro.props.titulo, Astro.props.tituloEn ?? Astro.props.titulo)
   </div>
 
   <div class="flex flex-col p-4">
+    {claudeCode && <div class="mb-2"><ClaudeCodeBadge /></div>}
     <h3 class="text-gray-900 dark:text-gray-100 font-bold text-base mb-2">{titulo}</h3>
 
     <div class="flex flex-wrap gap-1.5 mb-4">

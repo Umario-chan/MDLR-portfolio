@@ -1,5 +1,6 @@
 ---
 import { getLangFromPath, getProjectPath, translator } from "../../i18n";
+import ClaudeCodeBadge from "./ClaudeCodeBadge.astro";
 
 export interface Props {
   titulo: string;
@@ -8,10 +9,11 @@ export interface Props {
   tecnologias: string[];
   slug: string;
   categoria?: string;
+  claudeCode?: boolean;
   index: number;
 }
 
-const { titulo, descripcion, imagen, tecnologias, slug, categoria, index } = Astro.props;
+const { titulo, descripcion, imagen, tecnologias, slug, categoria, claudeCode = false, index } = Astro.props;
 const lang = getLangFromPath(Astro.url.pathname);
 const t = translator(lang);
 ---
@@ -31,10 +33,15 @@ const t = translator(lang);
   </div>
 
   <div class="flex flex-col grow p-5">
-    {categoria && (
-      <span class="text-[10px] font-semibold tracking-[0.15em] uppercase text-[#1a6fec] mb-2">
-        {categoria}
-      </span>
+    {(categoria || claudeCode) && (
+      <div class="mb-2 flex flex-wrap items-center justify-between gap-2">
+        {categoria && (
+          <span class="text-[10px] font-semibold tracking-[0.15em] uppercase text-[#1a6fec]">
+            {categoria}
+          </span>
+        )}
+        {claudeCode && <ClaudeCodeBadge />}
+      </div>
     )}
 
     <h3 class="text-gray-900 dark:text-gray-100 font-bold text-lg leading-snug mb-2">{titulo}</h3>

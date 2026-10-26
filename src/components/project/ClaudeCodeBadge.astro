@@ -1,0 +1,17 @@
+---
+// Marca de los proyectos hechos en parte con Claude Code (campo `claudeCode`
+// en projectData.js). Se usa en las tarjetas; la página de detalle lo explica.
+import { getLangFromPath, translator } from "../../i18n";
+
+const t = translator(getLangFromPath(Astro.url.pathname));
+---
+
+<span
+  class="inline-flex items-center gap-1 rounded-full border border-[#d97757]/30 bg-[#d97757]/10 px-2 py-0.5 text-[10px] font-semibold text-[#b8593b] dark:text-[#e8a487]"
+  title={t("Desarrollado en parte con Claude Code", "Partly built with Claude Code")}
+>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-3 w-3" fill="currentColor" aria-hidden="true">
+    <path d="M12 2.5l1.9 5.6 5.6 1.9-5.6 1.9L12 17.5l-1.9-5.6L4.5 10l5.6-1.9L12 2.5z" />
+  </svg>
+  {t("Asistido por Claude Code", "Claude Code–assisted")}
+</span>

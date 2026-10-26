@@ -2,8 +2,14 @@ export const faqs = [
   {
     questionEs: "¿Qué tecnologías uso?",
     questionEn: "What technologies do I use?",
-    answerEs: "Trabajo con tecnologías como React, Node.js, Astro, JavaScript, TypeScript, Cypress, Tailwind CSS, SASS, Figma, entre otras.",
-    answerEn: "I work with technologies like React, Node.js, Astro, JavaScript, TypeScript, Cypress, Tailwind CSS, SASS, Figma, and more.",
+    answerEs: "Trabajo con tecnologías como React, Next.js, Node.js, Astro, JavaScript, TypeScript, Cypress, Tailwind CSS, SASS y Figma, entre otras, y con Claude Code para desarrollo asistido por IA.",
+    answerEn: "I work with technologies like React, Next.js, Node.js, Astro, JavaScript, TypeScript, Cypress, Tailwind CSS, SASS, and Figma, among others, plus Claude Code for AI-assisted development.",
+  },
+  {
+    questionEs: "¿Uso inteligencia artificial?",
+    questionEn: "Do I use AI?",
+    answerEs: "Sí. Varios de mis proyectos se hicieron en parte con Claude Code: la IA acelera la implementación, y yo defino la arquitectura y el alcance, reviso cada cambio y lo pruebo antes de entregarlo. Mi experiencia en QA es justo lo que hace que ese código sea confiable.",
+    answerEn: "Yes. Several of my projects were partly built with Claude Code: AI speeds up the implementation, while I define the architecture and scope, review every change, and test it before delivery. My QA background is exactly what makes that code reliable.",
   },
   {
     questionEs: "Mi Experiencia",

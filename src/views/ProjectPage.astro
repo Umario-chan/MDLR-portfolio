@@ -24,7 +24,7 @@ const seccionesTitulo = t(
   proyecto.seccionesTituloEn ?? proyecto.seccionesTitulo ?? "Main flows"
 );
 const estado = t(proyecto.estado, proyecto.estadoEn ?? proyecto.estado);
-const { imagen, tecnologias, demo, github, categoria, wip } = proyecto;
+const { imagen, tecnologias, demo, github, categoria, wip, claudeCode } = proyecto;
 ---
 
 <Layout title={titulo} description={descripcion}>
@@ -158,6 +158,20 @@ const { imagen, tecnologias, demo, github, categoria, wip } = proyecto;
                   ))}
                 </div>
               </div>
+
+              {claudeCode && (
+                <div class="rounded-xl border border-[#d97757]/30 bg-[#d97757]/5 dark:bg-[#d97757]/10 p-4">
+                  <p class="text-xs font-semibold tracking-[0.2em] uppercase text-[#b8593b] dark:text-[#e8a487] mb-2">
+                    {t("Cómo se hizo", "How it was built")}
+                  </p>
+                  <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                    {t(
+                      "Desarrollado en parte con Claude Code. Yo definí la arquitectura y el alcance, y revisé y probé cada cambio; Claude Code aceleró la implementación.",
+                      "Partly built with Claude Code. I defined the architecture and scope and reviewed and tested every change; Claude Code sped up the implementation."
+                    )}
+                  </p>
+                </div>
+              )}
 
               {estado && !demo && (
                 <div class="rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 p-4">
